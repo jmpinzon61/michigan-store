@@ -11,12 +11,12 @@ import { useEffect } from 'react';
 
 export const Us = () => {
 
-    useEffect(()=>{
+    useEffect(() => {
         initTestimonios();
-    },[]);
+    }, []);
 
     return (
-        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll'}}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -52,7 +52,7 @@ export const Us = () => {
                     </nav>
                 </div>
                 <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
-                    <img src="images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
+                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item text-white poppins-light mb-2" href="#"
@@ -79,30 +79,19 @@ export const Us = () => {
             {/* Contenido de la sección de Nosotros*/}
             <main className="container-fluid my-5">
                 <section className="text-center text-white mt-5" style={{ width: '100vw' }}>
-                    <h1 className="fs-2 poppins-bold" style={{ width: '34%', marginLeft: '500px', position: 'absolute', zIndex: 8 }}>¡Entendemos y solucionamos las distintas
-                        necesidades comunicativas de personas en
-                        todo el mundo!</h1>
+                    <h1 className="fs-2 poppins-bold" style={{ width: '34%', marginLeft: '500px', position: 'absolute', zIndex: 8 }}>
+                        ¡Entendemos y solucionamos las distintas necesidades comunicativas de personas en todo el mundo!
+                    </h1>
                     <div className="row justify-content-center align-items-center mt-4" style={{ height: '799px', position: 'relative', maxWidth: '1750px' }}>
                         <div className="col-md-6" style={{ marginLeft: '-650px' }}>
-                            <img src="/images/cuadricula.png"
-                                style={{ position: 'relative', zIndex: 0, height: '510px', width: '100%', marginLeft: '200px' }}
-                                alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/sombra.png"
-                                style={{ position: 'absolute', zIndex: 1, height: '810px', width: '100%', maxWidth: '100vw', marginLeft: '-455px', marginTop: '-700px' }}
-                                alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/circunferencia.png" 
-                                style={{ position: 'absolute', zIndex: 2, height: '610px', width: '550px', marginLeft: '30px', marginTop: '-335px' }}
-                                alt="Personas con gafas VR" className="img-fluid"/>
-                            <img src="/images/persons.png"
-                                style={{ position: 'absolute', zIndex: 3, height: '510px', width: '650px', marginLeft: '-50px', marginTop: '-390px' }}
-                                alt="Personas con gafas VR" className="img-fluid"/>
-                            <img src="/images/CHATBOT.png"
-                                style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }}
-                                alt="Personas con gafas VR" className="img-fluid"/>{/* onClick={openChatbot()} */}
+                            <img src="/images/cuadricula.png" style={{ position: 'relative', zIndex: 0, height: '510px', width: '100%', marginLeft: '200px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/sombra.png" style={{ position: 'absolute', zIndex: 1, height: '810px', width: '100%', maxWidth: '100vw', marginLeft: '-455px', marginTop: '-700px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/circunferencia.png" style={{ position: 'absolute', zIndex: -2, height: '610px', width: '550px', marginLeft: '30px', marginTop: '-335px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/persons.png" style={{ position: 'absolute', zIndex: 3, height: '510px', width: '650px', marginLeft: '-50px', marginTop: '-390px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/CHATBOT.png" style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }} alt="Personas con gafas VR" className="img-fluid" />{/* onClick={openChatbot} */}
                             <div id="chatbot-container">
-                                <button id="chatbot-close" className="bi bi-x  fs-2 text-white"
-                                    style={{ background: '#351c76', borderRadius: '45px', border: 'none' }}></button>{/* onClick={closeChatbot()} */}
-                                <iframe id="chatbot-frame" src="./chat-bot.html"></iframe>
+                                <button id="chatbot-close" className="bi bi-x fs-2 text-white" style={{ background: '#351c76', borderRadius: '45px', border: 'none' }}></button>{/* onClick={closeChatbot}*/}
+                                <iframe id="chatbot-frame" src="./chat-bot.html" title="Chatbot"></iframe>
                             </div>
                             <div className="position-absolute" style={{ top: '25%', left: '18%', zIndex: 5 }}>
                                 <div className="d-flex flex-column">
@@ -110,46 +99,38 @@ export const Us = () => {
                                         <img src="/images/Avatar (1).png" style={{ height: '80px', width: '165px' }} alt="Avatar-1" />
                                     </div>
                                     <div className="col" style={{ marginLeft: '-95px' }}>
-                                        <img src="/images/Avatar (2).png" style={{ height: '110px', width: '165px', marginTop: '-40px' }}
-                                            alt="Avatar-2" />
+                                        <img src="/images/Avatar (2).png" style={{ height: '110px', width: '165px', marginTop: '-40px' }} alt="Avatar-2" />
                                     </div>
                                     <div className="col" style={{ marginLeft: '-160px' }}>
-                                        <img src="/images/Avatar (3).png" style={{ height: '80px', width: '195px', marginTop: '20px' }}
-                                            alt="Avatar-3" />
+                                        <img src="/images/Avatar (3).png" style={{ height: '80px', width: '195px', marginTop: '20px' }} alt="Avatar-3" />
                                     </div>
                                     <div className="col" style={{ marginLeft: '-55px' }}>
-                                        <img src="/images/Avatar (4).png" style={{ height: '80px', width: '165px', marginTop: '100px' }}
-                                            alt="Avatar-4" />
+                                        <img src="/images/Avatar (4).png" style={{ height: '80px', width: '165px', marginTop: '100px' }} alt="Avatar-4" />
                                     </div>
                                 </div>
                             </div>
                             <div className="position-absolute" style={{ top: '35%', right: '22%', zIndex: 6 }}>
                                 <div className="d-flex flex-column">
                                     <div className="col">
-                                        <img src="/images/Avatar (5).png" style={{ height: '90px', width: '165px', marginTop: '-100px' }}
-                                            alt="Avatar-4" />
+                                        <img src="/images/Avatar (5).png" style={{ height: '90px', width: '165px', marginTop: '-100px' }} alt="Avatar-5" />
                                     </div>
                                     <div className="col" style={{ marginLeft: '-150px' }}>
-                                        <img src="/images/Avatar (6).png" style={{ height: '90px', width: '165px', marginTop: '-45px' }}
-                                            alt="Avatar-4" />
+                                        <img src="/images/Avatar (6).png" style={{ height: '90px', width: '165px', marginTop: '-45px' }} alt="Avatar-6" />
                                     </div>
-                                    <div className="col" style={{ marginLeft: '-390px}' }}>
-                                        <img src="/images/Avatar (7).png" style={{ height: '80px', width: '165px', marginTop: '-200px' }}
-                                            alt="Avatar-4" />
+                                    <div className="col" style={{ marginLeft: '-390px' }}>
+                                        <img src="/images/Avatar (7).png" style={{ height: '80px', width: '165px', marginTop: '-200px' }} alt="Avatar-7" />
                                     </div>
                                     <div className="col" style={{ marginLeft: '25px' }}>
-                                        <img src="/images/Avatar (8).png" style={{ height: '100px', width: '165px', marginTop: '-35px' }}
-                                            alt="Avatar-4" />
+                                        <img src="/images/Avatar (8).png" style={{ height: '100px', width: '165px', marginTop: '-35px' }} alt="Avatar-8" />
                                     </div>
                                     <div className="col" style={{ marginLeft: '-54px' }}>
-                                        <img src="/images/Avatar (9).png" style={{ height: '90px', width: '235px', marginTop: '75px' }}
-                                            alt="Avatar-4" />
+                                        <img src="/images/Avatar (9).png" style={{ height: '90px', width: '235px', marginTop: '75px' }} alt="Avatar-9" />
                                     </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                </section>
+                    </div>
+                </section >
 
                 <section className="text-center text-white mt-5 img-font" style={{ width: '100vw' }}>
                     <h1 className="fs-3 poppins-bold" style={{
@@ -163,96 +144,82 @@ export const Us = () => {
                         color: 'white',
                         width: '100vw',
                         height: '285px',
-                        textAlign: 'center',
+                        textAlign: 'center'
                     }}>
-                        <p style={{ marginLeft: '440px', width: '34%', fontWeight: '600' }}>Toma las clases pregrabadas, y ve desbloqueando
-                            sesiones en vivo con tutores especializados en el idioma inglés.</p>
+                        <p style={{ marginLeft: '440px', width: '34%', fontWeight: 600 }}>
+                            Toma las clases pregrabadas, y ve desbloqueando sesiones en vivo con tutores especializados en el idioma inglés.
+                        </p>
                     </h1>
                     <div className="d-flex flex-row" style={{ marginTop: '90px' }}>
                         <div className="col-6">
                             <p className="fs-3 text-start" style={{ marginTop: '-50px', width: '270px', marginLeft: '170px' }}>
-                                Tenemos distintas
-                                modalidades
-                                de aprendizaje,
-                                ¡Elije tu favorita!</p>
+                                Tenemos distintas modalidades de aprendizaje, ¡Elije tu favorita!
+                            </p>
                         </div>
                         <div className="col-6" style={{ marginLeft: '-180px' }}>
-                            <img src="/images/ofert (1).png"
-                                style={{ height: '266px', width: '266px', marginLeft: '-360px', position: 'absolute', zIndex: 3, marginTop: '-80px' }}
-                                alt="Oferta 1" />
-                            <img src="/images/ofert (2).png"
-                                style={{ height: '266px', width: '266px', marginLeft: '-130px', position: 'absolute', zIndex: 2, marginTop: '-80px' }}
-                                alt="Oferta 2" />
-                            <img src="/images/ofert (3).png"
-                                style={{ height: '266px', width: '266px', marginLeft: '100px', position: 'absolute', zIndex: 1, marginTop: '-80px' }}
-                                alt="Oferta 3" />
+                            <img src="/images/ofert (1).png" style={{ height: '266px', width: '266px', marginLeft: '-360px', position: 'absolute', zIndex: 3, marginTop: '-80px' }} alt="Oferta 1" />
+                            <img src="/images/ofert (2).png" style={{ height: '266px', width: '266px', marginLeft: '-130px', position: 'absolute', zIndex: 2, marginTop: '-80px' }} alt="Oferta 2" />
+                            <img src="/images/ofert (3).png" style={{ height: '266px', width: '266px', marginLeft: '100px', position: 'absolute', zIndex: 1, marginTop: '-80px' }} alt="Oferta 3" />
                         </div>
                     </div>
                 </section>
-                
+
                 <section className="text-white mt-5" style={{ width: '100vw' }}>
                     <div className="d-flex flex-row">
                         <div className="col" style={{ marginLeft: '85px' }}>
-                            <img src="/images/Quienes-somos.png"
-                                style={{ height: '135px', width: '135px', position: 'absolute', zIndex: 5, marginLeft: '585px', marginTop: '260px', maxWidth: '200px' }}
-                                alt="Dr. Jorge Franco" className="rounded-circle img-fluid" data-bs-toggle="modal"
-                                data-bs-target="#modalQuienesSomos" />
-                            <div className="modal fade" id="modalQuienesSomos" tabIndex={-1} aria-labelledby="videoModalLabelQuienesSomos"
-                                aria-hidden="true">
+                            <img
+                                src="/images/Quienes-somos.png"
+                                style={{
+                                    height: '135px',
+                                    width: '135px',
+                                    position: 'absolute',
+                                    zIndex: 5,
+                                    marginLeft: '585px',
+                                    marginTop: '260px',
+                                    maxWidth: '200px',
+                                }}
+                                alt="Dr. Jorge Franco"
+                                className="rounded-circle img-fluid"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalQuienesSomos"
+                            />
+                            <div className="modal fade" id="modalQuienesSomos" tabIndex={-1} aria-labelledby="videoModalLabelQuienesSomos" aria-hidden="true">
                                 <div className="modal-dialog modal-dialog-centered modal-lg">
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <h5 className="modal-title poppins-light" id="videoModalLabelQuienesSomos">Content</h5>
-                                            <button type="button" className="btn-close"
-                                                style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: '700' }} data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
                                             <video width="100%" height="400" controls>
-                                                <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
                                                 Tu navegador no soporta la reproducción de video.
                                             </video>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="card"
-                                style={{ position: 'relative', zIndex: 4, height: '375px', width: '585px', marginTop: '45px', marginLeft: '90px', borderRadius: '25px' }}>
+                            <div className="card" style={{ position: 'relative', zIndex: 4, height: '375px', width: '585px', marginTop: '45px', marginLeft: '90px', borderRadius: '25px' }}>
                                 <div className="card-body" style={{ height: '395px', width: '398px' }}>
+                                    {/* Contenido de la tarjeta */}
                                 </div>
                             </div>
                         </div>
-                        <img src="/images/Font-Nosotros.png" style={{ position: 'absolute', zIndex: -4, marginTop: '-340px' }}
-                            alt="figura 1" />
+                        <img src="/images/Font-Nosotros.png" style={{ position: 'absolute', zIndex: -4, marginTop: '-340px' }} alt="figura 1" />
                         <img src="/images/bombillo.png" style={{ position: 'absolute', zIndex: -5, marginTop: '-100px' }} alt="luz-font" />
                     </div>
                     <div className="col" style={{ marginLeft: '190px' }}>
-                        <p className="text-center fs-4 poppins-bold"
-                            style={{ position: 'absolute', zIndex: 6, marginTop: '-380px', marginLeft: '640px' }}>Filosofía institucional</p>
-                        <p className="text-start poppins-light"
-                            style={{ width: '500px', position: 'absolute', zIndex: 7, marginTop: '-310px', marginLeft: '640px' }}>MICHIGAN MASTER
-                            S.A.S. está comprometida con una
-                            educación de excelente calidad a nivel local, nacional y
-                            a escala internacional, que propende por el desarrollo
-                            integral y diverso del ser humano en los ámbitos
-                            individual, social, laboral y cultural. A su vez, es capaz de
-                            contribuir a la transformación de su entorno social,
-                            enfocado en la capacidad de trascender las fronteras
-                            sociales, religiosas, filosóficas y económicas, para
-                            posicionarse como un agente de cambio, competente y
-                            dinamizador, en el respeto, la integridad, la confianza, la
-                            aceptación y la promoción de la diversidad cultural.</p>
+                        <p className="text-center fs-4 poppins-bold" style={{ position: 'absolute', zIndex: 6, marginTop: '-380px', marginLeft: '640px' }}>Filosofía institucional</p>
+                        <p className="text-start poppins-light" style={{ width: '500px', position: 'absolute', zIndex: 7, marginTop: '-310px', marginLeft: '640px' }}>
+                            MICHIGAN MASTER S.A.S. está comprometida con una educación de excelente calidad a nivel local, nacional y a escala internacional, que propende por el desarrollo integral y diverso del ser humano en los ámbitos individual, social, laboral y cultural. A su vez, es capaz de contribuir a la transformación de su entorno social, enfocado en la capacidad de trascender las fronteras sociales, religiosas, filosóficas y económicas, para posicionarse como un agente de cambio, competente y dinamizador, en el respeto, la integridad, la confianza, la aceptación y la promoción de la diversidad cultural.
+                        </p>
                     </div>
                     <div className="d-flex flex-row">
-                        <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ff7d71', marginLeft: '455px', width: '330px', marginTop: '125px', position: 'absolute', zIndex: 10 }}>
-                        </div>
+                        <div className="d-flex" style={{ borderBottom: '1px solid #ff7d71', marginLeft: '455px', width: '330px', marginTop: '125px', position: 'absolute', zIndex: 10 }}></div>
                         <div className="col testimonio-container" style={{ marginTop: '110px', marginLeft: '170px' }}>
-                            <h2 className="testimonio-titulo" style={{ color: '#ff7d71' }}></h2>
+                            <h2 className="testimonio-titulo" style={{ color: '#ff7d71 !important' }}></h2>
                             <p className="testimonio-descripcion" style={{ maxWidth: '520px', maxHeight: '520px', height: '250px' }}></p>
-                            <div className="d-flex"
-                                style={{ borderBottom: '1px solid #ff7d71', marginLeft: '-1px', width: '620px', marginTop: '-5px', position: 'absolute', zIndex: 10 }}>
-                            </div>
+                            <div className="d-flex" style={{ borderBottom: '1px solid #ff7d71', marginLeft: '-1px', width: '620px', marginTop: '-5px', position: 'absolute', zIndex: 10 }}></div>
                             <div className="testimonio-referencia">
                                 <p className="gradient-text" style={{ marginBottom: '5px' }}></p>
                             </div>
@@ -261,157 +228,104 @@ export const Us = () => {
                                     <div className="card-body">
                                         <h5 className="card-title champ-bold text-center my-4">Misión</h5>
                                         <p className="card-text poppins-light text-center">
-                                            "Facilitar el acceso y la excelencia en la
-                                            enseñanza del idioma inglés a nivel
-                                            mundial, a través de programas de
-                                            aprendizaje en línea innovadores
-                                            enfocados en que el usuario hable en el
-                                            idioma lo más rápido posible centrando
-                                            nuestros métodos educativos innovadores
-                                            de alta calidad. Nuestra misión es ayudar a
-                                            nuestros clientes a alcanzar sus metas
-                                            personales y profesionales, brindándoles
-                                            las herramientas necesarias para
-                                            comunicarse con confianza en un mundo
-                                            cada vez más globalizado."</p>
+                                            "Facilitar el acceso y la excelencia en la enseñanza del idioma inglés a nivel mundial, a través de programas de aprendizaje en línea innovadores enfocados en que el usuario hable en el idioma lo más rápido posible centrando nuestros métodos educativos innovadores de alta calidad. Nuestra misión es ayudar a nuestros clientes a alcanzar sus metas personales y profesionales, brindándoles las herramientas necesarias para comunicarse con confianza en un mundo cada vez más globalizado."
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="card-font-2" style={{ width: '453px', height: '406px', marginLeft: '50px', marginTop: '100px' }}>
                                     <div className="card-body">
                                         <h5 className="card-title champ-bold text-center my-4">Visión</h5>
                                         <p className="card-text poppins-light text-center">
-                                            Ser reconocidos como el principal referente
-                                            en el mercado de programas de inglés en
-                                            línea, destacándonos por nuestra
-                                            excelencia educativa, innovación
-                                            tecnológica y compromiso con el éxito de
-                                            nuestros clientes. Aspiramos crear una
-                                            comunidad global de aprendizaje en línea
-                                            que promueva la diversidad cultural y el
-                                            intercambio de conocimientos a través de
-                                            innovación de nuevos modelos
-                                            tecnológicos que faciliten la educación,
-                                            siendo pioneros en el uso de herramientas
-                                            como la realidad virtual en el aprendizaje.
+                                            Ser reconocidos como el principal referente en el mercado de programas de inglés en línea, destacándonos por nuestra excelencia educativa, innovación tecnológica y compromiso con el éxito de nuestros clientes. Aspiramos crear una comunidad global de aprendizaje en línea que promueva la diversidad cultural y el intercambio de conocimientos a través de innovación de nuevos modelos tecnológicos que faciliten la educación, siendo pioneros en el uso de herramientas como la realidad virtual en el aprendizaje.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col" style={{ marginTop: '110px', marginLeft: '-550px' }}>
-                        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="false">
-                            <div className="carousel-indicators" style={{ margin: '0px 405px 0px 45px' }}>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    className="active rounded-circle me-2" style={{ width: '10px', height: '10px' }} aria-current="true"
-                                    aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    className="active rounded-circle" style={{ width: '10px', height: '10px' }} aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    className="active rounded-circle ms-2" style={{ width: '10px', height: '10px' }} aria-label="Slide 3"></button>
+                        <div className="col" style={{ marginTop: '110px', marginLeft: '-550px' }}>
+                            <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="false">
+                                <div className="carousel-indicators" style={{ margin: '0px 405px 0px 45px !important' }}>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active rounded-circle me-2" style={{ width: '10px', height: '10px' }} aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" className="rounded-circle" style={{ width: '10px', height: '10px' }} aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" className="rounded-circle ms-2" style={{ width: '10px', height: '10px' }} aria-label="Slide 3"></button>
+                                </div>
+                                <div className="carousel-inner">
+                                    <div className="carousel-item active" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
+                                        <div style={{ background: '#fe706d', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
+                                            <img src="/images/person-nosotros-1.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
+                                            <img src="/images/_3.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal" />
+                                        </div>
+                                    </div>
+                                    <div className="modal fade" id="videoModal" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog modal-dialog-centered modal-lg">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                                                    <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div className="modal-body">
+                                                    <video width="100%" height="400" controls>
+                                                        <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                        Tu navegador no soporta la reproducción de video.
+                                                    </video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="carousel-item" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
+                                        <div style={{ background: '#69e4cc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
+                                            <img src="/images/person-nosotros-2.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
+                                            <img src="/images/_1.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal-2" />
+                                        </div>
+                                    </div>
+                                    <div className="modal fade" id="videoModal-2" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog modal-dialog-centered modal-lg">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                                                    <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div className="modal-body">
+                                                    <video width="100%" height="400" controls>
+                                                        <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                        Tu navegador no soporta la reproducción de video.
+                                                    </video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="carousel-item" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
+                                        <div style={{ background: '#637dfc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
+                                            <img src="/images/person-nosotros-3.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
+                                            <img src="/images/_2.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal-3" />
+                                        </div>
+                                    </div>
+                                    <div className="modal fade" id="videoModal-3" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog modal-dialog-centered modal-lg">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                                                    <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div className="modal-body">
+                                                    <video width="100%" height="400" controls>
+                                                        <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                        Tu navegador no soporta la reproducción de video.
+                                                    </video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className="carousel-control-prev" style={{ visibility: 'hidden' }} type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span className="visually-hidden">Previous</span>
+                                </button>
+                                <button className="carousel-control-next" style={{ visibility: 'hidden' }} type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span className="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            <div className="carousel-inner">
-                                <div className="carousel-item active" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
-                                    <div
-                                        style={{ background: '#fe706d', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
-                                        <img src="/images/person-nosotros-1.png"
-                                            style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }}
-                                            className="d-flex" alt="..." />
-                                        <img src="/images/_3.png"
-                                            style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }}
-                                            className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal" />
-                                    </div>
-                                </div>
-                                <div className="modal fade" id="videoModal" tabIndex={-1} aria-labelledby="videoModalLabel"
-                                    aria-hidden="true">
-                                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                                                <button type="button" className="btn-close"
-                                                    style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: '700' }} data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <video width="100%" height="400" controls>
-                                                    <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                    Tu navegador no soporta la reproducción de video.
-                                                </video>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="carousel-item" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
-                                    <div
-                                        style={{ background: '#69e4cc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
-                                        <img src="/images/person-nosotros-2.png"
-                                            style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }}
-                                            className="d-flex" alt="..." />
-                                        <img src="/images/_1.png"
-                                            style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }}
-                                            className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal-2" />
-                                    </div>
-                                </div>
-                                <div className="modal fade" id="videoModal-2" tabIndex={-1} aria-labelledby="videoModalLabel"
-                                    aria-hidden="true">
-                                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                                                <button type="button" className="btn-close"
-                                                    style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: '700' }} data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <video width="100%" height="400" controls>
-                                                    <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                    Tu navegador no soporta la reproducción de video.
-                                                </video>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="carousel-item" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
-                                    <div
-                                        style={{ background: '#637dfc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
-                                        <img src="/images/person-nosotros-3.png"
-                                            style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }}
-                                            className="d-flex" alt="..." />
-                                        <img src="/images/_2.png"
-                                            style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }}
-                                            className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal-3" />
-                                    </div>
-                                </div>
-                                <div className="modal fade" id="videoModal-3" tabIndex={-1} aria-labelledby="videoModalLabel"
-                                    aria-hidden="true">
-                                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                                                <button type="button" className="btn-close"
-                                                    style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: '700' }} data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <video width="100%" height="400" controls>
-                                                    <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                    Tu navegador no soporta la reproducción de video.
-                                                </video>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button className="carousel-control-prev" style={{ visibility: 'hidden' }} type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span className="visually-hidden">Previous</span>
-                            </button>
-                            <button className="carousel-control-next" style={{ visibility: 'hidden' }} type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span className="visually-hidden">Next</span>
-                            </button>
                         </div>
                     </div>
                 </section>
@@ -419,8 +333,7 @@ export const Us = () => {
                 <section className="text-white mt-5 img-font-form" style={{ height: '520px', width: '100vw' }}>
                     <div className="d-flex flex-row">
                         <div className="col">
-                            <p className=" text-start poppins-light fs-4"
-                                style={{ marginTop: '380px', width: '343px', height: '123px', marginLeft: '320px' }}>
+                            <p className="text-start poppins-light fs-4" style={{ marginTop: '380px', width: '343px', height: '123px', marginLeft: '320px' }}>
                                 Elegir <span className="fs-2 champ-bold" style={{ lineHeight: '10px' }}>Michigan’s Store</span>
                                 no es solo una opción,
                                 <span className="fs-2 champ-bold" style={{ lineHeight: '10px' }}>es una experiencia</span>
@@ -429,7 +342,8 @@ export const Us = () => {
                         <div className="col" style={{ maxWidth: '700px' }}>
                             <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB' }}>
                                 Dejanos tus datos y nos contactaremos contigo
-                                contacto@michiganmaster.edu.co</h2>
+                                contacto@michiganmaster.edu.co
+                            </h2>
                             <form className="row g-3 mt-4">
                                 <div className="col-md-6">
                                     <input type="text" className="form-control-final-section text-white poppins-light"
@@ -445,7 +359,7 @@ export const Us = () => {
                                 </div>
                                 <div className="col-md-12">
                                     <select className="form-select form-control-final-section text-white text-center poppins-light"
-                                        style={{ height: '50px', width: '640px', boxShadow: 'none', border: 'none', textAlign: 'center' }}>
+                                        style={{ height: '50px', width: '640px', boxShadow: 'none !important', border: 'none !important', textAlign: 'center' }}>
                                         <option selected>estado actual</option>
                                         <option value="Estudiante">estudiante</option>
                                         <option value="Profesional">profesional</option>
@@ -453,7 +367,7 @@ export const Us = () => {
                                 </div>
                                 <div className="col-md-12">
                                     <textarea className="form-control form-control-final-section text-white poppins-light"
-                                        style={{ height: '50px', width: '640px', boxShadow: 'none', border: 'none', maxHeight: '250px', background: '#6A6391', textAlign: 'center' }}
+                                        style={{ height: '50px', width: '640px', boxShadow: 'none !important', border: 'none !important', maxHeight: '250px', background: '#6A6391', textAlign: 'center' }}
                                         rows={3} placeholder="Mensaje"></textarea>
                                 </div>
                                 <div className="col-md-12">
@@ -465,7 +379,7 @@ export const Us = () => {
                                 </div>
                                 <div className="col-12 text-center" style={{ marginLeft: '-20px' }}>
                                     <button type="submit" className="btn btn-primary-final-section text-white poppins-light text-with-shadow"
-                                        style={{ fontWeight: '500' }}>Comenzar Ahora</button>
+                                        style={{ fontWeight: 500 }}>Comenzar Ahora</button>
                                 </div>
                             </form>
                         </div>
