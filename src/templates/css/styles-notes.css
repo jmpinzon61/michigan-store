@@ -1,0 +1,207 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.vocabulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+}
+
+.circle.small {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+}
+
+.circle.medium {
+    width: 120px;
+    height: 120px;
+    font-size: 14px;
+}
+
+.circle.large {
+    width: 160px;
+    height: 160px;
+    font-size: 16px;
+}
+
+.circle:nth-child(1) {
+    background-color: #52c4fa;
+}
+
+.circle:nth-child(2) {
+    background-color: #ff5c5c;
+}
+
+.circle:nth-child(3) {
+    background-color: #ffcc00;
+}
+
+.circle:nth-child(4) {
+    background-color: #8c52ff;
+}
+
+.circle:nth-child(5) {
+    background-color: #00cc99;
+}
+
+.circle:nth-child(6) {
+    background-color: #ff9a9a;
+}
+
+.notas {
+    margin-top: 40px;
+}
+
+.nota {
+    background-color: #2a195c;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.past-sessions-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.table-container {
+    position: relative;
+    overflow: auto;
+    margin-top: 15px;
+    max-height: 250px;
+    border-radius: 10px;
+}
+
+.table-container table td {
+    padding: 10px;
+    ;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.session-date {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin: 0;
+}
+
+.session-item p {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #ccc;
+    margin: 0;
+}
+
+.nota-text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.nota-buttons button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.nota-buttons svg {
+    transition: color 0.3s ease;
+    /* Transición para el color */
+}
+
+.nota-buttons svg:hover {
+    color: #ffcc00;
+    /* Cambia a color amarillo al hacer hover */
+}
+
+
+.fragmento {
+    margin-top: 40px;
+}
+
+.video {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 150px;
+    background: url('/images/Fondo-fragmentos.png');
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#videos-container {
+    display: flex;
+    overflow-x: auto;
+    cursor: grab;
+    gap: 10px;
+    padding-right: 80px;
+}
+
+#videos-container::-webkit-scrollbar {
+    display: none;
+}
+
+.videos {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    cursor: grab;
+}
+
+.card-body::-webkit-scrollbar {
+    display: none;
+}
+
+.nota-button-img {
+    transition: color 0.3s ease;
+}
+
+.nota-buttons svg:hover {
+    color: #ffcc00;
+}
+
+.card-apuntes {
+    height: 170px;
+    width: 20px;
+    border: none;
+    background-color: #ed1e79;
+    box-shadow: none !important;
+}
+
+.card-body-apuntes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-text {
+    margin-left: 0px;
+    font-size: 16px;
+}

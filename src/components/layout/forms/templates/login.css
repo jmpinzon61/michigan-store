@@ -1,0 +1,94 @@
+.container {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #2d9cdb, #9b51e0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    max-width: 300px;
+    margin-left: 140px;
+}
+
+.form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;*/
+    margin: auto;
+    padding: 40px;
+}
+
+.form-control {
+    border-radius: 45px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(45deg, #56ccf2, #2f80ed);
+}
+
+.social-icons img {
+    margin: 0 10px;
+    width: 40px;
+    cursor: pointer;
+}
+
+/*Inputs*/
+.placeholder-white::placeholder {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.form-control {
+    text-align: center;
+    background: rgba(162, 204, 244, 0.7) !important;
+    border: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader.hide {
+    display: none;
+}

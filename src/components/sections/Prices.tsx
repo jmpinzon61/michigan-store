@@ -4,7 +4,7 @@ import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/fre
 import { faCheck, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { ScrollButton } from '../ScrollButton';
+import { ScrollButton } from '../scroll-button/ScrollButton';
 
 
 export const Prices = () => {

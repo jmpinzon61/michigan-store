@@ -761,7 +761,7 @@
 .btn-test {
     background: linear-gradient(to right, #FF5267, #FE726E);
     border: none;
-    border-radius: 85px;
+    border-radius: 85px !important;
     height: 4px;
     width: 350px;
     color: #ffffff !important;
@@ -806,16 +806,16 @@
 
 .btn-accept {
     background: linear-gradient(to left, #5c89fd, #7e49f7);
-    color: #ffffff;
+    color: #ffffff !important;
     padding: 0.5rem;
-    border-radius: 45px;
+    border-radius: 45px !important;
     border: none;
-    height: 60px;
-    width: 242px;
+    height: 50px;
+    width: 255px !important;
     font-size: 15px;
     cursor: pointer;
-    margin-top: 25px;
-    margin-left: 845px !important;
+    margin-top: 30px !important;
+    margin-left: 835px !important;
     text-align: center;
 }
 
@@ -1003,7 +1003,8 @@ textarea:focus+label {
 
 .gradient-text {
     background: linear-gradient(to left, #ff8272, #f95869);
-    -webkit-background-clip: text;
+    -webkit-background-clip: text;/* Chrome and Safari*/
+    background-clip: text;/* Los demas navegadores*/
     -webkit-text-fill-color: transparent;
     font-size: 18px;
     font-weight: bold;
@@ -1122,6 +1123,15 @@ textarea:focus+label {
 .scroll-btn-visible {
     display: block !important;
     margin-right: 20px !important;
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-btn-visible.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Agenda */
