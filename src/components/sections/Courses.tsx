@@ -1,5 +1,6 @@
 import '../../templates/css/styles.css';
 import '../../templates/css/styles-courses.css'
+import '../../templates/css/style-video-cards.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { ScrollButton } from "../scroll-button/ScrollButton"
@@ -40,7 +41,7 @@ export const Courses = () => {
     initializeScrollContainers();
   }, []);
 
- 
+
   return (
     <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh' }} ref={containerRef}>
       {/* Navbar */}
@@ -104,113 +105,73 @@ export const Courses = () => {
 
       {/* Contenido de la sección de Cursos */}
       <main className="container-fluid my-5">
-        <section className="hero-section-cursos">
-            <Carousel
+        <section className="hero-section-cursos" style={{marginTop: '-80px'}}>
+          <Carousel
+            indicators={false} controls={true}
             prevIcon={
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: '55px',
-                  width: '55px',
-                  background: "#482d5a",
-                  borderRadius: "50%",
-                  border: "2px solid #ffffff",
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faChevronLeft}
-                  style={{ fontSize: "16px", color: "#ffffff" }}
-                />
+              <div className="left carousel-control" style={{ marginTop: '-10px' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '55px',
+                    width: '55px',
+                    background: "#482d5a",
+                    borderRadius: "50%",
+                    border: "2px solid #ffffff",
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    style={{ fontSize: "16px", color: "#ffffff" }}
+                  />
+                </div>
               </div>
             }
             nextIcon={
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: '55px',
-                  width: '55px',
-                  background: '#482d5a',
-                  borderRadius: '50%',
-                  border: '2px solid #ffffff',
-                }}
-              >
-                <FontAwesomeIcon 
-                icon={faChevronRight} 
-                style={{ fontSize: "16px", color: "ffffff"}} />
+              <div className="right carousel-control" style={{ marginTop: '-10px', }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '55px',
+                    width: '55px',
+                    background: '#482d5a',
+                    borderRadius: '50%',
+                    border: '2px solid #ffffff',
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    style={{ fontSize: "16px", color: "ffffff" }} />
+                </div>
               </div>
-              }
-            >
+            }
+          >
             <Carousel.Item>
               <img
                 className="d-block w-100"
                 src="/images/UPCOLORS 1.png"
-                alt="Ilustracion 1"
-              />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-225px)', marginLeft: '288px' }}>
-                Con un enfoque comunicativo clave, este programa explora la comunicación contextualizada en situaciones reales, introduciendo temas de fonética básica. Los 40 sesiones de video divididas en 4 módulos construyen habilidades esenciales de comunicación.
-              </p>
-              <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-67px)', marginLeft: '-145px' }}>
-                  <img src="/svgs/UpColors.svg" style={{ verticalAlign: 'middle', marginLeft: '-445px' }} alt="Name" />
-                </h3>
-                <Button className="btn-primary poppins-light" style={{ fontSize: '18px', marginRight: '950px', transform: 'translateY(20px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-4px' }} alt="Vector" />
-                  <span style={{ marginTop: '-40px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="/images/PRISMATIC 2.png"
-                alt="Ilustracion 2"
-              />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-220px)', marginLeft: '290px' }}>
-                Es una experiencia de aprendizaje colorida que se desarrolla a través de "situaciones comunicativas", desde hacer check-in en un hotel hasta discutir arte e historia. Este programa de 3 módulos (Primary, Secondary y Tertiary) ofrece una experiencia educativa única y vibrante.
-              </p>
-              <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-67px)', marginLeft: '-145px' }}>
-                  <img src="/svgs/Prismatic.svg" style={{ verticalAlign: 'middle', marginLeft: '-435px' }} alt="Name" />
-                </h3>
-                <Button className="btn-primary poppins-light" style={{ fontSize: '18px', marginRight: '950px', transform: 'translateY(20px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-4px' }} alt="Vector" />
-                  <span style={{ marginTop: '-40px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="/images/PORTADAS PRODUCTOS WEB_explorers.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-220px)', marginLeft: '290px' }}>
-                En este programa se explora los sectores de los tiempos verbales en inglés a través de un enfoque teórico. Compuesto por 13 video sessions distribuidas en 5 módulos, brinda una visión más profunda y estructurada para construir una base sólida en la gramática inglesa.
+              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
+              Con un enfoque comunicativo clave, este programa explora la comunicación contextualizada en situaciones
+              reales,
+              introduciendo temas de fonética básica. Los 40 sesiones de video divididas en 4 módulos construyen
+              habilidades
+              esenciales de comunicación.
               </p>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-67px)', marginLeft: '-145px' }}>
-                  <img src="/svgs/Fundamentals.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-430px)', marginLeft: '-228px' }}>
+                  <img src="/svgs/UpColors.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary poppins-light" style={{ fontSize: '18px', marginRight: '950px', transform: 'translateY(20px)' }} onClick={() => handleShow('./videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-4px' }} alt="Vector" />
-                  <span style={{ marginTop: '-40px', marginLeft: '20px' }}>ver ahora</span>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
+                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="/images/PORTADAS PRODUCTOS WEB_explorers.png"
-                alt="Ilustracion 3"
-              />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-220px)', marginLeft: '290px' }}>
-                En este programa se explora los sectores de los tiempos verbales en inglés a través de un enfoque teórico. Compuesto por 13 video sessions distribuidas en 5 módulos, brinda una visión más profunda y estructurada para construir una base sólida en la gramática inglesa.
-              </p>
-              <div className="carousel-caption d-none d-md-block">
+                <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
                     <div className="modal-dialog modal-dialog-centered modal-lg">
@@ -229,253 +190,10 @@ export const Courses = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Videos interactivos */}
-                  <div className="modal fade" id="VerAhora-1" tabIndex={-1} aria-labelledby="VerAhora-1" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="modal fade" id="VerAhora2" tabIndex={-1} aria-labelledby="videoModalLabel-2"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel1">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora3" tabIndex={-1} aria-labelledby="videoModalLabel-3"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel2">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora4" tabIndex={-1} aria-labelledby="videoModalLabel-4"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="modal fade" id="VerAhora5" tabIndex={-1} aria-labelledby="videoModalLabel-5"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel1">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora6" tabIndex={-1} aria-labelledby="videoModalLabel-6"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel2">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora7" tabIndex={-1} aria-labelledby="videoModalLabel-7"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="modal fade" id="VerAhora8" tabIndex={-1} aria-labelledby="videoModalLabel-8"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel1">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora9" tabIndex={-1} aria-labelledby="videoModalLabel-9"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel2">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora10" tabIndex={-1} aria-labelledby="videoModalLabel-10"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="modal fade" id="VerAhora11" tabIndex={-1} aria-labelledby="videoModalLabel-11"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel1">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora12" tabIndex={-1} aria-labelledby="videoModalLabel12"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel2">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="modal fade" id="VerAhora13" tabIndex={-1} aria-labelledby="videoModalLabel13"
-                    aria-hidden="true" style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type=" video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
-                    <div className="info-item" style={{ width: '345px', height: '120px' }}>
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
                       <p className="poppins-light text-center"
-                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '2px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <span
                           style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>Todo</span>
                         <span
@@ -486,7 +204,7 @@ export const Courses = () => {
                       <p className="poppins-light" style={{ transform: 'translateY(-40px)', marginLeft: '125px', fontSize: '10px' }}>
                         Nivel Intermedio</p>
                     </div>
-                    <div className="card" style={{ width: '305px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px' }}>
+                    <div className="card" style={{ width: '405px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', marginTop: '-145px' }}>
                       <div className="d-flex content justify-content-center flex-row grid gap-2 row-gap-2">
                         <div className="info-item"
                           style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -494,10 +212,10 @@ export const Courses = () => {
                             style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
                             alt="Clock" />
                           <span className="poppins-light"
-                            style={{ fontWeight: 'normal', color: 'inherit', transform: 'translateY(14px)', marginLeft: '25px', fontSize: '25px' }}>32</span>
-                          <span className="poppins-light fs-6"
-                            style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(5px)', marginLeft: '30px' }}>Hrs.</span>
-                          <p style={{ marginTop: '10px' }}>Contenido</p>
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>32</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '30px' }}>Hrs.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Contenido</p>
                         </div>
                         <div className="info-item"
                           style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -505,15 +223,15 @@ export const Courses = () => {
                             style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
                             alt="Clock" />
                           <span className="poppins-light"
-                            style={{ fontWeight: 'normal', color: 'inherit', transform: 'translateY(14px)', marginLeft: '22px', fontSize: '25px' }}>20</span>
-                          <span className="poppins-light fs-6"
-                            style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(5px)', marginLeft: '25px' }}>Mins.</span>
-                          <p style={{ marginTop: '10px' }}>Quiz</p>
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>20</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '25px' }}>Mins.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Quiz</p>
                         </div>
                       </div>
                     </div>
                     <div className="card"
-                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto' }}>
+                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto', transform: 'translateY(-145px)' }}>
                       <div
                         className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
                         style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
@@ -522,133 +240,132 @@ export const Courses = () => {
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
                           <img src="/images/Color_1.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_1" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 2" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '10px', position: 'relative', zIndex: 999 }}>Consonant sound
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Consonant sound
                           </p>
                           <img src="/images/Color_2.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_2" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 3" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let´s say Hello!
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let's say Hello!
                           </p>
                           <img src="/images/Color_3.png"
-                            style={{ marginTop: '-114px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_3" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 4" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
                           <img src="/images/Color_4.png"
-                            style={{ marginTop: '-114px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_4" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 5" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
                           <img src="/images/Color_1.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_5" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 6" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
                           <img src="/images/Color_2.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_6" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 7" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
                           <img src="/images/Color_3.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_7" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 8" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
                           <img src="/images/Color_4.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_8" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 9" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-45px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Professions &
-                          </p>
-                          <p style={{ marginTop: '-10px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Occupations</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-45px', fontSize: '11px', position: 'relative', zIndex: 999 }}>Professions</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-23px', fontSize: '11px', position: 'relative', zIndex: 999 }}>& Occupations</p>
                           <img src="/images/Color_1.png"
-                            style={{ marginTop: '-115px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_9" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 10" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
                           <img src="/images/Color_2.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_10" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
-                          <p style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
                           <img src="/images/Color_3.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_11" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
@@ -656,49 +373,1292 @@ export const Courses = () => {
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px', userSelect: 'none', pointerEvents: 'none' }}
                             draggable="false" onDragStart={handleDragStart} alt="Eye 12" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px' }}>Fruit and</p>
-                          <p style={{ marginTop: '-15px' }}>vegetables</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Fruit and</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>vegetables</p>
                           <img src="/images/Color_4.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_12" />
                         </div>
                         <div onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
                           <div className="d-flex"
-                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '45px', width: '60px', transform: 'translateY(-40px)' }}>
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
                           </div>
-                          <p style={{ marginTop: '-40px' }}>Final </p>
-                          <p style={{ marginTop: '-15px' }}>Quizz</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Final </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>Quizz</p>
                           <img src="/images/Color_1.png"
-                            style={{ marginTop: '-104px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
                             alt="Tono_13" />
                         </div>
                       </div>
                     </div>
                   </div>
-              </div>
+                </div>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/images/PRISMATIC 2.png"
+                alt="Ilustracion 3"
+              />
+              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
+              Es una experiencia de aprendizaje colorida que se
+              desarrollo a través de "situaciones comunicativas",
+              desde hacer check-in en un hotel hasta dicutir
+              arte e historia, Este programa de 3 módulos
+              (Primary, Secondary y Tertiary) ofrece una
+              experiencia educativa única y vibrante.
+              </p>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-67px)', marginLeft: '-145px' }}>
+                <h3 className="champ-bold" style={{ transform: 'translateY(-430px)', marginLeft: '-220px' }}>
+                  <img src="/svgs/Prismatic.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                </h3>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
+                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                </Button>
+                <div className="carousel-caption d-none d-md-block">
+                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
+                    style={{ overflowY: 'hidden' }}>
+                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                          <button type="button" className="btn-close"
+                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <video width="320" height="240" autoPlay controls>
+                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-info">
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
+                      <p className="poppins-light text-center"
+                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>Todo</span>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>público</span>
+                      </p>
+                      <img src="/images/Group 36672.png"
+                        style={{ height: '70px', width: '90px', marginTop: '-150px', marginLeft: '120px' }} alt="grafic" />
+                      <p className="poppins-light" style={{ transform: 'translateY(-40px)', marginLeft: '125px', fontSize: '10px' }}>
+                        Nivel Intermedio</p>
+                    </div>
+                    <div className="card" style={{ width: '405px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', marginTop: '-145px' }}>
+                      <div className="d-flex content justify-content-center flex-row grid gap-2 row-gap-2">
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>32</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '30px' }}>Hrs.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Contenido</p>
+                        </div>
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>20</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '25px' }}>Mins.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Quiz</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card"
+                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto', transform: 'translateY(-145px)' }}>
+                      <div
+                        className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
+                        style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
+                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_1" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 2" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Consonant sound
+                          </p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_2" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 3" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let's say Hello!
+                          </p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_3" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 4" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_4" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 5" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_5" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 6" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_6" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 7" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_7" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 8" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_8" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 9" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-45px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-45px', fontSize: '11px', position: 'relative', zIndex: 999 }}>Professions</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-23px', fontSize: '11px', position: 'relative', zIndex: 999 }}>& Occupations</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_9" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 10" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_10" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_11" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px', userSelect: 'none', pointerEvents: 'none' }}
+                            draggable="false" onDragStart={handleDragStart} alt="Eye 12" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Fruit and</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>vegetables</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_12" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Final </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>Quizz</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_13" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/images/PORTADAS PRODUCTOS WEB_explorers.png"
+                alt="Ilustracion 3"
+              />
+              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
+              En este programa se explora los sectores de los
+              tiempos verbales en inglés a través de un
+              enfoque teórico. Compuesto por 13 video sessions
+              distribuidas en 5 módulos, brinda una visión más
+              profunda y estructurada para construir una base
+              sólida en la gramática inglesa.
+              </p>
+              <Carousel.Caption>
+                <h3 className="champ-bold" style={{ transform: 'translateY(-430px)', marginLeft: '-190px' }}>
                   <img src="/svgs/Fundamentals.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary poppins-light" style={{ fontSize: '18px', marginRight: '950px', transform: 'translateY(20px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-4px' }} alt="Vector" />
-                  <span style={{ marginTop: '-40px', marginLeft: '20px' }}>ver ahora</span>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
+                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
+                <div className="carousel-caption d-none d-md-block">
+                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
+                    style={{ overflowY: 'hidden' }}>
+                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                          <button type="button" className="btn-close"
+                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <video width="320" height="240" autoPlay controls>
+                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-info">
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
+                      <p className="poppins-light text-center"
+                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>Todo</span>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>público</span>
+                      </p>
+                      <img src="/images/Group 36672.png"
+                        style={{ height: '70px', width: '90px', marginTop: '-150px', marginLeft: '120px' }} alt="grafic" />
+                      <p className="poppins-light" style={{ transform: 'translateY(-40px)', marginLeft: '125px', fontSize: '10px' }}>
+                        Nivel Intermedio</p>
+                    </div>
+                    <div className="card" style={{ width: '405px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', marginTop: '-145px' }}>
+                      <div className="d-flex content justify-content-center flex-row grid gap-2 row-gap-2">
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>32</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '30px' }}>Hrs.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Contenido</p>
+                        </div>
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>20</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '25px' }}>Mins.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Quiz</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card"
+                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto', transform: 'translateY(-145px)' }}>
+                      <div
+                        className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
+                        style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
+                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_1" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 2" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Consonant sound
+                          </p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_2" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 3" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let's say Hello!
+                          </p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_3" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 4" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_4" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 5" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_5" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 6" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_6" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 7" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_7" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 8" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_8" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 9" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-45px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-45px', fontSize: '11px', position: 'relative', zIndex: 999 }}>Professions</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-23px', fontSize: '11px', position: 'relative', zIndex: 999 }}>& Occupations</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_9" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 10" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_10" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_11" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px', userSelect: 'none', pointerEvents: 'none' }}
+                            draggable="false" onDragStart={handleDragStart} alt="Eye 12" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Fruit and</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>vegetables</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_12" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Final </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>Quizz</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_13" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/images/PORTADAS PRODUCTOS WEB_abro.png"
+                alt="Ilustracion 3"
+              />
+              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
+              Con 4 niveles (A1, A2, B1 y B2), este programa cuenta con un enfoque
+              comunicativo. A través de conversaciones de la vida diaria, brinda la
+              posibilidad de familiarizarse con el uso real de la lengua. Abroad ofrece
+              una serie de herramientas para desarrollar habilidades de producción oral
+              y escrita prestando especial atención a los rasgos fonéticos de la lengua y
+              a la importancia de la autoevaluación en el proceso de aprendizaje.
+              </p>
+              <Carousel.Caption>
+                <h3 className="champ-bold" style={{ transform: 'translateY(-512px)', marginLeft: '-238px' }}>
+                  <img src="/svgs/Abroad.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                </h3>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
+                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                </Button>
+                <div className="carousel-caption d-none d-md-block">
+                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
+                    style={{ overflowY: 'hidden' }}>
+                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                          <button type="button" className="btn-close"
+                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <video width="320" height="240" autoPlay controls>
+                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-info">
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
+                      <p className="poppins-light text-center"
+                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>Todo</span>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>público</span>
+                      </p>
+                      <img src="/images/Group 36672.png"
+                        style={{ height: '70px', width: '90px', marginTop: '-150px', marginLeft: '120px' }} alt="grafic" />
+                      <p className="poppins-light" style={{ transform: 'translateY(-40px)', marginLeft: '125px', fontSize: '10px' }}>
+                        Nivel Intermedio</p>
+                    </div>
+                    <div className="card" style={{ width: '405px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', marginTop: '-145px' }}>
+                      <div className="d-flex content justify-content-center flex-row grid gap-2 row-gap-2">
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>32</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '30px' }}>Hrs.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Contenido</p>
+                        </div>
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>20</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '25px' }}>Mins.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Quiz</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card"
+                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto', transform: 'translateY(-145px)' }}>
+                      <div
+                        className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
+                        style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
+                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_1" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 2" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Consonant sound
+                          </p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_2" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 3" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let's say Hello!
+                          </p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_3" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 4" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_4" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 5" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_5" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 6" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_6" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 7" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_7" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 8" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_8" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 9" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-45px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-45px', fontSize: '11px', position: 'relative', zIndex: 999 }}>Professions</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-23px', fontSize: '11px', position: 'relative', zIndex: 999 }}>& Occupations</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_9" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 10" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_10" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_11" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px', userSelect: 'none', pointerEvents: 'none' }}
+                            draggable="false" onDragStart={handleDragStart} alt="Eye 12" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Fruit and</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>vegetables</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_12" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Final </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>Quizz</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_13" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/images/PORTADAS PRODUCTOS WEB_fundamentals.png"
+                alt="Ilustracion 3"
+              />
+              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
+              Para aquellos sin experiencia en inglés, este programa
+              se centra en la comprensión y pronunciación básica.
+              Con 19 sesiones de video, proporciona un punto de
+              partida sólido para los principiantes, explorando el
+              vocabulario y las estructuras gramaticales esenciales.
+              </p>
+              <Carousel.Caption>
+                <h3 className="champ-bold" style={{ transform: 'translateY(-427px)', marginLeft: '-190px' }}>
+                  <img src="/svgs/Explorers.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                </h3>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
+                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                </Button>
+                <div className="carousel-caption d-none d-md-block">
+                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
+                    style={{ overflowY: 'hidden' }}>
+                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                          <button type="button" className="btn-close"
+                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <video width="320" height="240" autoPlay controls>
+                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-info">
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
+                      <p className="poppins-light text-center"
+                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>Todo</span>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>público</span>
+                      </p>
+                      <img src="/images/Group 36672.png"
+                        style={{ height: '70px', width: '90px', marginTop: '-150px', marginLeft: '120px' }} alt="grafic" />
+                      <p className="poppins-light" style={{ transform: 'translateY(-40px)', marginLeft: '125px', fontSize: '10px' }}>
+                        Nivel Intermedio</p>
+                    </div>
+                    <div className="card" style={{ width: '405px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', marginTop: '-145px' }}>
+                      <div className="d-flex content justify-content-center flex-row grid gap-2 row-gap-2">
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>32</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '30px' }}>Hrs.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Contenido</p>
+                        </div>
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>20</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '25px' }}>Mins.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Quiz</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card"
+                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto', transform: 'translateY(-145px)' }}>
+                      <div
+                        className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
+                        style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
+                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_1" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 2" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Consonant sound
+                          </p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_2" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 3" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let's say Hello!
+                          </p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_3" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 4" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_4" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 5" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_5" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 6" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_6" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 7" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_7" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 8" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_8" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 9" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-45px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-45px', fontSize: '11px', position: 'relative', zIndex: 999 }}>Professions</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-23px', fontSize: '11px', position: 'relative', zIndex: 999 }}>& Occupations</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_9" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 10" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_10" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_11" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px', userSelect: 'none', pointerEvents: 'none' }}
+                            draggable="false" onDragStart={handleDragStart} alt="Eye 12" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Fruit and</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>vegetables</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_12" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Final </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>Quizz</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_13" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/images/PORTADAS PRODUCTOS WEB_upcolors.png"
+                alt="Ilustracion 3"
+              />
+              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
+              Diseñado para niños en la primera infancia, este
+              programa ilustrado y colorido actúa como una guía
+              divertida para crear bases comunicativas sólidas
+              mientras disfrutan del proceso de aprendizaje del idioma.
+              </p>
+              <Carousel.Caption>
+                <h3 className="champ-bold" style={{ transform: 'translateY(-422px)', marginLeft: '-345px' }}>
+                  <img src="/svgs/Kids.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                </h3>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
+                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                </Button>
+                <div className="carousel-caption d-none d-md-block">
+                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
+                    style={{ overflowY: 'hidden' }}>
+                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
+                          <button type="button" className="btn-close"
+                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                          <video width="320" height="240" autoPlay controls>
+                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-info">
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
+                      <p className="poppins-light text-center"
+                        style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>Todo</span>
+                        <span
+                          style={{ fontWeight: 'normal', fontSize: 'inherit', color: 'inherit', transform: 'translateY(-20px)' }}>público</span>
+                      </p>
+                      <img src="/images/Group 36672.png"
+                        style={{ height: '70px', width: '90px', marginTop: '-150px', marginLeft: '120px' }} alt="grafic" />
+                      <p className="poppins-light" style={{ transform: 'translateY(-40px)', marginLeft: '125px', fontSize: '10px' }}>
+                        Nivel Intermedio</p>
+                    </div>
+                    <div className="card" style={{ width: '405px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', marginTop: '-145px' }}>
+                      <div className="d-flex content justify-content-center flex-row grid gap-2 row-gap-2">
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>32</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '30px' }}>Hrs.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Contenido</p>
+                        </div>
+                        <div className="info-item"
+                          style={{ height: '95px', width: '90px', transform: 'translateY(15px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                          <img src="/svgs/Clock.svg"
+                            style={{ position: 'relative', zIndex: 999, transform: 'translateY(47px)', height: '20px', marginLeft: '-35px' }}
+                            alt="Clock" />
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', color: '#ffffff', transform: 'translateY(5px)', marginLeft: '25px', fontSize: '22px' }}>20</span>
+                          <span className="poppins-light"
+                            style={{ fontWeight: 'normal', fontSize: '10px', color: '#ffffff', transform: 'translateY(-5px)', marginLeft: '25px' }}>Mins.</span>
+                          <p style={{ marginTop: '10px', fontSize: '15px', width: '85px', marginLeft: '-12px', color: '#ffffff' }}>Quiz</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card"
+                      style={{ width: '505px', height: '120px', backgroundColor: '#443D5D', borderRadius: '10px', overflow: 'hidden', pointerEvents: 'auto', transform: 'translateY(-145px)' }}>
+                      <div
+                        className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
+                        style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
+                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Vowel</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>sound</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_1" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 2" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Consonant sound
+                          </p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_2" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 3" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Let's say Hello!
+                          </p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_3" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 4" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Spelling</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Bee!</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_4" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 5" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Animals</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Colors</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_5" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 6" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Parts of</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>the Body</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '-135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_6" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 7" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Where are</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>you from?</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_7" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 8" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Family</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>& Friends</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_8" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 9" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-45px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-45px', fontSize: '11px', position: 'relative', zIndex: 999 }}>Professions</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-23px', fontSize: '11px', position: 'relative', zIndex: 999 }}>& Occupations</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_9" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 10" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Personality</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>traits</p>
+                          <img src="/images/Color_2.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_10" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Food and </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px', position: 'relative', zIndex: 999 }}>Drinks</p>
+                          <img src="/images/Color_3.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_11" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px', userSelect: 'none', pointerEvents: 'none' }}
+                            draggable="false" onDragStart={handleDragStart} alt="Eye 12" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Fruit and</p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>vegetables</p>
+                          <img src="/images/Color_4.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_12" />
+                        </div>
+                        <div onContextMenu={(e) => e.preventDefault()}>
+                          <img src="/images/optic.png"
+                            style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 11" />
+                          <div className="d-flex"
+                            style={{ borderBottom: '1px solid #ffffff', marginLeft: '8px', width: '60px', transform: 'translateY(-40px)' }}>
+                          </div>
+                          <p className='poppins-light text-white' style={{ marginTop: '-40px', fontSize: '12px' }}>Final </p>
+                          <p className='poppins-light text-white' style={{ marginTop: '-15px', fontSize: '12px' }}>Quizz</p>
+                          <img src="/images/Color_1.png"
+                            style={{ marginTop: '135px', height: '85px', width: '75px', objectFit: 'cover', borderRadius: 'inherit', transform: 'translateY(-1px)' }}
+                            alt="Tono_13" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
 
-          {/* Modal para el video */}
-          <Modal show={showModal} onHide={handleClose} centered>
-            <Modal.Header closeButton>
-              <Modal.Title>Content</Modal.Title>
+          <Modal
+            show={showModal}
+            onHide={handleClose}
+            centered
+            className="custom-modal"
+          >
+            <Modal.Header closeButton className="modal-header">
+              <Modal.Title className="modal-title">Content</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              <video width="320" height="240" controls>
+            <Modal.Body className="modal-body">
+              <video width="320" height="240" controls className="video-player">
                 <source src={videoSrc} type="video/mp4" />
                 Tu navegador no soporta el video.
               </video>
@@ -706,7 +1666,7 @@ export const Courses = () => {
           </Modal>
         </section>
 
-        <section className="other-courses">
+        <section className="other-courses" style={{marginTop: '-40px'}}>
           <div className="d-flex flex-column justify-content-center align-itemns-center"
             style={{ marginLeft: '85px', height: '1750px' }}>
             <div className="col-12" style={{ marginBottom: '75px' }}>
