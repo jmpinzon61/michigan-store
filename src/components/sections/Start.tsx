@@ -1,20 +1,39 @@
 import '../../templates/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'animate.css/animate.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { useEffect, useRef, useState } from 'react';
+import { YearDisplay } from '../Year/YearDisplay';
+import { setupImageClickAnimation } from '../../templates/ts/go-up-image-jquery';
+import { setupCardHoverAnimation } from '../../templates/ts/card-animation-start-jquery';
+import { setupCircle } from '../../templates/ts/circle-animation';
+import { setupButtonToggle } from '../../templates/ts/toggle-botton-newsletter';
+import { initEnlaceHandler } from "../../templates/ts/link-handler";
 
 export const Start = () => {
 
+    useEffect(() => {
+        setupImageClickAnimation();
+        setupCardHoverAnimation();
+        setupCircle();
+        setupButtonToggle();
+        initEnlaceHandler();
+    }, []);
+
+    const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
+    const containerRef = useRef<HTMLDivElement>(null);
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault(); // Previene el comportamiento por defecto (para el formulario)
         console.log("Formulario enviado");
     };
 
     return (
-        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -74,27 +93,27 @@ export const Start = () => {
                 </div>
             </header>
 
-            <main className="container-fluid my-5" style={{ maxWidth: '2550px' }}>
+            <main className="container-fluid my-5">
                 <section className="hero-section">
-                    <div className="container position-relative">
+                    <div className="container-fluid position-relative">
                         <h1 className="champ-bold">Conoce el mundo mientras</h1>
                         <h1 className="champ-bold">
                             aprendes <img src="/svgs/Union.svg" style={{ verticalAlign: 'middle', width: 'auto', height: '7rem' }} alt="Ingles" />
                         </h1>
-                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh', marginTop: '50px', marginLeft: '-105px' }}>
+                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh', marginTop: '50px', marginLeft: '-45px' }}>
                             <div className="col-md-4">
-                                <div className="card-home" style={{ width: '695px', marginLeft: '140px' }}>
-                                    <img src="/images/Products Explorers.png" className="card-img-top" style={{ height: '885px', marginTop: '232px', position: 'relative', zIndex: 1 }} alt="Carta 1" />
+                                <div className="card-home" style={{ width: '695px', marginLeft: '260px' }}>
+                                    <img src="/images/Products Explorers.png" className="card-img-top" style={{ height: '885px', marginTop: '322px', position: 'relative', zIndex: 1 }} alt="Carta 1" />
                                 </div>
                             </div>
                             <div className="col-md-4">
-                                <div className="card-home" style={{ width: '575px', height: '950px', position: 'relative', zIndex: 1000 }}>
-                                    <img src="/images/Products UpColors.png" className="card-img-top" style={{ marginTop: '60px', position: 'relative', zIndex: 2 }} alt="Carta 2" />
+                                <div className="card-home" style={{ width: '575px', height: '950px' }}>
+                                    <img src="/images/Products UpColors.png" className="card-img-top" style={{ marginTop: '80px', position: 'relative', zIndex: 2 }} alt="Carta 2" />
                                 </div>
                             </div>
                             <div className="col-md-4">
-                                <div className="card-home" style={{ width: '695px', marginLeft: '-285px' }}>
-                                    <img src="/images/Products Prismatic.png" className="card-img-top" style={{ height: '885px', marginTop: '232px', position: 'relative', zIndex: 3 }} alt="Carta 3" />
+                                <div className="card-home" style={{ width: '695px', marginLeft: '-425px' }}>
+                                    <img src="/images/Products Prismatic.png" className="card-img-top" style={{ height: '885px', marginTop: '322px', position: 'relative', zIndex: 3 }} alt="Carta 3" />
                                 </div>
                             </div>
                         </div>
@@ -112,21 +131,21 @@ export const Start = () => {
                                 <div className="col-md-4">
                                     <div className="center" style={{ marginLeft: '15px', position: 'relative', zIndex: 999 }}>
                                         <a href="./precios.html">
-                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '95px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
+                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '120px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
                                                 todos los cursos todos los cursos
                                             </button>
                                         </a>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
-                                    <div className="banner-image" style={{ height: '400px', width: '1100px', marginTop: '-10px', marginLeft: '-375px' }}>
+                                    <div className="banner-image" style={{ height: '400px', width: '1100px', marginTop: '-10px', marginLeft: '-300px' }}>
                                         <img src="/images/seccion_2.png" alt="Michigan's Store" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section> 
+                </section>
 
                 <section className="course-section">
                     <div className="container text-center">
@@ -234,8 +253,8 @@ export const Start = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="card-custom_4">
-                            <div className="card-body">
+                        <div className="card-custom_4" style={{ marginLeft: '950px' }}>
+                            <div className="card-body" style={{ marginTop: '-275px' }}>
                                 <img
                                     src="/images/Person_2.png"
                                     style={{ marginLeft: '0px', height: '210px', width: '145px', marginTop: '52px' }}
@@ -243,7 +262,7 @@ export const Start = () => {
                                 />
                                 <img
                                     src="/images/_2.png"
-                                    style={{ position: 'relative', marginTop: '-125px', left: '-8px', height: '70px', width: '70px' }}
+                                    style={{ position: 'relative', marginTop: '-125px', left: '15px', height: '70px', width: '70px' }}
                                     alt="Play 2"
                                     data-bs-toggle="modal"
                                     data-bs-target="#modalInicioDos"
@@ -272,8 +291,8 @@ export const Start = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="card-custom_5">
-                            <div className="card-body">
+                        <div className="card-custom_5" style={{ marginLeft: '1085px' }}>
+                            <div className="card-body" style={{ marginTop: '-275px' }}>
                                 <img
                                     src="/images/Person_3.png"
                                     style={{ marginLeft: '0px', height: '210px', width: '145px', marginTop: '52px' }}
@@ -313,90 +332,173 @@ export const Start = () => {
                     </div>
                     <div className="d-flex justify-content-center grid gap-0 column-gap-4" style={{ marginTop: '165px', marginLeft: '-225px' }}>
                         <div className="card-course_1" id="card1">
-                            <div className="card-body rounded rounded-2 p-0">
+                            <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                 <img
                                     src="/images/C1.png"
                                     style={{ width: '220px', height: '384px', borderRadius: '10px', marginLeft: '1px' }}
                                     alt="Card-course_1"
                                 />
-                                <div className="overlay" style={{ background: 'linear-gradient(180deg, #de59f1, #9306dd)' }}>
-                                    <p className="poppins-light">
+                                <div className="overlay" style={{
+                                    background: 'linear-gradient(180deg, #de59f1, #9306dd)',
+                                    position: 'absolute',
+                                    zIndex: 5,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    display: 'none', 
+                                    height: '0', 
+                                    opacity: 0, 
+                                    justifyContent: 'center', 
+                                    alignItems: 'center', 
+                                    overflow: 'hidden', 
+                                }}>
+                                    <p className="poppins-light overflow-animation" style={{
+                                        color: '#ffffff',
+                                        padding: '10px',
+                                        textAlign: 'center', 
+                                        margin: 0, 
+                                        maxHeight: '80%',
+                                        overflowY: 'auto', 
+                                    }}>
                                         Es una experiencia de aprendizaje colorida que se desarrolla a través de "situaciones comunicativas", desde hacer check-in en un hotel hasta discutir arte e historia. Este programa de 3 módulos (Primary, Secondary y Tertiary) ofrece una experiencia educativa única y vibrante.
                                     </p>
                                 </div>
+                            </div>
                                 <img
-                                    src="/images/name_1.png"
-                                    style={{ position: 'relative', marginTop: '-125px', left: '7px', height: '75px', width: '190px' }}
+                                    src="/images/name_1.png" 
+                                    style={{ position: 'absolute', marginTop: '-80px', left: '15px', height: '75px', width: '190px' }}
                                     alt="Name_1"
                                 />
-                            </div>
                         </div>
                         <div className="card-course_2" id="card2">
-                            <div className="card-body rounded rounded-2 p-0">
+                            <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                 <img
                                     src="/images/C2.png"
                                     style={{ width: '220px', height: '384px', marginLeft: '-2px' }}
                                     alt="Card-course_2"
                                 />
-                                <div className="overlay" style={{ background: 'linear-gradient(180deg, #72eec8, #00f1e7)' }}>
-                                    <p className="poppins-light">
+                                <div className="overlay" style={{ 
+                                    background: 'linear-gradient(180deg, #72eec8, #00f1e7)', 
+                                    position: 'absolute',
+                                    zIndex: 5,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    display: 'none', 
+                                    height: '0', 
+                                    opacity: 0, 
+                                    justifyContent: 'center', 
+                                    alignItems: 'center', 
+                                    overflow: 'hidden',
+                                    }}>
+                                    <p className="poppins-light overflow-animation" style={{
+                                       color: '#ffffff',
+                                       padding: '10px',
+                                       textAlign: 'center', 
+                                       margin: 0, 
+                                       maxHeight: '80%',
+                                       overflowY: 'auto',  
+                                    }}>
                                         En este programa se exploran los secretos de los tiempos verbales en inglés a través de un enfoque teórico. Compuesto por 13 video sessions distribuidas en 5 módulos, brinda una visión más profunda y estructurada para construir una base sólida en la gramática inglesa.
                                     </p>
                                 </div>
+                            </div>
                                 <img
                                     src="/images/name_2.png"
-                                    style={{ position: 'relative', marginTop: '-117px', left: '0px', height: '75px', width: '190px' }}
+                                    style={{ position: 'relative', marginTop: '-117px', left: '15px', height: '75px', width: '190px' }}
                                     alt="Name_2"
                                 />
-                            </div>
                         </div>
                         <div className="card-course_3" id="card3">
-                            <div className="card-body rounded rounded-2 p-0">
+                            <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                 <img
                                     src="/images/C3.png"
                                     style={{ width: '220px', height: '384px', marginLeft: '-2px' }}
                                     alt="Card-course_3"
                                 />
-                                <div className="overlay" style={{ background: 'linear-gradient(180deg, #0d9bf3, #0708f3)' }}>
-                                    <p className="poppins-light">
+                                <div className="overlay" style={{ 
+                                    background: 'linear-gradient(180deg, #0d9bf3, #0708f3)',
+                                    position: 'absolute',
+                                    zIndex: 5,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    display: 'none', 
+                                    height: '0', 
+                                    opacity: 0, 
+                                    justifyContent: 'center', 
+                                    alignItems: 'center', 
+                                    overflow: 'hidden'
+                                    }}>
+                                    <p className="poppins-light overflow-animation"style={{
+                                       color: '#ffffff',
+                                       padding: '10px',
+                                       textAlign: 'center', 
+                                       margin: 0, 
+                                       maxHeight: '80%',
+                                       overflowY: 'auto',  
+                                    }}>
                                         Diseñado para niños en la primera infancia, este programa ilustrado y colorido actúa como una guía divertida para crear bases comunicativas sólidas mientras disfrutan del proceso de aprendizaje del idioma.
                                     </p>
                                 </div>
+                            </div>
                                 <img
                                     src="/images/name_3.png"
-                                    style={{ position: 'relative', marginTop: '-117px', left: '0px', height: '130px', width: '200px' }}
+                                    style={{ position: 'relative', marginTop: '-117px', left: '10px', height: '130px', width: '200px' }}
                                     alt="Name_3"
                                 />
-                            </div>
                         </div>
                         <div className="card-course_4" id="card4">
-                            <div className="card-body rounded rounded-2 p-0">
+                            <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                 <img
                                     src="/images/C4.png"
                                     style={{ width: '220px', height: '384px', borderRadius: '10px', marginLeft: '1px' }}
                                     alt="Card-course_4"
                                 />
-                                <div className="overlay" style={{ background: 'linear-gradient(180deg, #fe7dbb, #e20737)' }}>
-                                    <p className="poppins-light">
+                                <div className="overlay" style={{ 
+                                    background: 'linear-gradient(180deg, #fe7dbb, #e20737)',
+                                    position: 'absolute',
+                                    zIndex: 5,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    display: 'none', 
+                                    height: '0', 
+                                    opacity: 0, 
+                                    justifyContent: 'center', 
+                                    alignItems: 'center', 
+                                    overflow: 'hidden'
+                                    }}>
+                                    <p className="poppins-light overflow-animation" style={{
+                                       color: '#ffffff',
+                                       padding: '10px',
+                                       textAlign: 'center', 
+                                       margin: 0, 
+                                       maxHeight: '80%',
+                                       overflowY: 'auto',  
+                                    }}>
                                         Con 4 niveles (A1, A2, B1 y B2), este programa cuenta con un enfoque comunicativo. A través de conversaciones de la vida diaria, brinda la posibilidad de familiarizarse con el uso real de la lengua. Abroad ofrece una serie de herramientas para desarrollar habilidades de producción oral y escrita prestando especial atención a los rasgos fonéticos de la lengua y a la importancia de la autoevaluación en el proceso de aprendizaje.
                                     </p>
                                 </div>
+                            </div>
                                 <img
                                     src="/images/name_4.png"
-                                    style={{ position: 'relative', marginTop: '-150px', left: '0px', height: '205px', width: '210px' }}
+                                    style={{ position: 'relative', marginTop: '-150px', left: '10px', height: '205px', width: '210px' }}
                                     alt="Name_4"
                                 />
-                            </div>
                         </div>
                     </div>
-
-                </section> 
+                </section>
 
                 <section className="plan-section">
                     <div className="container text-center">
                         <a href="./precios.html" style={{ color: 'inherit' }}>
                             <button className="btn btn-custom poppins-light"
-                                style={{ height: '50px', width: '330px', marginTop: '65px', transform: 'translateY(-20px)' }}>Ver
+                                style={{ height: '50px', width: '330px', marginTop: '65px', transform: 'translateY(-20px)', fontSize: '20px' }}>Ver
                                 todos los planes</button>
                         </a>
                         <div className="d-flex content flex-column" style={{ maxHeight: '100vh', width: '890px', borderRadius: '45px' }}>
@@ -536,7 +638,7 @@ export const Start = () => {
                                                                     style={{ marginLeft: '45px', fontSize: '11px' }}>
                                                                     8.10 $</p>
                                                                 <div className="d-flex ms-auto" style={{ marginLeft: '-2px' }}>
-                                                                    <a href="./checkout.html" style={{color: 'inherit'}}>
+                                                                    <a href="./checkout.html" style={{ color: 'inherit' }}>
                                                                         <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                             style={{
                                                                                 marginTop: '-4px',
@@ -671,28 +773,28 @@ export const Start = () => {
                                     <section className="rounded rounded-4 p-4 col-md-4"
                                         style={{ backgroundColor: '#4a03a5', height: '370px', width: '360px' }}>
                                         <h2 className="champ-bold text-white">
-                                            <span style={{ fontSize: 'xx-large', marginLeft: '-139px' }}>Subscrición</span>
+                                            <span style={{ fontSize: 'xx-large', marginLeft: '-139px', display: 'block' }}>Subscrición</span>
                                             <span style={{ fontSize: 'xx-large', marginLeft: '-192px' }}>mensual</span>
                                         </h2>
                                         <div className="poppins-light"
                                             style={{
-                                                marginTop: '20px',
+                                                marginTop: '5px',
                                                 fontSize: '12px',
                                                 width: '299px',
                                                 marginLeft: '-20px'
                                             }}>
-                                            <p className="poppins-light"
+                                            <p className="poppins-light text-start"
                                                 style={{
                                                     minHeight: '85px',
                                                     fontSize: '12px',
                                                     width: '299px',
-                                                    marginLeft: '8px'
+                                                    marginLeft: '9px'
                                                 }}>
-                                                <span style={{ marginLeft: '4px' }}>Con tu membresia, accede libremente a todo
-                                                    el</span>
-                                                <span style={{ marginLeft: '-4px' }}>contenido que UpGrade tiene para ti,
-                                                    además</span>
-                                                <span style={{ marginLeft: '4px' }}>recibe beneficios exclusivos por 30 días.</span>
+                                                <span>
+                                                    Con tu membresia, accede libremente a todo el
+                                                    contenido que UpGrade tiene para ti, además
+                                                    recibe beneficios exclusivos por 30 días.
+                                                    </span>
                                             </p>
                                         </div>
                                         <div className="d-flex col-7 ms-1" style={{ marginTop: '-40px' }}>
@@ -790,7 +892,9 @@ export const Start = () => {
                                                 height: '40px',
                                                 width: '199.5px',
                                                 lineHeight: '5px',
-                                                transform: 'translateX(150px)'
+                                                transform: 'translateX(150px)',
+                                                fontSize: '20px',
+                                                textShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
                                             }}>comenzar
                                             ahora</button>
                                     </div>
@@ -846,7 +950,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>01</strong>¿Qué
                                                     es UpGrade?
@@ -874,7 +978,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>02</strong>¿Cómo
                                                     funciona el
@@ -901,7 +1005,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>03</strong>¿Qué
                                                     incluyen
@@ -929,7 +1033,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>04</strong>¿Qué
                                                     voy a
@@ -955,7 +1059,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>05</strong>¿Cómo
                                                     puedo
@@ -981,7 +1085,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>06</strong>¿Necesito
                                                     un
@@ -1007,7 +1111,7 @@ export const Start = () => {
                                                     <strong className="mx-2"
                                                         style={{
                                                             fontWeight: 'normal',
-                                                            color: '#2F0277',
+                                                            color: '#4507a8',
                                                             fontSize: '19px'
                                                         }}>07</strong>¿Cuántos
                                                     niveles
@@ -1039,57 +1143,61 @@ export const Start = () => {
                                         color: 'transparent'
                                     }}>¡Regístrate
                                     a nuestro newsletter!</span></h3>
-                                <ol className="text-start" style={{ width: '410px' }}>
-                                    <p className="fas fa-check" style={{ fontSize: '15px', color: '#FF3E62' }}>
-                                        <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso
-                                            a los 4 módulos</span>
-                                    </p>
-                                        <p className="fas fa-check" style={{ fontSize: '15px', color: '#FF3E62' }}>
+                                <ol className="text-start" style={{ width: '410px'}}>
+                                        <div style={{display: 'block' }}>
+                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                            <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso
+                                                a los 4 módulos</span>
+                                        </div>
+                                        <div style={{display: 'block' }}>
+                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
                                             <span className="poppins-light text-white text-start"
                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>¡Ve a tu
                                                 ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
                                                 aprendizaje.</span>
-                                        </p>
-                                            <p className="fas fa-check" style={{ fontSize: '15px', color: '#FF3E62' }}><span
-                                                className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>4
-                                                sesiones
-                                                en vivo.</span></p>
-                                                <p className="fas fa-check" style={{ fontSize: '15px', color: '#FF3E62' }}><span
-                                                    className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Recibe
-                                                    certificación de curso.</span></p>
-                                            </ol>
                                         </div>
-                                        <div className="col-10">
-                                            <form className="d-flex justify-content-center" onSubmit={handleSubmit}>
-                                                <input type="email" className="form-control custom-input poppins-light"
-                                                    style={{
-                                                        fontSize: '12px',
-                                                        width: '416px',
-                                                        height: '60px',
-                                                        background: '#615D78',
-                                                        borderRadius: '45px',
-                                                        border: 'none',
-                                                        marginLeft: '70px',
-                                                        outline: 'none',
-                                                        color: '#ffffff'
-                                                    }}
-                                                    placeholder="¡Ingresa tu correo!"/>
-                                                    <button type="submit" className="btn btn-email ms-2 text-white" style={{ cursor: 'pointer' }}
-                                                        id="toggleButton" data-state="plane">
-                                                        <i className="fa-solid fa-paper-plane"
-                                                            style={{ fontSize: '25px', marginLeft: '-6px', background: 'transparent' }}></i>
-                                                        <i className="fa-solid fa-check icon-clicked"
-                                                            style={{ fontSize: '25px', marginLeft: '-6px', color: '#04011D' }}></i>
-                                                    </button>
-                                            </form>
+                                        <div style={{display: 'block' }}>
+                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                            <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>4
+                                            sesiones
+                                            en vivo.</span>
                                         </div>
-                                    </div>
+                                        <div style={{display: 'block' }}>
+                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                            <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Recibe
+                                            certificación de curso.</span>
+                                        </div>
+                                </ol>
                             </div>
+                            <div className="col-10">
+                                <form className="d-flex justify-content-center" onSubmit={handleSubmit}>
+                                    <input type="email" className="form-control custom-input poppins-light"
+                                        style={{
+                                            fontSize: '12px',
+                                            width: '416px',
+                                            height: '60px',
+                                            background: '#615D78',
+                                            borderRadius: '45px',
+                                            border: 'none',
+                                            marginLeft: '70px',
+                                            outline: 'none',
+                                            color: '#ffffff'
+                                        }}
+                                        placeholder="¡Ingresa tu correo!" />
+                                    <button type="submit" className="btn btn-email ms-2"  style={{ cursor: 'pointer', borderRadius: '45px' }}
+                                        id="toggleButton" data-state="plane">
+                                        <FontAwesomeIcon icon={faPaperPlane} style={{ fontSize: '25px', marginLeft: '-2px' }} />
+                                        <FontAwesomeIcon icon={faCheck} className="icon-clicked" style={{ fontSize: '25px', marginLeft: '-6px', color: '#04011D' }} />
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </main>
 
             {/* Footer PC */}
-            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px' }}>
+            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px', position: 'relative', zIndex: 8 }}>
                 <footer className="gradient-customs text-white p-4 col-md-4 p-md-5 text-center mx-auto"
                     style={{ width: '1345px', height: '150px' }}>
                     <div className="d-flex justify-content-center  text-center row">
@@ -1110,8 +1218,9 @@ export const Start = () => {
                         <div className="col">
                             <p className="poppins-light" style={{ fontSize: '15px', color: '#a9aeeb', marginLeft: '-50px' }}>Privacity
                                 Policy - Terms & Agreements</p>
+                                <YearDisplay onYearChange={setcurrentYear}/>
                             <p className="poppins-light"
-                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@2025 Michigan's
+                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@{currentYear} Michigan's
                                 Store</p>
                             <p className="poppins-light"
                                 style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '-2px' }}>Todos los
@@ -1144,7 +1253,7 @@ export const Start = () => {
                 </footer>
             </div>
             {/* Scrollbar button */}
-            <ScrollButton />
+            <ScrollButton containerRef={containerRef} />
         </div >
     );
 };

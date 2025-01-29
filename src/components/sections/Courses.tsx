@@ -105,7 +105,7 @@ export const Courses = () => {
 
       {/* Contenido de la sección de Cursos */}
       <main className="container-fluid my-5">
-        <section className="hero-section-cursos" style={{marginTop: '-80px'}}>
+        <section className="hero-section-cursos" style={{ marginTop: '-80px' }}>
           <Carousel
             indicators={false} controls={true}
             prevIcon={
@@ -149,6 +149,7 @@ export const Courses = () => {
                 </div>
               </div>
             }
+            interval={null}
           >
             <Carousel.Item>
               <img
@@ -156,21 +157,29 @@ export const Courses = () => {
                 src="/images/UPCOLORS 1.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
-              Con un enfoque comunicativo clave, este programa explora la comunicación contextualizada en situaciones
-              reales,
-              introduciendo temas de fonética básica. Los 40 sesiones de video divididas en 4 módulos construyen
-              habilidades
-              esenciales de comunicación.
-              </p>
+              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <p className="description poppins-light text-start" style={{
+                  transform: 'translateY(-420px)',
+                  maxWidth: '100%',
+                  marginLeft: '90px',
+                  width: '25%',
+                  overflow: 'hidden',
+                  textAlign: 'justify'
+                }}>
+                  Con un enfoque comunicativo clave, este programa explora la comunicación contextualizada en situaciones
+                  reales, introduciendo temas de fonética básica. Los 40 sesiones de video divididas en 4 módulos construyen
+                  habilidades esenciales de comunicación.
+                </p>
+              </div>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-430px)', marginLeft: '-228px' }}>
-                  <img src="/svgs/UpColors.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-500px)', overflow: 'hidden', margin: '0 auto' }}>
+                  <img src="/svgs/UpColors.svg" style={{ marginLeft: '-745px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
                   <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
                   <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
+
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
@@ -405,19 +414,28 @@ export const Courses = () => {
                 src="/images/PRISMATIC 2.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
-              Es una experiencia de aprendizaje colorida que se
-              desarrollo a través de "situaciones comunicativas",
-              desde hacer check-in en un hotel hasta dicutir
-              arte e historia, Este programa de 3 módulos
-              (Primary, Secondary y Tertiary) ofrece una
-              experiencia educativa única y vibrante.
-              </p>
+              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <p className="description poppins-light text-start" style={{ 
+                  transform: 'translateY(-420px)', 
+                  maxWidth: '100%',
+                  marginLeft: '90px',
+                  width: '25%',
+                  overflow: 'hidden',
+                  textAlign: 'justify' 
+                  }}>
+                  Es una experiencia de aprendizaje colorida que se
+                  desarrollo a través de "situaciones comunicativas",
+                  desde hacer check-in en un hotel hasta dicutir
+                  arte e historia, Este programa de 3 módulos
+                  (Primary, Secondary y Tertiary) ofrece una
+                  experiencia educativa única y vibrante.
+                </p>
+              </div>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-430px)', marginLeft: '-220px' }}>
-                  <img src="/svgs/Prismatic.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-505px)', overflow: 'hidden', margin: '0 auto' }}>
+                  <img src="/svgs/Prismatic.svg" style={{ marginLeft: '-735px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
                   <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
                   <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
@@ -655,19 +673,28 @@ export const Courses = () => {
                 src="/images/PORTADAS PRODUCTOS WEB_explorers.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
-              En este programa se explora los sectores de los
-              tiempos verbales en inglés a través de un
-              enfoque teórico. Compuesto por 13 video sessions
-              distribuidas en 5 módulos, brinda una visión más
-              profunda y estructurada para construir una base
-              sólida en la gramática inglesa.
-              </p>
+              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <p className="description poppins-light text-start" style={{ 
+                  transform: 'translateY(-420px)', 
+                  maxWidth: '100%',
+                  marginLeft: '90px',
+                  width: '25%',
+                  overflow: 'hidden',
+                  textAlign: 'justify' 
+                  }}>
+                  En este programa se explora los sectores de los
+                  tiempos verbales en inglés a través de un
+                  enfoque teórico. Compuesto por 13 video sessions
+                  distribuidas en 5 módulos, brinda una visión más
+                  profunda y estructurada para construir una base
+                  sólida en la gramática inglesa.
+                </p>
+              </div>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-430px)', marginLeft: '-190px' }}>
-                  <img src="/svgs/Fundamentals.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-505px)', marginLeft: '-330px', overflow: 'hidden', margin: '0 auto' }}>
+                  <img src="/svgs/Fundamentals.svg" style={{ marginLeft: '-705px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
                   <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
                   <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
@@ -905,19 +932,28 @@ export const Courses = () => {
                 src="/images/PORTADAS PRODUCTOS WEB_abro.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
-              Con 4 niveles (A1, A2, B1 y B2), este programa cuenta con un enfoque
-              comunicativo. A través de conversaciones de la vida diaria, brinda la
-              posibilidad de familiarizarse con el uso real de la lengua. Abroad ofrece
-              una serie de herramientas para desarrollar habilidades de producción oral
-              y escrita prestando especial atención a los rasgos fonéticos de la lengua y
-              a la importancia de la autoevaluación en el proceso de aprendizaje.
-              </p>
+              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <p className="description poppins-light text-start" style={{ 
+                  transform: 'translateY(-420px)', 
+                  maxWidth: '100%',
+                  marginLeft: '90px',
+                  width: '25%',
+                  overflow: 'hidden',
+                  textAlign: 'justify' 
+                  }}>
+                  Con 4 niveles (A1, A2, B1 y B2), este programa cuenta con un enfoque
+                  comunicativo. A través de conversaciones de la vida diaria, brinda la
+                  posibilidad de familiarizarse con el uso real de la lengua. Abroad ofrece
+                  una serie de herramientas para desarrollar habilidades de producción oral
+                  y escrita prestando especial atención a los rasgos fonéticos de la lengua y
+                  a la importancia de la autoevaluación en el proceso de aprendizaje.
+                </p>
+              </div>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-512px)', marginLeft: '-238px' }}>
-                  <img src="/svgs/Abroad.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-620px)', overflow: 'hidden', margin: '0 auto' }}>
+                  <img src="/svgs/Abroad.svg" style={{ marginLeft: '-755px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
                   <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
                   <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
@@ -1155,18 +1191,27 @@ export const Courses = () => {
                 src="/images/PORTADAS PRODUCTOS WEB_fundamentals.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
-              Para aquellos sin experiencia en inglés, este programa
-              se centra en la comprensión y pronunciación básica.
-              Con 19 sesiones de video, proporciona un punto de
-              partida sólido para los principiantes, explorando el
-              vocabulario y las estructuras gramaticales esenciales.
-              </p>
+              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <p className="description poppins-light text-start" style={{ 
+                  transform: 'translateY(-420px)', 
+                  maxWidth: '100%',
+                  marginLeft: '90px',
+                  width: '25%',
+                  overflow: 'hidden',
+                  textAlign: 'justify' 
+                  }}>
+                  Para aquellos sin experiencia en inglés, este programa
+                  se centra en la comprensión y pronunciación básica.
+                  Con 19 sesiones de video, proporciona un punto de
+                  partida sólido para los principiantes, explorando el
+                  vocabulario y las estructuras gramaticales esenciales.
+                </p>
+              </div>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-427px)', marginLeft: '-190px' }}>
-                  <img src="/svgs/Explorers.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-505px)', overflow: 'hidden', margin: '0 auto' }}>
+                  <img src="/svgs/Explorers.svg" style={{ marginLeft: '-705px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
                   <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
                   <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
@@ -1404,17 +1449,26 @@ export const Courses = () => {
                 src="/images/PORTADAS PRODUCTOS WEB_upcolors.png"
                 alt="Ilustracion 3"
               />
-              <p className="description poppins-light text-start" style={{ transform: 'translateY(-420px)', marginLeft: '210px' }}>
-              Diseñado para niños en la primera infancia, este
-              programa ilustrado y colorido actúa como una guía
-              divertida para crear bases comunicativas sólidas
-              mientras disfrutan del proceso de aprendizaje del idioma.
-              </p>
+              <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <p className="description poppins-light text-start" style={{ 
+                  transform: 'translateY(-420px)', 
+                  maxWidth: '100%',
+                  marginLeft: '90px',
+                  width: '25%',
+                  overflow: 'hidden',
+                  textAlign: 'justify' 
+                  }}>
+                  Diseñado para niños en la primera infancia, este
+                  programa ilustrado y colorido actúa como una guía
+                  divertida para crear bases comunicativas sólidas
+                  mientras disfrutan del proceso de aprendizaje del idioma.
+                </p>
+              </div>
               <Carousel.Caption>
-                <h3 className="champ-bold" style={{ transform: 'translateY(-422px)', marginLeft: '-345px' }}>
-                  <img src="/svgs/Kids.svg" style={{ verticalAlign: 'middle', marginLeft: '-405px' }} alt="Name" />
+                <h3 className="champ-bold" style={{ transform: 'translateY(-465px)', overflow: 'hidden', margin: '0 auto' }}>
+                  <img src="/svgs/Kids.svg" style={{ marginLeft: '-860px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '740px', transform: 'translateY(-300px)' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
+                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
                   <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
                   <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
                 </Button>
@@ -1666,7 +1720,7 @@ export const Courses = () => {
           </Modal>
         </section>
 
-        <section className="other-courses" style={{marginTop: '-40px'}}>
+        <section className="other-courses" style={{ marginTop: '-40px' }}>
           <div className="d-flex flex-column justify-content-center align-itemns-center"
             style={{ marginLeft: '85px', height: '1750px' }}>
             <div className="col-12" style={{ marginBottom: '75px' }}>

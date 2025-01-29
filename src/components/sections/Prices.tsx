@@ -5,12 +5,21 @@ import { faCheck, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ScrollButton } from '../scroll-button/ScrollButton';
+import { initEnlaceHandler } from "../../templates/ts/link-handler";
+import { useEffect, useRef, useState } from 'react';
+import { YearDisplay } from '../Year/YearDisplay';
 
 
 export const Prices = () => {
 
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
+    useEffect(() => {
+        initEnlaceHandler();
+    }, []);
+
     return (
-        <div className="bg-main-purple" style={{overflowX: 'hidden', overflowY: 'scroll', height: '100vh'}}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -1129,7 +1138,7 @@ export const Prices = () => {
                 </div >
             </main>
             {/* Footer PC */}
-            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px' }}>
+            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px', position: 'relative', zIndex: 8 }}>
                 <footer className="gradient-customs text-white p-4 col-md-4 p-md-5 text-center mx-auto"
                     style={{ width: '1345px', height: '150px' }}>
                     <div className="d-flex justify-content-center  text-center row">
@@ -1150,8 +1159,9 @@ export const Prices = () => {
                         <div className="col">
                             <p className="poppins-light" style={{ fontSize: '15px', color: '#a9aeeb', marginLeft: '-50px' }}>Privacity
                                 Policy - Terms & Agreements</p>
+                            <YearDisplay onYearChange={setcurrentYear} />
                             <p className="poppins-light"
-                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@2025 Michigan's
+                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@{currentYear} Michigan's
                                 Store</p>
                             <p className="poppins-light"
                                 style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '-2px' }}>Todos los
@@ -1184,7 +1194,7 @@ export const Prices = () => {
                 </footer>
             </div>
             {/* Scrollbar button */}
-            <ScrollButton/>
+            <ScrollButton containerRef={containerRef} />
         </div>
     );
 };

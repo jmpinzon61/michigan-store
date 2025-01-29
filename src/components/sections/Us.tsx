@@ -6,17 +6,46 @@ import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { initTestimonios } from '../../templates/ts/carousel-indicators-Us';
-import { useEffect } from 'react';
+import { initEnlaceHandler } from "../../templates/ts/link-handler";
+import { useEffect, useRef, useState } from 'react';
+import { YearDisplay } from '../Year/YearDisplay';
+import { Chatbot } from '../chat/Chatbot';
 
 
 export const Us = () => {
 
+    const [modalOpen, setModalOpen] = useState<string | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
+    const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+    const [isChatbotVisible, setChatbotVisible] = useState(true);
+    const [showTooltip, setshowTooltip] = useState(false);
+
+
+    const openModal = (modalId: string) => {
+        setModalOpen(modalId);
+    };
+
+    const closeModal = () => {
+        setModalOpen(null);
+    };
+
+
+    const openChatbot = () => {
+        setIsChatbotOpen((prev) => !prev);
+    };
+
+    const handleCloseChatbot = () => {
+        setChatbotVisible(false);
+    };
+
     useEffect(() => {
         initTestimonios();
+        initEnlaceHandler();
     }, []);
 
     return (
-        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -79,18 +108,50 @@ export const Us = () => {
             {/* Contenido de la sección de Nosotros*/}
             <main className="container-fluid my-5">
                 <section className="text-center text-white mt-5" style={{ width: '100vw' }}>
-                    <h1 className="fs-2 poppins-bold" style={{ width: '34%', marginLeft: '500px', position: 'absolute', zIndex: 8 }}>
+                    <h1 className="fs-2 poppins-bold" style={{ width: '34%', marginLeft: '510px', position: 'relative', zIndex: 8 }}>
                         ¡Entendemos y solucionamos las distintas necesidades comunicativas de personas en todo el mundo!
                     </h1>
                     <div className="row justify-content-center align-items-center mt-4" style={{ height: '799px', position: 'relative', maxWidth: '1750px' }}>
                         <div className="col-md-6" style={{ marginLeft: '-650px' }}>
                             <img src="/images/cuadricula.png" style={{ position: 'relative', zIndex: 0, height: '510px', width: '100%', marginLeft: '200px' }} alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/sombra.png" style={{ position: 'absolute', zIndex: 1, height: '810px', width: '100%', maxWidth: '100vw', marginLeft: '-455px', marginTop: '-700px' }} alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/circunferencia.png" style={{ position: 'absolute', zIndex: -2, height: '610px', width: '550px', marginLeft: '30px', marginTop: '-335px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/sombra.png" style={{ position: 'absolute', zIndex: 1, height: '999px', width: '100vw', maxWidth: '100%', marginLeft: '-545px', marginTop: '-885px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/circunferencia.png" style={{ position: 'absolute', zIndex: 2, height: '610px', width: '550px', marginLeft: '30px', marginTop: '-335px' }} alt="Personas con gafas VR" className="img-fluid" />
                             <img src="/images/persons.png" style={{ position: 'absolute', zIndex: 3, height: '510px', width: '650px', marginLeft: '-50px', marginTop: '-390px' }} alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/CHATBOT.png" style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }} alt="Personas con gafas VR" className="img-fluid" />{/* onClick={openChatbot} */}
+                            <img src="/images/CHATBOT.png" style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }} alt="Personas con gafas VR" className="img-fluid" onClick={openChatbot} onMouseEnter={()=> setshowTooltip(true)} onMouseLeave={()=>setshowTooltip(false)} />
+                            {showTooltip && (
+                                <div
+                                className='champ-bold'
+                                style={{
+                                    position: 'absolute',
+                                    top: '100px',
+                                    left: '80.65%',
+                                    transform: 'translateX(-50%)',
+                                    backgroundColor: '#8e24aa',
+                                    color: 'white',
+                                    padding: '25px 5px',
+                                    borderRadius: '45px',
+                                    fontSize: '15px',
+                                    zIndex: 10,
+                                    textAlign: 'center',
+                                    width: '200px',
+                                    opacity: showTooltip ? 1 : 0,
+                                    transition: 'opacity 0.3s ease-in-out'
+                                }}
+                                >   
+                                    <p style={{ marginBottom: '12px'}}>
+                                    Estimado usuario, soy Mike. Le recuerdo que si cierra este chat sobre 
+                                    el ícono, nuestra interacción se inhabilitará. Estoy aquí para ayudarle 
+                                    con cualquier consulta que tenga, así que no dude en escribirme.
+                                    </p>
+
+                                    <p style={{ marginBottom: '25px'}}>Pero bueno clikeame y comenzemos nuestra conversación.</p>
+
+                                    <p style={{ fontSize: '25px' }}>¡Bienvenido!</p>
+                                </div>
+                            )}
+                            {isChatbotOpen && <Chatbot />}
                             <div id="chatbot-container">
-                                <button id="chatbot-close" className="bi bi-x fs-2 text-white" style={{ background: '#351c76', borderRadius: '45px', border: 'none' }}></button>{/* onClick={closeChatbot}*/}
+                                <button id="chatbot-close" className="bi bi-x fs-2 text-white" style={{ background: '#351c76', borderRadius: '45px', border: 'none' }}></button>
                                 <iframe id="chatbot-frame" src="./chat-bot.html" title="Chatbot"></iframe>
                             </div>
                             <div className="position-absolute" style={{ top: '25%', left: '18%', zIndex: 5 }}>
@@ -146,7 +207,7 @@ export const Us = () => {
                         height: '285px',
                         textAlign: 'center'
                     }}>
-                        <p style={{ marginLeft: '440px', width: '34%', fontWeight: 600 }}>
+                        <p style={{ marginLeft: '480px', width: '34%', fontWeight: 600 }}>
                             Toma las clases pregrabadas, y ve desbloqueando sesiones en vivo con tutores especializados en el idioma inglés.
                         </p>
                     </h1>
@@ -172,11 +233,12 @@ export const Us = () => {
                                 style={{
                                     height: '135px',
                                     width: '135px',
-                                    position: 'absolute',
-                                    zIndex: 5,
-                                    marginLeft: '585px',
+                                    position: 'relative',
+                                    zIndex: 175,
+                                    marginLeft: '595px',
                                     marginTop: '260px',
                                     maxWidth: '200px',
+                                    transform: 'translateY(55px)'
                                 }}
                                 alt="Dr. Jorge Franco"
                                 className="rounded-circle img-fluid"
@@ -192,39 +254,41 @@ export const Us = () => {
                                         </div>
                                         <div className="modal-body">
                                             <video width="100%" height="400" controls>
-                                                <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
                                                 Tu navegador no soporta la reproducción de video.
                                             </video>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="card" style={{ position: 'relative', zIndex: 4, height: '375px', width: '585px', marginTop: '45px', marginLeft: '90px', borderRadius: '25px' }}>
+                            <div className="card" style={{ position: 'relative', zIndex: 60, height: '375px', width: '585px', marginTop: '-285px', marginLeft: '90px', borderRadius: '25px' }}>
                                 <div className="card-body" style={{ height: '395px', width: '398px' }}>
                                     {/* Contenido de la tarjeta */}
                                 </div>
                             </div>
                         </div>
-                        <img src="/images/Font-Nosotros.png" style={{ position: 'absolute', zIndex: -4, marginTop: '-340px' }} alt="figura 1" />
-                        <img src="/images/bombillo.png" style={{ position: 'absolute', zIndex: -5, marginTop: '-100px' }} alt="luz-font" />
+                        <img src="/images/Font-Nosotros.png" style={{ position: 'relative', zIndex: 6, marginTop: '-2px', marginLeft: '-775px', width: '100vw', height: '1450px' }} alt="figura 1" />
+                        <div style={{ transform: 'translateY(-320px)' }}>
+                            <img src="/images/bombillo.png" style={{ position: 'relative', zIndex: 5, marginTop: '400px', marginLeft: '-1205px', transform: 'translateX(-515px)' }} alt="luz-font" />
+                        </div>
                     </div>
-                    <div className="col" style={{ marginLeft: '190px' }}>
-                        <p className="text-center fs-4 poppins-bold" style={{ position: 'absolute', zIndex: 6, marginTop: '-380px', marginLeft: '640px' }}>Filosofía institucional</p>
-                        <p className="text-start poppins-light" style={{ width: '500px', position: 'absolute', zIndex: 7, marginTop: '-310px', marginLeft: '640px' }}>
+                    <div className="col" style={{ marginLeft: '190px', marginBottom: '135px' }}>
+                        <p className="text-center fs-4 poppins-bold" style={{ position: 'relative', zIndex: 7, marginTop: '-1775px', marginLeft: '40px', display: 'block' }}>Filosofía institucional</p>
+                        <p className="text-start poppins-light" style={{ width: '500px', position: 'relative', zIndex: 8, marginLeft: '640px' }}>
                             MICHIGAN MASTER S.A.S. está comprometida con una educación de excelente calidad a nivel local, nacional y a escala internacional, que propende por el desarrollo integral y diverso del ser humano en los ámbitos individual, social, laboral y cultural. A su vez, es capaz de contribuir a la transformación de su entorno social, enfocado en la capacidad de trascender las fronteras sociales, religiosas, filosóficas y económicas, para posicionarse como un agente de cambio, competente y dinamizador, en el respeto, la integridad, la confianza, la aceptación y la promoción de la diversidad cultural.
                         </p>
                     </div>
-                    <div className="d-flex flex-row">
-                        <div className="d-flex" style={{ borderBottom: '1px solid #ff7d71', marginLeft: '455px', width: '330px', marginTop: '125px', position: 'absolute', zIndex: 10 }}></div>
-                        <div className="col testimonio-container" style={{ marginTop: '110px', marginLeft: '170px' }}>
-                            <h2 className="testimonio-titulo" style={{ color: '#ff7d71 !important' }}></h2>
+                    <div className="d-flex flex-row" style={{ position: 'relative', zIndex: 85 }}>
+                        <div className="d-flex" style={{ borderBottom: '1px solid #ff7d71', marginLeft: '505px', width: '330px', marginTop: '-95px', position: 'relative', zIndex: 10, transform: 'translateY(-870px)' }}></div>
+                        <div className="col testimonio-container" style={{ marginTop: '110px', marginLeft: '-615px' }}>
+                            <h2 className="testimonio-titulo" style={{ color: '#ff7d71' }}></h2>
                             <p className="testimonio-descripcion" style={{ maxWidth: '520px', maxHeight: '520px', height: '250px' }}></p>
-                            <div className="d-flex" style={{ borderBottom: '1px solid #ff7d71', marginLeft: '-1px', width: '620px', marginTop: '-5px', position: 'absolute', zIndex: 10 }}></div>
+                            <div className="d-flex" style={{ borderBottom: '1px solid #ff7d71', marginLeft: '-1px', width: '620px', marginTop: '-15px', position: 'relative', zIndex: 15 }}></div>
                             <div className="testimonio-referencia">
                                 <p className="gradient-text" style={{ marginBottom: '5px' }}></p>
                             </div>
                             <div className="d-flex flex-row">
-                                <div className="card-font" style={{ width: '453px', height: '406px', marginLeft: '105px', marginTop: '100px' }}>
+                                <div className="card-font" style={{ width: '453px', height: '406px', marginLeft: '105px', marginTop: '150px' }}>
                                     <div className="card-body">
                                         <h5 className="card-title champ-bold text-center my-4">Misión</h5>
                                         <p className="card-text poppins-light text-center">
@@ -232,7 +296,7 @@ export const Us = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="card-font-2" style={{ width: '453px', height: '406px', marginLeft: '50px', marginTop: '100px' }}>
+                                <div className="card-font-2" style={{ width: '453px', height: '406px', marginLeft: '50px', marginTop: '150px' }}>
                                     <div className="card-body">
                                         <h5 className="card-title champ-bold text-center my-4">Visión</h5>
                                         <p className="card-text poppins-light text-center">
@@ -244,76 +308,87 @@ export const Us = () => {
                         </div>
                         <div className="col" style={{ marginTop: '110px', marginLeft: '-550px' }}>
                             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="false">
-                                <div className="carousel-indicators" style={{ margin: '0px 405px 0px 45px !important' }}>
+                                <div className="carousel-indicators" style={{ margin: '0px 420px 45px 85px' }}>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active rounded-circle me-2" style={{ width: '10px', height: '10px' }} aria-current="true" aria-label="Slide 1"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" className="rounded-circle" style={{ width: '10px', height: '10px' }} aria-label="Slide 2"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" className="rounded-circle ms-2" style={{ width: '10px', height: '10px' }} aria-label="Slide 3"></button>
                                 </div>
                                 <div className="carousel-inner">
-                                    <div className="carousel-item active" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
-                                        <div style={{ background: '#fe706d', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
+                                    <div className="carousel-item active" style={{ marginTop: '-45px', height: '450px', marginLeft: '-15px' }}>
+                                        <div style={{ background: '#fe706d', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '180px', position: 'absolute', zIndex: 2, marginTop: '55px' }}>
                                             <img src="/images/person-nosotros-1.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
-                                            <img src="/images/_3.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal" />
+                                            <img src="/images/_3.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'relative', zIndex: 4 }} className="d-flex" alt="..." onClick={() => openModal('videoModal1')} />
                                         </div>
                                     </div>
-                                    <div className="modal fade" id="videoModal" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true">
-                                        <div className="modal-dialog modal-dialog-centered modal-lg">
-                                            <div className="modal-content">
-                                                <div className="modal-header">
-                                                    <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                                                    <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div className="modal-body">
-                                                    <video width="100%" height="400" controls>
-                                                        <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                        Tu navegador no soporta la reproducción de video.
-                                                    </video>
+                                    {/* Primer Modal */}
+                                    {modalOpen === 'videoModal1' && (
+                                        <div className="modal fade show" style={{ display: 'block', zIndex: 1050 }} tabIndex={-1} aria-labelledby="videoModalLabel1" aria-hidden="false">
+                                            <div className="modal-dialog modal-dialog-centered modal-lg">
+                                                <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h5 className="modal-title poppins-light" id="videoModalLabel1">Content</h5>
+                                                        <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} onClick={closeModal} aria-label="Close"></button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        <video width="100%" height="400" controls>
+                                                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                            Tu navegador no soporta la reproducción de video.
+                                                        </video>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="carousel-item" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
-                                        <div style={{ background: '#69e4cc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
+                                    )}
+
+                                    {/* Segundo Modal */}
+                                    {modalOpen === 'videoModal2' && (
+                                        <div className="modal fade show" style={{ display: 'block', zIndex: 1050 }} tabIndex={-1} aria-labelledby="videoModalLabel2" aria-hidden="false">
+                                            <div className="modal-dialog modal-dialog-centered modal-lg">
+                                                <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h5 className="modal-title poppins-light" id="videoModalLabel2">Content</h5>
+                                                        <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} onClick={closeModal} aria-label="Close"></button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        <video width="100%" height="400" controls>
+                                                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                            Tu navegador no soporta la reproducción de video.
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Tercer Modal */}
+                                    {modalOpen === 'videoModal3' && (
+                                        <div className="modal fade show" style={{ display: 'block', zIndex: 1050 }} tabIndex={-1} aria-labelledby="videoModalLabel3" aria-hidden="false">
+                                            <div className="modal-dialog modal-dialog-centered modal-lg">
+                                                <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
+                                                        <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} onClick={closeModal} aria-label="Close"></button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        <video width="100%" height="400" controls>
+                                                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                                                            Tu navegador no soporta la reproducción de video.
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                    <div className="carousel-item" style={{ marginTop: '-45px', height: '450px', marginLeft: '105px' }}>
+                                        <div style={{ background: '#69e4cc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '55px' }}>
                                             <img src="/images/person-nosotros-2.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
-                                            <img src="/images/_1.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal-2" />
+                                            <img src="/images/_1.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." onClick={() => openModal('videoModal2')} />
                                         </div>
                                     </div>
-                                    <div className="modal fade" id="videoModal-2" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true">
-                                        <div className="modal-dialog modal-dialog-centered modal-lg">
-                                            <div className="modal-content">
-                                                <div className="modal-header">
-                                                    <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                                                    <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div className="modal-body">
-                                                    <video width="100%" height="400" controls>
-                                                        <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                        Tu navegador no soporta la reproducción de video.
-                                                    </video>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="carousel-item" style={{ marginTop: '-95px', height: '450px', marginLeft: '-15px' }}>
-                                        <div style={{ background: '#637dfc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '95px' }}>
+                                    <div className="carousel-item" style={{ marginTop: '-45px', height: '450px', marginLeft: '105px' }}>
+                                        <div style={{ background: '#637dfc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '55px' }}>
                                             <img src="/images/person-nosotros-3.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
-                                            <img src="/images/_2.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." data-bs-toggle="modal" data-bs-target="#videoModal-3" />
-                                        </div>
-                                    </div>
-                                    <div className="modal fade" id="videoModal-3" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true">
-                                        <div className="modal-dialog modal-dialog-centered modal-lg">
-                                            <div className="modal-content">
-                                                <div className="modal-header">
-                                                    <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                                                    <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div className="modal-body">
-                                                    <video width="100%" height="400" controls>
-                                                        <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                        Tu navegador no soporta la reproducción de video.
-                                                    </video>
-                                                </div>
-                                            </div>
+                                            <img src="/images/_2.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." onClick={() => openModal('videoModal3')} />
                                         </div>
                                     </div>
                                 </div>
@@ -340,7 +415,7 @@ export const Us = () => {
                             </p>
                         </div>
                         <div className="col" style={{ maxWidth: '700px' }}>
-                            <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB' }}>
+                            <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB' , marginTop: '20px'}}>
                                 Dejanos tus datos y nos contactaremos contigo
                                 contacto@michiganmaster.edu.co
                             </h2>
@@ -359,7 +434,7 @@ export const Us = () => {
                                 </div>
                                 <div className="col-md-12">
                                     <select className="form-select form-control-final-section text-white text-center poppins-light"
-                                        style={{ height: '50px', width: '640px', boxShadow: 'none !important', border: 'none !important', textAlign: 'center' }}>
+                                        style={{ height: '50px', width: '640px', boxShadow: 'none !important', border: 'none !important', textAlign: 'center' }} defaultValue="opcion1">
                                         <option selected>estado actual</option>
                                         <option value="Estudiante">estudiante</option>
                                         <option value="Profesional">profesional</option>
@@ -379,7 +454,7 @@ export const Us = () => {
                                 </div>
                                 <div className="col-12 text-center" style={{ marginLeft: '-20px' }}>
                                     <button type="submit" className="btn btn-primary-final-section text-white poppins-light text-with-shadow"
-                                        style={{ fontWeight: 500 }}>Comenzar Ahora</button>
+                                        style={{ fontWeight: 500, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Comenzar Ahora</button>
                                 </div>
                             </form>
                         </div>
@@ -388,7 +463,7 @@ export const Us = () => {
             </main>
 
             {/* Footer PC */}
-            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px' }}>
+            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px', position: 'relative', zIndex: 8 }}>
                 <footer className="gradient-customs text-white p-4 col-md-4 p-md-5 text-center mx-auto"
                     style={{ width: '1345px', height: '150px' }}>
                     <div className="d-flex justify-content-center  text-center row">
@@ -409,8 +484,9 @@ export const Us = () => {
                         <div className="col">
                             <p className="poppins-light" style={{ fontSize: '15px', color: '#a9aeeb', marginLeft: '-50px' }}>Privacity
                                 Policy - Terms & Agreements</p>
+                            <YearDisplay onYearChange={setcurrentYear} />
                             <p className="poppins-light"
-                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@2025 Michigan's
+                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@{currentYear} Michigan's
                                 Store</p>
                             <p className="poppins-light"
                                 style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '-2px' }}>Todos los
@@ -443,7 +519,7 @@ export const Us = () => {
                 </footer>
             </div>
             {/* Scrollbar button */}
-            <ScrollButton />
+            <ScrollButton containerRef={containerRef} />
         </div>
     );
 };

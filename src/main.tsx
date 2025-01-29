@@ -14,7 +14,7 @@ import { createRoot } from 'react-dom/client'
 // import { Record } from './components/layout/forms/Record'
 // import { Verification } from './components/layout/forms/Verification'
 // import { Start } from './components/sections/Start'
-import { Courses } from './components/sections/Courses'
+// import { Courses } from './components/sections/Courses'
 // import { Us } from './components/sections/Us'
 // import App from './App.tsx'
 // import { Prices } from './components/sections/Prices.tsx'
@@ -24,7 +24,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <Prices/> */}
     {/* <Blogs/> */}
     {/* <Us/> */}
-    <Courses/>
+    {/* <Courses/> */}
     {/* <Start/> */}
     {/* <Login/> */}
     {/* <Record/> */}
