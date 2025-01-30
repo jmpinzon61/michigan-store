@@ -1,11 +1,15 @@
 import '../../templates/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ScrollButton } from '../scroll-button/ScrollButton';
+import { useRef } from 'react';
 
 
 export const User_account_configuration = () => {
+    
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className='bg-main-purple' style={{overflowX: 'hidden', overflowY: 'scroll'}}>
+    <div className='bg-main-purple' style={{overflowX: 'hidden', overflowY: 'scroll'}} ref={containerRef}>
       {/* Navbar */}
       <header className="container d-flex justify-content-between align-items-center py-3"
         style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -232,7 +236,7 @@ export const User_account_configuration = () => {
       </main>
 
       {/* Scrollbar button */}
-      <ScrollButton />
+      <ScrollButton containerRef={containerRef}/>
     </div>
   )
 }

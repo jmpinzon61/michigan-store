@@ -4,18 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { initDragScroll } from '../../templates/ts/drag-scroll';
 import { toggleText } from '../../templates/ts/toggle-text-notes';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { ScrollButton } from '../scroll-button/ScrollButton';
 
 export const Notes = () => {
 
+    const containerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         initDragScroll('videos-container');
     }, []);
 
 
     return (
-        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -323,7 +324,7 @@ export const Notes = () => {
             </main>
 
             {/* Scrollbar button */}
-            <ScrollButton/>
+            <ScrollButton containerRef={containerRef}/>
         </div>
-    )
-}
+    );
+};

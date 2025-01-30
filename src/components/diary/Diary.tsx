@@ -4,13 +4,16 @@ import { ScrollButton } from '../scroll-button/ScrollButton';
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { YearDisplay } from '../Year/YearDisplay';
 
 export const Diary = () => {
 
     const [currentDate, setcurrentDate] = useState(new Date());
     const [monthYearString, setmonthYearString] = useState('');
     const [datesHtml, setDatesHtml] = useState('');
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
 
     const updateCalendar = () => {
         const currentYear = currentDate.getFullYear();
@@ -26,7 +29,7 @@ export const Diary = () => {
         setmonthYearString(monthYearString);
 
         let datesHTML = '';
-        
+
         for (let i = firstDayIndex; i > 0; i--) {
             const prevDate = new Date(currentYear, currentMonth, 1 - i);
             datesHTML += `<div class="date inactive">${prevDate.getDate()}</div>`;
@@ -59,7 +62,7 @@ export const Diary = () => {
     }, [currentDate]);
 
     return (
-        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -119,7 +122,7 @@ export const Diary = () => {
                     </div>
                 </div>
             </header>
-    
+
             <main className='container-fluid d-flex justify-content-center my-3' style={{ marginLeft: '-90px' }}>
                 <section style={{ maxWidth: '1510px' }}>
                     <div className="d-none d-lg-block">
@@ -129,13 +132,13 @@ export const Diary = () => {
                                 <div className="calendar-card poppins-light" style={{ marginLeft: '260px' }}>
                                     <div className="header-calendar">
                                         <button id="prevBtn" onClick={handlePrevClick}>
-                                            <FontAwesomeIcon icon={faChevronLeft} className="text-white fs-4"/>
+                                            <FontAwesomeIcon icon={faChevronLeft} className="text-white fs-4" />
                                         </button>
                                         <div className="monthYear poppins-light" style={{ fontWeight: 200 }} id="monthYear">
                                             {monthYearString}
                                         </div>
                                         <button id="nextBtn" onClick={handleNextClick}>
-                                            <FontAwesomeIcon icon={faChevronRight} className="text-white fs-4"/>
+                                            <FontAwesomeIcon icon={faChevronRight} className="text-white fs-4" />
                                         </button>
                                     </div>
                                     <div className="days">
@@ -251,10 +254,10 @@ export const Diary = () => {
                                     <button className="join-button" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Unirme a
                                         clase</button>
                                 </div>
-    
+
                             </div>
                         </div>
-    
+
                     </div>
                     <div className="table-responsive">
                         <h2 className="past-sessions-title" style={{ marginTop: '85px', marginLeft: '425px' }}>Sesiones Anteriores</h2>
@@ -334,7 +337,7 @@ export const Diary = () => {
                                             01/15/2025 <br /> 8:00 am
                                         </span>
                                     </td>
-    
+
                                     <td>
                                         <div className="session-item" style={{ marginTop: '-10px', background: '#3f103f' }}>
                                             <div style={{ marginLeft: '5px' }}>
@@ -364,9 +367,9 @@ export const Diary = () => {
                     </div>
                 </section>
             </main>
-    
+
             {/* Footer PC */}
-            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px' }}>
+            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px', position: 'relative', zIndex: 8 }}>
                 <footer className="gradient-customs text-white p-4 col-md-4 p-md-5 text-center mx-auto"
                     style={{ width: '1345px', height: '150px' }}>
                     <div className="d-flex justify-content-center  text-center row">
@@ -387,8 +390,9 @@ export const Diary = () => {
                         <div className="col">
                             <p className="poppins-light" style={{ fontSize: '15px', color: '#a9aeeb', marginLeft: '-50px' }}>Privacity
                                 Policy - Terms & Agreements</p>
+                            <YearDisplay onYearChange={setcurrentYear} />
                             <p className="poppins-light"
-                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@2025 Michigan's
+                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@{currentYear} Michigan's
                                 Store</p>
                             <p className="poppins-light"
                                 style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '-2px' }}>Todos los
@@ -421,10 +425,9 @@ export const Diary = () => {
                 </footer>
             </div>
             {/* Scrollbar button */}
-            <ScrollButton />
+            <ScrollButton containerRef={containerRef} />
         </div>
-    )
-
-}
+    );
+};
 
 

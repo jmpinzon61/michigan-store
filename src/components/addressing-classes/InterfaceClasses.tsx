@@ -7,14 +7,17 @@ import { toggleVideo } from '../../templates/ts/toggle-video';
 import { faPlay, faVolumeUp, faExpand } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { YearDisplay } from '../Year/YearDisplay';
 
 export const InterfaceClasses = () => {
 
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
     const [isChecked, setIsChecked] = useState(true);
 
     const handleCheckboxChange = () => {
-        setIsChecked(!isChecked); 
+        setIsChecked(!isChecked);
     };
 
     const handlerToggleVideo = () => {
@@ -22,7 +25,7 @@ export const InterfaceClasses = () => {
     }
 
     return (
-        <div className="bg-main-class" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh' }}>
+        <div className="bg-main-class" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -101,15 +104,15 @@ export const InterfaceClasses = () => {
                                     style={{ position: 'absolute', bottom: '10px', left: '10px', right: '10px', gap: '10px' }}>
                                     <button className="btn text-white play-pause" style={{ padding: '5px 10px' }}
                                         onClick={handlerToggleVideo}>
-                                        <FontAwesomeIcon icon={faPlay} style={{fontSize: '20px'}} color="white" />
+                                        <FontAwesomeIcon icon={faPlay} style={{ fontSize: '20px' }} color="white" />
                                     </button>
                                     <input type="range" className="form-range progress-bar" min="0" max="100" value="0"
                                         style={{ flexGrow: 1, margin: '0 10px' }} />
                                     <button className="btn text-white mute" style={{ padding: '5px 10px' }}>
-                                        <FontAwesomeIcon icon={faVolumeUp} style={{fontSize: '20px'}} color="white" />
+                                        <FontAwesomeIcon icon={faVolumeUp} style={{ fontSize: '20px' }} color="white" />
                                     </button>
                                     <button className="btn text-white fullscreen" style={{ padding: '5px 10px' }}>
-                                        <FontAwesomeIcon icon={faExpand} style={{fontSize: '20px'}} color="white" />
+                                        <FontAwesomeIcon icon={faExpand} style={{ fontSize: '20px' }} color="white" />
                                     </button>
                                 </div>
                                 <video id="myVideo">
@@ -179,7 +182,7 @@ export const InterfaceClasses = () => {
                         <div className="col-6" style={{ padding: '0px 15px' }}>
                             <ul className="checklist list-unstyled">
                                 <li className="mb-3 position-relative">
-                                    <span className="badge position-relative me-5"><img style={{marginLeft: '-10px', marginTop: '-6px'}} src="/svgs/check-class-2.svg"
+                                    <span className="badge position-relative me-5"><img style={{ marginLeft: '-10px', marginTop: '-6px' }} src="/svgs/check-class-2.svg"
                                         alt="check-class" /></span>
                                     <span className="poppins-light"
                                         style={{ background: '#2bb673', borderRadius: '45px', height: '85px', width: '355px', padding: '20px', fontWeight: 600 }}>Lorem
@@ -190,21 +193,21 @@ export const InterfaceClasses = () => {
                                     </button>
                                 </li>
                                 <li className="mb-3 position-relative">
-                                    <span className="badge position-relative me-5"><img style={{marginLeft: '-10px', marginTop: '-6px'}} src="/svgs/check-class-2.svg"
+                                    <span className="badge position-relative me-5"><img style={{ marginLeft: '-10px', marginTop: '-6px' }} src="/svgs/check-class-2.svg"
                                         alt="check-class" /></span>
                                     <span className="poppins-light"
                                         style={{ background: '#fbb040', borderRadius: '45px', height: '85px', width: '355px', padding: '20px', fontWeight: 600 }}>Lorem
                                         ipsum dolor sit amet <p style={{ fontWeight: 100 }}>consectuer adipiscing</p></span>
                                 </li>
                                 <li className="mb-3 position-relative">
-                                    <span className="badge position-relative me-5"><img style={{marginLeft: '-10px', marginTop: '-6px'}} src="/svgs/pending-class.svg"
+                                    <span className="badge position-relative me-5"><img style={{ marginLeft: '-10px', marginTop: '-6px' }} src="/svgs/pending-class.svg"
                                         alt="check-class" /></span>
                                     <span className="poppins-light"
                                         style={{ background: '#ed1e79', borderRadius: '45px', height: '85px', width: '355px', padding: '20px', fontWeight: 600 }}>Lorem
                                         ipsum dolor sit amet <p style={{ fontWeight: 100 }}>consectuer adipiscing</p></span>
                                 </li>
                                 <li className="mb-3 position-relative">
-                                    <span className="badge position-relative me-5"><img style={{marginLeft: '-10px', marginTop: '-6px'}} src="/svgs/pending-class.svg"
+                                    <span className="badge position-relative me-5"><img style={{ marginLeft: '-10px', marginTop: '-6px' }} src="/svgs/pending-class.svg"
                                         alt="check-class" /></span>
                                     <span className="poppins-light"
                                         style={{ background: '#1469e2', borderRadius: '45px', height: '85px', width: '355px', padding: '20px', fontWeight: 600 }}>Lorem
@@ -214,7 +217,7 @@ export const InterfaceClasses = () => {
                             <div className="check-container" style={{ marginTop: '320px' }}>
                                 <div className="form-check d-flex align-items-center" style={{ gap: '25px' }}>
                                     <input className="form-check-input custom-rounded me-0 mx-auto" type="checkbox" value=""
-                                        id="customCheck1" style={{ marginTop: '-75px' }}  checked={isChecked} onChange={handleCheckboxChange} />
+                                        id="customCheck1" style={{ marginTop: '-75px' }} checked={isChecked} onChange={handleCheckboxChange} />
                                     <label className="form-check-label poppins-light text-start" htmlFor="customCheck1"
                                         style={{ fontSize: '16px', fontWeight: 100, width: '420px', color: '#969696' }}>
                                         User Interface (UI) Design focuses on anticipating
@@ -230,7 +233,7 @@ export const InterfaceClasses = () => {
             </main>
 
             {/* Footer PC */}
-            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px' }}>
+            <div className="d-none d-block d-lg-block" style={{ marginTop: '195px', position: 'relative', zIndex: 8 }}>
                 <footer className="gradient-customs text-white p-4 col-md-4 p-md-5 text-center mx-auto"
                     style={{ width: '1345px', height: '150px' }}>
                     <div className="d-flex justify-content-center  text-center row">
@@ -251,8 +254,9 @@ export const InterfaceClasses = () => {
                         <div className="col">
                             <p className="poppins-light" style={{ fontSize: '15px', color: '#a9aeeb', marginLeft: '-50px' }}>Privacity
                                 Policy - Terms & Agreements</p>
+                            <YearDisplay onYearChange={setcurrentYear} />
                             <p className="poppins-light"
-                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@2025 Michigan's
+                                style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@{currentYear} Michigan's
                                 Store</p>
                             <p className="poppins-light"
                                 style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '-2px' }}>Todos los
@@ -285,7 +289,7 @@ export const InterfaceClasses = () => {
                 </footer>
             </div>
             {/* Scrollbar button */}
-            <ScrollButton />
+            <ScrollButton containerRef={containerRef} />
         </div>
     )
 }

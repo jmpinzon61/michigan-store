@@ -5,12 +5,12 @@ import { ScrollButton } from "../scroll-button/ScrollButton"
 import { togglePasswordVisibility } from '../../templates/ts/toggle-password-visibility';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 
 
 export const Avatar = () => {
-
+    const containerRef = useRef<HTMLDivElement>(null);
     const[showPassword, setshowPassword] = useState(false);
     const[passwordValue, setpasswordValue] = useState('MiSecreto123');
 
@@ -25,7 +25,7 @@ export const Avatar = () => {
     }
 
     return (
-        <div className="bg-main-purple" style={{overflowX: 'hidden', overflowY: 'scroll', height: '100vh', position: 'relative'}}>
+        <div className="bg-main-purple" style={{overflowX: 'hidden', overflowY: 'scroll', height: '100vh', position: 'relative'}} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
@@ -181,7 +181,7 @@ export const Avatar = () => {
             </main>
 
             {/* Scrollbar button */}
-            <ScrollButton />
+            <ScrollButton containerRef={containerRef}  />
         </div>
     );
 };
