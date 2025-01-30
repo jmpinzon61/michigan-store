@@ -1,3 +1,4 @@
+import '../../../templates/css/styles.css';
 import '../../layout/forms/templates/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,47 +12,47 @@ export const Verification = () => {
             <div className="container-fluid login-container" style={{ position: 'relative', zIndex: 3 }}>
 
                 {/* Section de imagen */}
-                <div className="image-section" style={{ transform: 'translateX(-85px)' }}>
+                <div className="image-section" style={{ transform: 'translateX(-85px)', visibility: 'hidden' }}>
                     <img src="src/components/layout/forms/svg/Logo_Michigan.svg" alt="Michigan's Store Logo" />
                 </div>
                 {/* Section of form */}
                 <div className="d-flex flex-row-reverse">
                     <div className="col-12 col-md-6 form-section">
                         <form style={{ width: '100%', maxWidth: '500px', transform: 'translateX(-280px)' }}>
-                            <img className="mb-4 text-center" style={{ marginLeft: '110px' }} src="src/components/layout/forms/svg/Logo_Michigan.svg"
+                            <img className="mb-4 text-center" style={{ marginLeft: '190px' }} src="src/components/layout/forms/svg/Logo_Michigan.svg"
                                 alt="Michigan's Store Logo" />
-                            <p className="text-white mb-4 text-center" style={{ maxWidth: '200px', transform: 'translateX(90px)' }}>Hemos
+                            <p className="text-white mb-4 text-center poppins-light" style={{ width: '220px', transform: 'translateX(155px)' }}>Hemos
                                 enviado un código de verificación a tu correo</p>
-                            <div className="text-center row" style={{ transform: 'translateX(32px)' }}>
-                                <div className="col" style={{ transform: 'translateX(9px)' }}>
-                                    <input type="email" className="form-control placeholder-white"
+                            <div className="d-flex text-center flex-row" style={{ marginLeft: '52px' }}>
+                                <div className="col" style={{ transform: 'translateX(35px)' }}>
+                                    <input type="text" className="form-control placeholder-white"
                                         style={{ color: '#ffffff', height: '52px', width: '52px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="" />
                                 </div>
-                                <div className="col" style={{ transform: 'translateX(-9px)' }}>
-                                    <input type="email" className="form-control placeholder-white"
+                                <div className="col" style={{ marginLeft: '55px' }}>
+                                    <input type="text" className="form-control placeholder-white"
                                         style={{ color: '#ffffff', height: '52px', width: '52px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="" />
                                 </div>
-                                <div className="col" style={{ transform: 'translateX(-29px)' }}>
-                                    <input type="email" className="form-control placeholder-white"
+                                <div className="col" style={{ marginLeft: '20px' }}>
+                                    <input type="text" className="form-control placeholder-white"
                                         style={{ color: '#ffffff', height: '52px', width: '52px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="" />
                                 </div>
-                                <div className="col" style={{ transform: 'translateX(-49px)' }}>
-                                    <input type="email" className="form-control placeholder-white"
+                                <div className="col" style={{ marginLeft: '20px' }}>
+                                    <input type="text" className="form-control placeholder-white"
                                         style={{ color: '#ffffff', height: '52px', width: '52px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="" />
                                 </div>
-                                <div className="col" style={{ transform: 'translateX(-69px)' }}>
-                                    <input type="email" className="form-control placeholder-white"
+                                <div className="col" style={{ marginLeft: '20px' }}>
+                                    <input type="text" className="form-control placeholder-white"
                                         style={{ color: '#ffffff', height: '52px', width: '52px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="" />
                                 </div>
                             </div>
-                            <div className="d-flex justify-content-center align-itemns-center">
-                                <button className="btn btn-primary"
-                                    style={{ height: '60px', width: '394px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Validar</button>
+                            <div className="d-flex justify-content-center align-itemns-center w-100" style={{ marginLeft: '75%'}}>
+                                <button className="btn btn-primary poppins-light"
+                                    style={{ height: '60px', width: '800px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: 'none',  fontSize: '20px', color: 'white'}}>Validar</button>
                             </div>
                         </form>
                     </div>

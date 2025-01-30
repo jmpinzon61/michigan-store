@@ -39,7 +39,7 @@
 }
 
 .form-control {
-    border-radius: 45px;
+    border-radius: 45px !important;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -47,8 +47,8 @@
 }
 
 .btn-primary {
-    border-radius: 25px;
-    border: none;
+    border-radius: 25px !important;
+    border: none !important;
     background: linear-gradient(45deg, #56ccf2, #2f80ed);
 }
 
@@ -60,7 +60,7 @@
 
 /*Inputs*/
 .placeholder-white::placeholder {
-    color: white;
+    color: white !important;
     text-align: center;
     font-size: 16px;
 }
@@ -68,7 +68,7 @@
 .form-control {
     text-align: center;
     background: rgba(162, 204, 244, 0.7) !important;
-    border: none;
+    border: none !important;
 }
 
 .form-control:focus {

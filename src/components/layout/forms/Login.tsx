@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../../../templates/css/styles.css';
 import '../../layout/forms/templates/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -53,18 +54,18 @@ export const Login = () => {
                         <div className="d-flex flex-row-reverse">
                             <div className="col-12 col-md-6 form-section">
                                 <form onSubmit={handleFormSubmit} style={{ width: '100%', maxWidth: '500px', transform: 'translateX(-270px)' }}>
-                                    <h2 className="text-white mb-4 text-center">ingresar</h2>
-                                    <input type="email" className="form-control placeholder-white"
+                                    <h2 className="text-white mb-4 text-center w-100 poppins-light" style={{ marginLeft: '70%'}}>ingresar</h2>
+                                    <input type="email" className="form-control placeholder-white poppins-light"
                                         style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="correo | usuario" />
-                                    <input type="password" className="form-control placeholder-white"
+                                    <input type="password" className="form-control placeholder-white poppins-light"
                                         style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="contraseña" />
-                                    <a href="./verificacion.html" className="text-center d-block mb-4" style={{ color: '#5695FE' }}>
+                                    <a href="./verificacion.html" className="text-center d-block mb-4 w-100 poppins-light" style={{ color: '#0061D1', marginLeft: '77%', fontSize: '85%', fontWeight: 600}}>
                                         Olvidé mi contraseña
                                     </a>
-                                    <a href="./registro.html" className="text-center d-block mb-4"
-                                        style={{ color: '#5695FE', transform: 'translateY(-15px)' }}>
+                                    <a href="./registro.html" className="text-center d-block mb-4 w-100 poppins-light"
+                                        style={{ color: '#0061D1', transform: 'translateY(-15px)', marginLeft: '72%', fontSize: '85%', fontWeight: 600 }}>
                                         Registrarse
                                     </a>
                                     <div
@@ -73,8 +74,8 @@ export const Login = () => {
                                     <div
                                         style={{ color: '#ffffff', border: '1px solid', width: '104px', marginLeft: '290px', transform: 'translateY(-6px)' }}>
                                     </div>
-                                    <div className="text-white text-center mb-4" style={{ marginTop: '-22px' }}>o ingresar con</div>
-                                    <div className="d-flex justify-content-center social-icons">
+                                    <div className="text-white text-center mb-4 w-100 poppins-light" style={{ marginTop: '-22px', marginLeft: '72%' }}>o ingresar con</div>
+                                    <div className="d-flex justify-content-center social-icons w-100" style={{marginLeft: '72%'}}>
                                         <a href="https://www.icloud.com" target="_blank" rel="noopener noreferrer">
                                             <img src="src/components/layout/forms/svg/Apple.svg" alt="Apple Mail" />
                                         </a>
@@ -86,9 +87,9 @@ export const Login = () => {
                                         </a>
                                     </div>
                                     <div className="d-flex justify-content-center align-itemns-center">
-                                        <a href="../inicio.html" style={{ textDecoration: 'none' }}>
-                                            <button className="btn btn-primary"
-                                                style={{ height: '60px', width: '394px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: 'none' }}>ingresar</button>
+                                        <a href="../inicio.html" style={{ textDecoration: 'none', marginLeft: '152%' }}>
+                                            <button className="btn btn-primary poppins-light"
+                                                style={{ height: '60px', width: '392px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: 'none', fontSize: '25px'}}>ingresar</button>
                                         </a>
                                     </div>
                                 </form>
