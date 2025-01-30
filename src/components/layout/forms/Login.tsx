@@ -34,7 +34,6 @@ export const Login = () => {
         }
     };
 
-
     return (
         <div className='container'>
             <img className="login-container" src="src/components/layout/forms/img/Fondo.png" style={{ position: 'fixed', zIndex: 1 }} alt="Fond" />
