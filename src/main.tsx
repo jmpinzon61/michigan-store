@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import App from './App';
 // import { Quizzes } from './components/evidence/Quizzes'
 // import { Menu_navigate_2 } from './components/menus-user/Menu_navigate_2'
 // import { Menu_navigate } from './components/menus-user/Menu_navigate'
@@ -19,8 +20,13 @@ import { createRoot } from 'react-dom/client'
 // import App from './App.tsx'
 // import { Prices } from './components/sections/Prices.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root') as HTMLElement;
+const root = createRoot(rootElement);
+
+
+root.render(
   <StrictMode>
+    <App/>
     {/* <Prices/> */}
     {/* <Blogs/> */}
     {/* <Us/> */}
@@ -40,4 +46,4 @@ createRoot(document.getElementById('root')!).render(
     {/* <Menu_navigate_2/> */}
     {/* <Quizzes/> */}
   </StrictMode>
-)
+);
