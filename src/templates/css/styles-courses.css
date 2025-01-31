@@ -68,14 +68,6 @@
     justify-content: center;
 }
 
-
-.modal-body video {
-    pointer-events: auto;
-    border-radius: 10px;
-    border: 3px solid #ff9d00;
-    background-color: black;
-}
-
 .modal {
     z-index: 2500px !important;
     opacity: 1 !important;
@@ -93,28 +85,3 @@
     pointer-events: auto;
 }
 
-/*Por ahora jaja*/
-.modal-content {
-    background-color: #351C76;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid #ffffff;
-}
-
-.modal-header {
-    border-bottom: none;
-    color: white;
-}
-
-.modal-dialog-centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.modal-body video {
-    border-radius: 10px;
-    border: 3px solid #ff9d00;
-    background-color: black;
-}

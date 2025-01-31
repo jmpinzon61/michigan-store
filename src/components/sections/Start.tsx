@@ -14,6 +14,8 @@ import { setupCardHoverAnimation } from '../../templates/ts/card-animation-start
 import { setupCircle } from '../../templates/ts/circle-animation';
 import { setupButtonToggle } from '../../templates/ts/toggle-botton-newsletter';
 import { initEnlaceHandler } from "../../templates/ts/link-handler";
+import { Link } from 'react-router-dom';
+
 
 export const Start = () => {
 

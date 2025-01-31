@@ -6,7 +6,7 @@ import { togglePasswordVisibility } from '../../templates/ts/toggle-password-vis
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 export const Avatar = () => {
@@ -36,7 +36,7 @@ export const Avatar = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
+                        style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
                         {/* <a href="./inicio.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Inicio</a>
                             <a href="./cursos.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Cursos</a>
                             <a href="./precios.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Precios</a>
@@ -90,13 +90,13 @@ export const Avatar = () => {
                 <section style={{ maxWidth: '1510px' }}>
                     <div className="d-flex flex-row justify-content-center align-items-center">
                         <button className="btn btn-link p-0"
-                            style={{ backgroundColor: 'transparent', background: '#55337e', border: '2px solid #ffffff', borderRadius: '45px', height: '60px', width: '60px', marginLeft: '-1172px', position: 'absolute', zIndex: 45, top: '110px' }}>
-                            <a href="./inicio.html">
+                            style={{ backgroundColor: 'transparent', background: '#55337e', border: '2px solid #ffffff', borderRadius: '45px', height: '60px', width: '60px', marginLeft: '-1112px', position: 'absolute', zIndex: 45, top: '110px' }}>
+                            <Link to="/start">
                                 <i className="bi bi-chevron-left" style={{ fontSize: '15px', color: 'white', textShadow: '1px 0 0 white, -1px 0 0 white, 0 1px 0 white, 0 -1px 0 white' }}></i>
-                            </a>
+                            </Link>
                         </button>
                         <button className="btn p-0"
-                            style={{ backgroundColor: 'transparent', background: '#825778', border: '2px solid #ffffff', borderRadius: '45px', height: '60px', width: '60px', marginLeft: '-705px', position: 'absolute', zIndex: 45, top: '395px' }}>
+                            style={{ backgroundColor: 'transparent', background: '#825778', border: '2px solid #ffffff', borderRadius: '45px', height: '60px', width: '60px', marginLeft: '-655px', position: 'absolute', zIndex: 45, top: '387px' }}>
                             <img src="/svgs/Camara-settings-user.svg" style={{ fontSize: '20px', color: 'white' }} alt="" />
                         </button>
                         <button className="btn p-0"
@@ -127,26 +127,26 @@ export const Avatar = () => {
                         {/* Tarjeta de Perfil */}
                         <div className="col profile-card">
                             <img src="/images/user-avatar-2.png"
-                                style={{ background: '#fed904', borderRadius: '225px', height: '300px', width: '300px', position: 'absolute', zIndex: 10, marginTop: '65px', left: '192px', objectFit: 'cover' }}
+                                style={{ background: '#fed904', borderRadius: '225px', height: '300px', width: '300px', position: 'absolute', zIndex: 10, marginTop: '65px', left: '220px', objectFit: 'cover' }}
                                 alt="User Avatar" />
 
                             {/* Información de Usuario */}
                             <div className="user-info text-start" style={{ marginLeft: '110px', position: 'absolute', zIndex: 20 }}>
                                 <h2 className="poppins-bold fs-1"
-                                    style={{ fontWeight: 700, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>User</h2>
+                                    style={{ fontWeight: 700, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', marginLeft: '40px' }}>User</h2>
                                 <h2 className="poppins-bold fs-1"
-                                    style={{ fontWeight: 700, marginTop: '-20px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                                    style={{ fontWeight: 700, marginTop: '-20px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', marginLeft: '40px' }}>
                                     Name</h2>
-                                <p className="poppins-light" style={{ paddingTop: '10px', lineHeight: 1.5, margin: '5px 0' }}>
+                                <p className="poppins-light" style={{ paddingTop: '10px', lineHeight: 1.5, margin: '5px 40px' }}>
                                     username@mail.com</p>
-                                <input type="password" id="password" className="password-input poppins-light text-white"
-                                    style={{ marginTop: '-750px', margin: '0px 0', lineHeight: 1.5 }} value={passwordValue}
+                                <input type="password" id="password" className="password-input poppins-light text-white mx-4"
+                                    style={{ marginTop: '-750px', marginLeft: '0px 0'}} value={passwordValue}
                                     placeholder={showPassword ? passwordValue: '****************'} onChange={(e) => setpasswordValue(e.target.value)} />
                                 <span className="toggle-password" onClick={handlerShowPassword}>
                                     <FontAwesomeIcon className="fs-6" icon={showPassword ? faEyeSlash : faEye}/>
                                 </span>
-                                <p className="poppins-light" style={{ margin: '4px 0', lineHeight: 1.5 }}>(+51) 000 000 000</p>
-                                <p className="poppins-light" style={{ margin: '4px 0', lineHeight: 1.5 }}>Lima - Peru</p>
+                                <p className="poppins-light" style={{ margin: '4px 40px', lineHeight: 1.5 }}>(+51) 000 000 000</p>
+                                <p className="poppins-light" style={{ margin: '4px 40px', lineHeight: 1.5 }}>Lima - Peru</p>
                             </div>
                         </div>
                         <div className="row">

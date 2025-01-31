@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import '../../templates/css/Chatbot.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 
 

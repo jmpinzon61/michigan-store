@@ -2,6 +2,7 @@ import '../../templates/css/styles.css';
 import '../../templates/css/styles-nosotros.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../../templates/css/styles.css'
 import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +11,8 @@ import { initEnlaceHandler } from "../../templates/ts/link-handler";
 import { useEffect, useRef, useState } from 'react';
 import { YearDisplay } from '../Year/YearDisplay';
 import { Chatbot } from '../chat/Chatbot';
+import { Link } from 'react-router-dom';
+
 
 
 export const Us = () => {
@@ -20,6 +23,21 @@ export const Us = () => {
     const [isChatbotOpen, setIsChatbotOpen] = useState(false);
     const [isChatbotVisible, setChatbotVisible] = useState(true);
     const [showTooltip, setshowTooltip] = useState(false);
+    const [selectedOption, setSelectedOption] = useState<string>('opcion2');
+    const [isOpen, setIsOpen] = useState(false);
+    const [Opensettings, setOpensettings] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const toggleDropdownSettings = () => {
+        setOpensettings(!Opensettings);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedOption(e.target.value);
+    };
 
 
     const openModal = (modalId: string) => {
@@ -54,17 +72,17 @@ export const Us = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
-                        <a href="./inicio.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</a>
-                        <a href="./cursos.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</a>
-                        <a href="./precios.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</a>
-                        <a href="./nosotros.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</a>
-                        <a href="./blogs.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</a>
+                        style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
+                        <Link to="/start" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</Link>
+                        <Link to="/courses" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</Link>
+                        <Link to="/prices" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</Link>
+                        <Link to="/us" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</Link>
+                        <Link to="/blogs" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</Link>
                     </nav>
                 </div>
                 {/* Nav in Movil */}
@@ -81,24 +99,24 @@ export const Us = () => {
                     </nav>
                 </div>
                 <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
-                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
+                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
-                    <ul className="dropdown-menu dropdown-menu-end">
-                        <li><a className="dropdown-item text-white poppins-light mb-2" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</a></li>
+                      <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
+                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/avatar" 
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</Link></li>
                         <li>
                             <hr className="dropdown-divider"></hr>
                         </li>
-                        <li><a className="dropdown-item text-white poppins-light" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</a></li>
+                        <li><Link className="dropdown-item text-white poppins-light" to="/"
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</Link></li>
                     </ul>
                     <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
                         style={{ height: '50px', width: '50px' }}>
-                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown"
+                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
                             style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                            <li><a className="dropdown-item text-white poppins-light mb-2" href=""
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</a>
+                        <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show' : ''}`}>
+                            <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
                             </li>
                         </ul>
                     </div>
@@ -117,34 +135,34 @@ export const Us = () => {
                             <img src="/images/sombra.png" style={{ position: 'absolute', zIndex: 1, height: '999px', width: '100vw', maxWidth: '100%', marginLeft: '-545px', marginTop: '-885px' }} alt="Personas con gafas VR" className="img-fluid" />
                             <img src="/images/circunferencia.png" style={{ position: 'absolute', zIndex: 2, height: '610px', width: '550px', marginLeft: '30px', marginTop: '-335px' }} alt="Personas con gafas VR" className="img-fluid" />
                             <img src="/images/persons.png" style={{ position: 'absolute', zIndex: 3, height: '510px', width: '650px', marginLeft: '-50px', marginTop: '-390px' }} alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/CHATBOT.png" style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }} alt="Personas con gafas VR" className="img-fluid" onClick={openChatbot} onMouseEnter={()=> setshowTooltip(true)} onMouseLeave={()=>setshowTooltip(false)} />
+                            <img src="/images/CHATBOT.png" style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }} alt="Personas con gafas VR" className="img-fluid" onClick={openChatbot} onMouseEnter={() => setshowTooltip(true)} onMouseLeave={() => setshowTooltip(false)} />
                             {showTooltip && (
                                 <div
-                                className='champ-bold'
-                                style={{
-                                    position: 'absolute',
-                                    top: '100px',
-                                    left: '80.65%',
-                                    transform: 'translateX(-50%)',
-                                    backgroundColor: '#8e24aa',
-                                    color: 'white',
-                                    padding: '25px 5px',
-                                    borderRadius: '45px',
-                                    fontSize: '15px',
-                                    zIndex: 10,
-                                    textAlign: 'center',
-                                    width: '200px',
-                                    opacity: showTooltip ? 1 : 0,
-                                    transition: 'opacity 0.3s ease-in-out'
-                                }}
-                                >   
-                                    <p style={{ marginBottom: '12px'}}>
-                                    Estimado usuario, soy Mike. Le recuerdo que si cierra este chat sobre 
-                                    el ícono, nuestra interacción se inhabilitará. Estoy aquí para ayudarle 
-                                    con cualquier consulta que tenga, así que no dude en escribirme.
+                                    className='champ-bold'
+                                    style={{
+                                        position: 'absolute',
+                                        top: '100px',
+                                        left: '80.65%',
+                                        transform: 'translateX(-50%)',
+                                        backgroundColor: '#8e24aa',
+                                        color: 'white',
+                                        padding: '25px 5px',
+                                        borderRadius: '45px',
+                                        fontSize: '15px',
+                                        zIndex: 10,
+                                        textAlign: 'center',
+                                        width: '200px',
+                                        opacity: showTooltip ? 1 : 0,
+                                        transition: 'opacity 0.3s ease-in-out'
+                                    }}
+                                >
+                                    <p style={{ marginBottom: '12px' }}>
+                                        Estimado usuario, soy Mike. Le recuerdo que si cierra este chat sobre
+                                        el ícono, nuestra interacción se inhabilitará. Estoy aquí para ayudarle
+                                        con cualquier consulta que tenga, así que no dude en escribirme.
                                     </p>
 
-                                    <p style={{ marginBottom: '25px'}}>Pero bueno clikeame y comenzemos nuestra conversación.</p>
+                                    <p style={{ marginBottom: '25px' }}>Pero bueno clikeame y comenzemos nuestra conversación.</p>
 
                                     <p style={{ fontSize: '25px' }}>¡Bienvenido!</p>
                                 </div>
@@ -415,7 +433,7 @@ export const Us = () => {
                             </p>
                         </div>
                         <div className="col" style={{ maxWidth: '700px' }}>
-                            <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB' , marginTop: '20px'}}>
+                            <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB', marginTop: '20px' }}>
                                 Dejanos tus datos y nos contactaremos contigo
                                 contacto@michiganmaster.edu.co
                             </h2>
@@ -433,11 +451,15 @@ export const Us = () => {
                                         style={{ height: '50px', width: '640px', textAlign: 'center' }} placeholder="correo electrónico" />
                                 </div>
                                 <div className="col-md-12">
-                                    <select className="form-select form-control-final-section text-white text-center poppins-light"
-                                        style={{ height: '50px', width: '640px', boxShadow: 'none !important', border: 'none !important', textAlign: 'center' }} defaultValue="opcion1">
-                                        <option selected>estado actual</option>
-                                        <option value="Estudiante">estudiante</option>
-                                        <option value="Profesional">profesional</option>
+                                    <select
+                                        className="form-select form-control-final-section text-white text-center poppins-light"
+                                        value={selectedOption} 
+                                        onChange={handleChange}
+                                        style={{ height: '50px', width: '640px', boxShadow: 'none', border: 'none', textAlign: 'center' }}
+                                    >
+                                        <option value="opcion1">estado actual</option>
+                                        <option value="opcion2">estudiante</option>
+                                        <option value="opcion3">profesional</option>
                                     </select>
                                 </div>
                                 <div className="col-md-12">

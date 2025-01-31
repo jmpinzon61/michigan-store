@@ -26,6 +26,29 @@
     background-size: 12px;
 }
 
+.bg-main-class::-webkit-scrollbar {
+    width: 25px !important;
+    background-color: #3a1d5e !important;
+}
+
+.bg-main-class::-webkit-scrollbar-thumb {
+    height: 15vh !important;
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+    border-radius: 10px;
+    border: 5px solid #1a1a2e;
+    transition: all 0.3s ease-in-out;
+}
+
+.bg-main-class::-webkit-scrollbar-button:single-button:decrement {
+    background: #ff9d00 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'  fill='white'><path d='M12 8l-6 6h12z'/></svg>") no-repeat center;
+    background-size: 12px;
+}
+
+.bg-main-class::-webkit-scrollbar-button:single-button:increment {
+    background: #ff9d00 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'  fill='white'><path d='M12 16l6-6H6z'/></svg>") no-repeat center;
+    background-size: 12px;
+}
+
 .bg-main-class {
     background: linear-gradient(180deg, #0c0434, #2b2c7b, #0c0434);
     color: white;
@@ -45,6 +68,12 @@
     background-color: #CECDFF;
     color: #160033;
 }
+
+
+p.prices {
+    max-height: 55px !important;
+}
+
 
 .text-accent {
     color: #00CDFF;
@@ -1486,7 +1515,7 @@ ul.timeline li span {
 
 .toggle-password {
     cursor: pointer;
-    margin-left: -70px;
+    margin-left: -150px;
 }
 
 .password-input::placeholder {

@@ -15,6 +15,7 @@ import { YearDisplay } from '../Year/YearDisplay';
 import Carousel from 'react-bootstrap/Carousel';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 export const Courses = () => {
@@ -52,17 +53,17 @@ export const Courses = () => {
         {/* Nav in PC */}
         <div className="d-none d-block d-lg-block">
           <nav className="d-flex justify-content-between align-items-center"
-            style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
-            <a href="./inicio.html" className="text-white mx-4 poppins-bold enlace"
-              style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</a>
-            <a href="./cursos.html" className="text-white mx-4 poppins-bold enlace"
-              style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</a>
-            <a href="./precios.html" className="text-white mx-4 poppins-bold enlace"
-              style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</a>
-            <a href="./nosotros.html" className="text-white mx-4 poppins-bold enlace"
-              style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</a>
-            <a href="./blogs.html" className="text-white mx-4 poppins-bold enlace"
-              style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</a>
+            style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
+            <Link to="/start" className="text-white mx-4 poppins-bold enlace"
+              style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</Link>
+            <Link to="/courses" className="text-white mx-4 poppins-bold enlace"
+              style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</Link>
+            <Link to="/prices" className="text-white mx-4 poppins-bold enlace"
+              style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</Link>
+            <Link to="/us" className="text-white mx-4 poppins-bold enlace"
+              style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</Link>
+            <Link to="/blogs" className="text-white mx-4 poppins-bold enlace"
+              style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</Link>
           </nav>
         </div>
         {/* Nav in Movil */}
@@ -183,7 +184,7 @@ export const Courses = () => {
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                    <div className="modal-dialog modal-dialog-centered-courses modal-lg">
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
@@ -193,7 +194,7 @@ export const Courses = () => {
                         </div>
                         <div className="modal-body">
                           <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
+                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
                           </video>
                         </div>
                       </div>
@@ -415,14 +416,14 @@ export const Courses = () => {
                 alt="Ilustracion 3"
               />
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <p className="description poppins-light text-start" style={{ 
-                  transform: 'translateY(-420px)', 
+                <p className="description poppins-light text-start" style={{
+                  transform: 'translateY(-420px)',
                   maxWidth: '100%',
                   marginLeft: '90px',
                   width: '25%',
                   overflow: 'hidden',
-                  textAlign: 'justify' 
-                  }}>
+                  textAlign: 'justify'
+                }}>
                   Es una experiencia de aprendizaje colorida que se
                   desarrollo a través de "situaciones comunicativas",
                   desde hacer check-in en un hotel hasta dicutir
@@ -674,14 +675,14 @@ export const Courses = () => {
                 alt="Ilustracion 3"
               />
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <p className="description poppins-light text-start" style={{ 
-                  transform: 'translateY(-420px)', 
+                <p className="description poppins-light text-start" style={{
+                  transform: 'translateY(-420px)',
                   maxWidth: '100%',
                   marginLeft: '90px',
                   width: '25%',
                   overflow: 'hidden',
-                  textAlign: 'justify' 
-                  }}>
+                  textAlign: 'justify'
+                }}>
                   En este programa se explora los sectores de los
                   tiempos verbales en inglés a través de un
                   enfoque teórico. Compuesto por 13 video sessions
@@ -933,14 +934,14 @@ export const Courses = () => {
                 alt="Ilustracion 3"
               />
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <p className="description poppins-light text-start" style={{ 
-                  transform: 'translateY(-420px)', 
+                <p className="description poppins-light text-start" style={{
+                  transform: 'translateY(-420px)',
                   maxWidth: '100%',
                   marginLeft: '90px',
                   width: '25%',
                   overflow: 'hidden',
-                  textAlign: 'justify' 
-                  }}>
+                  textAlign: 'justify'
+                }}>
                   Con 4 niveles (A1, A2, B1 y B2), este programa cuenta con un enfoque
                   comunicativo. A través de conversaciones de la vida diaria, brinda la
                   posibilidad de familiarizarse con el uso real de la lengua. Abroad ofrece
@@ -1192,14 +1193,14 @@ export const Courses = () => {
                 alt="Ilustracion 3"
               />
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <p className="description poppins-light text-start" style={{ 
-                  transform: 'translateY(-420px)', 
+                <p className="description poppins-light text-start" style={{
+                  transform: 'translateY(-420px)',
                   maxWidth: '100%',
                   marginLeft: '90px',
                   width: '25%',
                   overflow: 'hidden',
-                  textAlign: 'justify' 
-                  }}>
+                  textAlign: 'justify'
+                }}>
                   Para aquellos sin experiencia en inglés, este programa
                   se centra en la comprensión y pronunciación básica.
                   Con 19 sesiones de video, proporciona un punto de
@@ -1450,14 +1451,14 @@ export const Courses = () => {
                 alt="Ilustracion 3"
               />
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                <p className="description poppins-light text-start" style={{ 
-                  transform: 'translateY(-420px)', 
+                <p className="description poppins-light text-start" style={{
+                  transform: 'translateY(-420px)',
                   maxWidth: '100%',
                   marginLeft: '90px',
                   width: '25%',
                   overflow: 'hidden',
-                  textAlign: 'justify' 
-                  }}>
+                  textAlign: 'justify'
+                }}>
                   Diseñado para niños en la primera infancia, este
                   programa ilustrado y colorido actúa como una guía
                   divertida para crear bases comunicativas sólidas
@@ -1879,11 +1880,11 @@ export const Courses = () => {
                   </p>
                 </li>
               </ol>
-              <a href="./content-quiz-module.html">
+              <Link to="/content_quiz_module">
                 <button type="submit" className="btn btn-test text-white" style={{ cursor: 'pointer', fontSize: '20px', transform: 'translateY(-110px)', marginLeft: '435px', height: '50px', width: '315px' }} id="toggleButton" data-state="plane">
                   Realizar Test
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </section>

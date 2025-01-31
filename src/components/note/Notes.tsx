@@ -4,30 +4,43 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { initDragScroll } from '../../templates/ts/drag-scroll';
 import { toggleText } from '../../templates/ts/toggle-text-notes';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ScrollButton } from '../scroll-button/ScrollButton';
+import { Link } from 'react-router-dom';
+
 
 export const Notes = () => {
 
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [Opensettings, setOpensettings] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const toggleDropdownSettings = () => {
+        setOpensettings(!Opensettings);
+    };
+    
     useEffect(() => {
         initDragScroll('videos-container');
     }, []);
 
 
     return (
-        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll' }} ref={containerRef}>
+        <div className="bg-main-purple" style={{ overflowX: 'hidden', overflowY: 'scroll', height: '100vh', position: 'relative' }} ref={containerRef}>
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
-                <a href="./inicio.html" className="champ-bold"
-                    style={{ margin: '0 0 0 -2px', marginTop: '-55px', color: 'inherit', textDecoration: 'none', fontSize: '18px' }}>Michigan's</a>
-                <a href="./inicio.html" className="champ-bold"
-                    style={{ margin: '-10px 0 0 -390px', color: 'inherit', textDecoration: 'none', fontSize: '18px' }}>Store</a>
+                <Link to="/start" className="champ-bold"
+                    style={{ margin: '0 0 0 -2px', marginTop: '-55px', color: 'inherit', textDecoration: 'none', fontSize: '18px' }}>Michigan's</Link>
+                <Link to="/start" className="champ-bold"
+                    style={{ margin: '-10px 0 0 -390px', color: 'inherit', textDecoration: 'none', fontSize: '18px' }}>Store</Link>
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
+                        style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
                         {/* <a href="./inicio.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Inicio</a>
                             <a href="./cursos.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Cursos</a>
                             <a href="./precios.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Precios</a>
@@ -49,28 +62,26 @@ export const Notes = () => {
                     </nav>
                 </div>
                 <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
-                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
+                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
-                    <ul className="dropdown-menu dropdown-menu-end">
-                        <li><a className="dropdown-item text-white poppins-light mb-2" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</a></li>
-                        <li><a className="dropdown-item text-white poppins-light mb-2" href="./content-quiz-module.html"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Quizz Module</a></li>
-                        <li><a className="dropdown-item text-white poppins-light" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</a></li>
+                    <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
                         <li>
-                            <hr className="dropdown-divider" />
+                            <Link
+                                className="dropdown-item text-white poppins-light"
+                                to="/"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Cerrar sesión
+                            </Link>
                         </li>
-                        <li><a className="dropdown-item text-white poppins-light" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</a></li>
                     </ul>
                     <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
                         style={{ height: '50px', width: '50px' }}>
-                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown"
+                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
                             style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                            <li><a className="dropdown-item text-white poppins-light mb-2" href=""
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</a>
+                        <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show' : ''}`}>
+                            <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
                             </li>
                         </ul>
                     </div>
@@ -324,7 +335,7 @@ export const Notes = () => {
             </main>
 
             {/* Scrollbar button */}
-            <ScrollButton containerRef={containerRef}/>
+            <ScrollButton containerRef={containerRef} />
         </div>
     );
 };

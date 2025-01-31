@@ -1,7 +1,7 @@
 import '../../templates/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
+import { Link } from 'react-router-dom';
 
 export const Content_quiz_module = () => {
 
@@ -17,7 +17,7 @@ export const Content_quiz_module = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{maxWidth: '100%', marginRight: '470px', marginTop: '-30px'}}>
+                        style={{maxWidth: '100%', marginRight: '300px', marginTop: '-30px'}}>
                         {/* <a href="./inicio.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Inicio</a>
                         <a href="./cursos.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Cursos</a>
                         <a href="./precios.html" className="text-white mx-4 poppins-bold" style={{fontSize: '17px'}}>Precios</a>
@@ -67,10 +67,10 @@ export const Content_quiz_module = () => {
                 </div>
             </header>
             
-            <a href="./quizzes.html">
+            <Link to="/quizzes">
                 <img src="/svgs/vocabulary.svg"
                     style={{ position: 'fixed', zIndex: 20, width: '50vw', height: '50vh', marginLeft: '395px', marginTop: '135px' }} />
-            </a>
+            </Link>
 
             <img src="/images/Font-module-quizz-2.png"
                 style={{ position: 'fixed', zIndex: 4, width: '225px', height: '225px', marginLeft: '750px', marginTop: '225px' }} />

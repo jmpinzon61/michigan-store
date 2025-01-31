@@ -35,7 +35,7 @@ export const Login = () => {
     };
 
     return (
-        <div className='container'>
+        <div className='container-login'>
             <img className="login-container" src="src/components/layout/forms/img/Fondo.png" style={{ position: 'fixed', zIndex: 1 }} alt="Fond" />
             <img className="login-container" src="src/components/layout/forms/img/Fondo2.png" style={{ position: 'fixed', zIndex: 2 }} alt="Fond 2" />
             <div className="container-fluid login-container" style={{ position: 'relative', zIndex: 3 }}>
@@ -56,10 +56,10 @@ export const Login = () => {
                             <div className="col-12 col-md-6 form-section">
                                 <form onSubmit={handleFormSubmit} style={{ width: '100%', maxWidth: '500px', transform: 'translateX(-270px)' }}>
                                     <h2 className="text-white mb-4 text-center w-100 poppins-light" style={{ marginLeft: '70%' }}>ingresar</h2>
-                                    <input type="email" className="form-control placeholder-white poppins-light"
+                                    <input type="email" className="form-control-login placeholder-white poppins-light"
                                         style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="correo | usuario" />
-                                    <input type="password" className="form-control placeholder-white poppins-light"
+                                    <input type="password" className="form-control-login placeholder-white poppins-light"
                                         style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
                                         placeholder="contraseña" />
                                     <a 
@@ -98,7 +98,7 @@ export const Login = () => {
                                     </div>
                                     <div className="d-flex justify-content-center align-itemns-center">
                                         <Link to="/us" style={{ textDecoration: 'none', marginLeft: '152%' }}>
-                                            <button className="btn btn-primary poppins-light" type='submit'
+                                            <button className="btn btn-primary-login poppins-light" type='submit'
                                                 style={{ height: '60px', width: '392px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: 'none', fontSize: '25px' }}>ingresar</button>
                                         </Link>
                                     </div>

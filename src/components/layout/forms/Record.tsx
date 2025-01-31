@@ -1,14 +1,16 @@
 import '../../../templates/css/styles.css';
 import '../../layout/forms/templates/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+
 
 export const Record = () => {
 
     return (
-        <div className='container'>
+        <div style={{ overflowX: 'hidden', overflowY: 'scroll', height:'100vh', display: 'flex', width: '100%' }}>
             <img className="login-container" src="src/components/layout/forms/img/Fondo.png" style={{ position: 'fixed', zIndex: 1 }} alt="Fond" />
             <img className="login-container" src="src/components/layout/forms/img/Fondo2.png" style={{ position: 'fixed', zIndex: 2 }} alt="Fond 2" />
-            <div className="container-fluid login-container" style={{ position: 'relative', zIndex: 3 }}>
+            <div className="login-container" style={{ position: 'relative', zIndex: 3 }}>
                 {/* Section de imagen */}
                 <div className="image-section" style={{ transform: 'translateX(145px)' }}>
                     <img src="src/components/layout/forms/svg/Logo_Michigan.svg" alt="Michigan's Store Logo" />
@@ -19,16 +21,16 @@ export const Record = () => {
                     <div className="col-12 col-md-6 form-section">
                         <form style={{ width: '100%', transform: 'translateX(-200px)' }}>
                             <h2 className="text-white mb-4 text-center w-100 poppins-light" style={{ marginLeft: '70%'}}>Registrarse</h2>
-                            <input type="email" className="form-control placeholder-white poppins-light"
+                            <input type="email" className="form-control-login placeholder-white poppins-light"
                                 style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '274px' }}
                                 placeholder="correo" />
-                            <input type="text" className="form-control placeholder-white poppins-light"
+                            <input type="text" className="form-control-login placeholder-white poppins-light"
                                 style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '274px' }}
                                 placeholder="nombre de usuario" />
-                            <input type="password" className="form-control placeholder-white poppins-light"
+                            <input type="password" className="form-control-login placeholder-white poppins-light"
                                 style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '274px' }}
                                 placeholder="contraseña" />
-                            <input type="text" className="form-control placeholder-white poppins-light"
+                            <input type="text" className="form-control-login placeholder-white poppins-light"
                                 style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '274px' }}
                                 placeholder="Fecha de nacimiento" />
                             <a href="./login.html" className="text-center d-block mb-4 w-100 poppins-light" style={{ color: '#0061D1', transform: 'translateY(-8px)', marginLeft: '72%', fontSize: '85%', fontWeight: 600 }}>
@@ -53,7 +55,7 @@ export const Record = () => {
                                 </a>
                             </div>
                             <div className="d-flex justify-content-center align-itemns-center w-100" style={{ marginLeft: '71%'}}>
-                                <button className="btn btn-primary mb-4 poppins-light"
+                                <button className="btn btn-primary-login mb-4 poppins-light"
                                     style={{ height: '60px', width: '860px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: 'none', fontSize: '20px' }}>registrarse</button>
                             </div>
                             <div className='d-flex w-100 m4-2' style={{ marginLeft: '310px', marginBottom: '10px'}}>

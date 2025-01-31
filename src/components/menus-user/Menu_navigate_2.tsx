@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTiktok, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { closeMenu } from '../../templates/ts/close-menu';
+import { Link } from 'react-router-dom';
 
 
 export const Menu_navigate_2 = () => {
@@ -24,42 +25,42 @@ export const Menu_navigate_2 = () => {
             <section className="row justify-content-between menu-container-user">
                 <div className="menu-user">
                     <button className="close-btn" style={{marginTop: '50px', marginRight: '30px'}} onClick={closeMenu}>X</button>
-                    <div style={{position: 'absolute', zIndex: 1}}><a href="#nosotros">
+                    <div style={{position: 'absolute', zIndex: 1}}><Link to="/us">
                             <img style={{marginLeft: '-575px', marginTop: '50px', width: '370px', height: '170px'}}
-                                src="/svgs/The-House.svg" alt="" /></a></div>
-                    <div style={{position: 'absolute', zIndex: 3}}><a href="./inicio.html">
+                                src="/svgs/The-House.svg" alt="" /></Link></div>
+                    <div style={{position: 'absolute', zIndex: 3}}><Link to="/start">
                             <img style={{marginLeft: '-202px', marginTop: '100px', width: '70px', height: '70px'}}
-                                src="/images/Menu-user-5.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 2}}><a href="./nosotros.html">
+                                src="/images/Menu-user-5.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 2}}><Link to="/us">
                             <img style={{marginLeft: '-295px', marginTop: '-150px',width: '210px', height: '210px'}}
-                                src="/images/Menu-user-1.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 12}}><a href="./nosotros.html">
-                            <img style={{marginLeft: '-245px', marginTop: '-315px'}} src="/svgs/Menu-user-11.svg" alt=""/></a>
+                                src="/images/Menu-user-1.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 12}}><Link to="/us">
+                            <img style={{marginLeft: '-245px', marginTop: '-315px'}} src="/svgs/Menu-user-11.svg" alt=""/></Link>
                     </div>
-                    <div style={{position: 'absolute', zIndex: 11}}><a href="#avatar-menu">
+                    <div style={{position: 'absolute', zIndex: 11}}><Link to="/avatar">
                             <img style={{marginLeft: '-95px', marginTop: '-60px', width: '147px', height: '147px'}}
-                                src="/images/Menu-user-10.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 4}}><a href="./cursos.html">
+                                src="/images/Menu-user-10.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 4}}><Link to="/courses">
                             <img style={{marginLeft: '-135px', marginTop: '140px', width: '120px', height: '70px'}}
-                                src="/images/Menu-user-2.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 6}}><a href="./precios.html">
+                                src="/images/Menu-user-2.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 6}}><Link to="/prices">
                             <img style={{marginLeft: '-300px', marginTop: '200px', width: '120px', height: '70px'}}
-                                src="/images/Menu-user-4.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 5}}><a href="./blogs.html">
+                                src="/images/Menu-user-4.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 5}}><Link to="/blogs">
                             <img style={{marginLeft: '-205px', marginTop: '240px', width: '120px', height: '70px'}}
-                                src="/images/Menu-user-3.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 7}}><a href="#animacion-bosina-sonido">
+                                src="/images/Menu-user-3.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 7}}><Link to="#animacion-bosina-sonido">
                             <img style={{marginLeft: '-255px', marginTop: '300px', width: '60px', height: '60px'}}
-                                src="/images/Menu-user-6.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 8}}><a href="#animacion-intercambiar-banderas">
+                                src="/images/Menu-user-6.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 8}}><Link to="#animacion-intercambiar-banderas">
                             <img style={{marginLeft: '-120px', marginTop: '310px', width: '60px', height: '60px'}}
-                                src="/images/Menu-user-7.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 9}}><a href="#blogs">
+                                src="/images/Menu-user-7.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 9}}><Link to="/blogs">
                             <img style={{marginLeft: '-85px', marginTop: '250px', width: '50px', height: '50px'}}
-                                src="/images/Menu-user-8.png" alt=""/></a></div>
-                    <div style={{position: 'absolute', zIndex: 10}}><a href="#blogs">
+                                src="/images/Menu-user-8.png" alt=""/></Link></div>
+                    <div style={{position: 'absolute', zIndex: 10}}><Link to="/blogs">
                             <img style={{marginLeft: '-45px', marginTop: '255px', width: '60px', height: '60px'}}
-                                src="/images/Menu-user-9.png" alt=""/></a></div>
+                                src="/images/Menu-user-9.png" alt=""/></Link></div>
                 </div>
             </section>
         </main>

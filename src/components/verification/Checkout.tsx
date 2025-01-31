@@ -4,6 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { toggleSelection } from '../../templates/ts/toggle-selection';
 import React, { useEffect } from 'react';
 import { initializeTooltips } from '../../templates/ts/initialize-tooltips';
+import { Link } from 'react-router-dom';
 
 export const Checkout = () => {
 
@@ -29,17 +30,17 @@ export const Checkout = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{maxWidth: '100%', marginRight: '470px', marginTop: '-30px'}}>
-                        <a href="./inicio.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{fontSize: '17px', textDecoration: 'none'}}>Inicio</a>
-                        <a href="./cursos.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{fontSize: '17px', textDecoration: 'none'}}>Cursos</a>
-                        <a href="./precios.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{fontSize: '17px', textDecoration: 'none'}}>Precios</a>
-                        <a href="./nosotros.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{fontSize: '17px', textDecoration: 'none'}}>Nosotros</a>
-                        <a href="./blogs.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{fontSize: '17px', textDecoration: 'none'}}>Blogs</a>
+                        style={{maxWidth: '100%', marginRight: '300px', marginTop: '-30px'}}>
+                        <Link to="/start" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</Link>
+                        <Link to="/courses" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</Link>
+                        <Link to="/prices" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</Link>
+                        <Link to="/us" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</Link>
+                        <Link to="/blogs" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</Link>
                     </nav>
                 </div>
                 {/* Nav in Movil */}
@@ -166,7 +167,7 @@ export const Checkout = () => {
                                             <div className="mb-3">
                                                 <label htmlFor="name" className="form-label poppins-light">Nombre y Apellido</label>
                                                 <input type="text" className="form-control"
-                                                    style={{textIndent: '10px', boxShadow: 'none', color: '#ffffff', background: 'linear-gradient(to right, #504a82, #716d87)', border: 'none', borderRadius: '85px',height: '60px', width: '535px'}}
+                                                    style={{textIndent: '10px', boxShadow: 'none', color: '#ffffff', background: 'linear-gradient(to right, #5a5584, #716d87)', border: 'none', borderRadius: '85px',height: '60px', width: '535px'}}
                                                     id="name" placeholder=""/>
                                             </div>
                                             <div className="mb-3">

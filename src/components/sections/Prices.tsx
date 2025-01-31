@@ -8,6 +8,7 @@ import { ScrollButton } from '../scroll-button/ScrollButton';
 import { initEnlaceHandler } from "../../templates/ts/link-handler";
 import { useEffect, useRef, useState } from 'react';
 import { YearDisplay } from '../Year/YearDisplay';
+import { Link } from 'react-router-dom';
 
 
 export const Prices = () => {
@@ -28,17 +29,17 @@ export const Prices = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
-                        <a href="./inicio.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</a>
-                        <a href="./cursos.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</a>
-                        <a href="./precios.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</a>
-                        <a href="./nosotros.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</a>
-                        <a href="./blogs.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</a>
+                        style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
+                        <Link to="/start" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</Link>
+                        <Link to="/courses" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</Link>
+                        <Link to="/prices" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</Link>
+                        <Link to="/us" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</Link>
+                        <Link to="/blogs" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</Link>
                     </nav>
                 </div>
                 {/* Nav in Movil */}
@@ -46,11 +47,11 @@ export const Prices = () => {
                     <nav className="d-flex justify-content-between align-items-center flex-nowrap overflow-x-auto"
                         style={{ whiteSpace: 'nowrap', width: '100%', marginTop: '2px' }}>
                         <div style={{ marginTop: '200px' }}>
-                            <a href="#" className="text-white mx-2 poppins-bold">Inicio</a>
-                            <a href="#" className="text-white mx-2 poppins-bold">Cursos</a>
-                            <a href="#" className="text-white mx-2 poppins-bold">Precios</a>
-                            <a href="#" className="text-white mx-2 poppins-bold">Nosotros</a>
-                            <a href="#" className="text-white mx-2 poppins-bold">Blogs</a>
+                            {/* <a to="#" className="text-white mx-2 poppins-bold">Inicio</a>
+                            <a to="#" className="text-white mx-2 poppins-bold">Cursos</a>
+                            <a to="#" className="text-white mx-2 poppins-bold">Precios</a>
+                            <a to="#" className="text-white mx-2 poppins-bold">Nosotros</a>
+                            <a to="#" className="text-white mx-2 poppins-bold">Blogs</a> */}
                         </div>
                     </nav>
                 </div>
@@ -58,21 +59,21 @@ export const Prices = () => {
                     <img src="images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
                     <ul className="dropdown-menu dropdown-menu-end">
-                        <li><a className="dropdown-item text-white poppins-light mb-2" href="#"
-                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</a></li>
+                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/avatar"
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</Link></li>
                         <li>
                             <hr className="dropdown-divider"></hr>
                         </li>
-                        <li><a className="dropdown-item text-white poppins-light" href="#"
-                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</a></li>
+                        <li><Link className="dropdown-item text-white poppins-light" to="/"
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</Link></li>
                     </ul>
                     <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
                         style={{ height: '50px', width: '50px' }}>
                         <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown"
                             style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
                         <ul className="dropdown-menu dropdown-menu-end">
-                            <li><a className="dropdown-item text-white poppins-light mb-2" href=""
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</a>
+                            <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
                             </li>
                         </ul>
                     </div>
@@ -116,26 +117,26 @@ export const Prices = () => {
                                                             style={{ color: '#00cdff', background: 'white', borderRadius: '50%', fontSize: '20px', width: '15px', height: '15px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}></span>
                                                     </h3>
                                                     <ol>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso a
                                                                 los 4 módulos</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>¡Ve a tu
                                                                 ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
                                                                 aprendizaje.</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span
                                                                 className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>4 sesiones
                                                                 en vivo.</span></p>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span
                                                                 className="poppins-light text-white"
@@ -160,12 +161,12 @@ export const Prices = () => {
                                                                 {/*<sub>USD</sub>*/}
                                                             </span>
                                                         </span>
-                                                        <a href="./checkout.html">
+                                                        <Link to="/checkout">
                                                             <button
                                                                 className="button-purple rounded-pill px-4 py-1 champ-semibold text-center bi-cart-plus"
                                                                 style={{ width: '145px', height: '55px', marginTop: '40px', marginLeft: '17px', border: 'none', zIndex: 10, position: 'relative' }}>
                                                                 comprar</button>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="d-flex"
@@ -188,12 +189,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '45px', fontSize: '15px' }}>
                                                             8.10 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-12px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,12 +213,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '48px', fontSize: '15px' }}>
                                                             8.10 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-12px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -236,12 +237,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '54px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-12px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -260,12 +261,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '54px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-12px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -308,26 +309,26 @@ export const Prices = () => {
                                                             style={{ color: '#00cdff', background: 'white', borderRadius: '50%', fontSize: '20px', width: '15px', height: '15px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}></span>
                                                     </h3>
                                                     <ol>
-                                                        <p style={{ fontSize: '15px', color: '#f09fff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#f09fff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso a
                                                                 los 4 módulos</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#f09fff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#f09fff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>¡Ve a tu
                                                                 ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
                                                                 aprendizaje.</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#f09fff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#f09fff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span
                                                                 className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>4 sesiones
                                                                 en vivo.</span></p>
-                                                        <p style={{ fontSize: '15px', color: '#f09fff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#f09fff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span
                                                                 className="poppins-light text-white"
@@ -352,12 +353,12 @@ export const Prices = () => {
                                                                 {/* <sub>USD</sub>  */}
                                                             </span>
                                                         </span>
-                                                        <a href="./checkout.html">
+                                                        <Link to="/checkout">
                                                             <button
                                                                 className="gradient-section-2 rounded-pill px-4 py-1 champ-semibold text-center bi-cart-plus"
                                                                 style={{ width: '145px', height: '55px', marginTop: '40px', marginLeft: '25px', border: 'none', zIndex: 10, position: 'relative' }}>
                                                                 comprar</button>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="d-flex"
@@ -380,12 +381,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '48px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '36px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -404,12 +405,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '52px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '36px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -428,12 +429,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '52px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '36px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -465,7 +466,7 @@ export const Prices = () => {
                                             En este programa se exploran los secretos de los tiempos
                                             verbales en inglés a través de un enfoque teórico.
                                             Compuesto por 13 video sesiones distribuidas en 5
-                                            ||||módulos, brinda una visión más profunda y estructurada
+                                            módulos, brinda una visión más profunda y estructurada
                                             para construir una base sólida en la gramática inglesa.</p>
                                         <div style={{ marginTop: '-8px', marginLeft: '-8px' }}>
                                             <div className="row">
@@ -475,28 +476,28 @@ export const Prices = () => {
                                                             style={{ color: '#00cdff', background: 'white', borderRadius: '50%', fontSize: '20px', width: '15px', height: '15px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}></span>
                                                     </h3>
                                                     <ol className='mb-4'>
-                                                        <p style={{ fontSize: '15px', color: '#8df7a3' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#8df7a3' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
-                                                                style={{ fontSize: '15px', color: '#8df7a3' }}>Acceso a
+                                                                style={{ fontSize: '15px', color: '#8df7a3', marginLeft: '5px' }}>Acceso a
                                                                 los 6 módulos</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#8df7a3' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#8df7a3'}}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
-                                                                style={{ fontSize: '15px', color: '#8df7a3' }}>¡Ve a tu
+                                                                style={{ fontSize: '15px', color: '#8df7a3', marginLeft: '5px'}}>¡Ve a tu
                                                                 ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
                                                                 aprendizaje.</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#8df7a3' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#8df7a3' }}>
                                                             <FontAwesomeIcon icon={faCheck} /><span
                                                                 className="poppins-light text-white"
-                                                                style={{ fontSize: '15px', color: '#8df7a3' }}>4 sesiones
+                                                                style={{ fontSize: '15px', color: '#8df7a3', marginLeft: '5px' }}>4 sesiones
                                                                 en vivo.</span></p>
-                                                        <p style={{ fontSize: '15px', color: '#8df7a3' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#8df7a3' }}>
                                                             <FontAwesomeIcon icon={faCheck} /><span
                                                                 className="poppins-light text-white"
-                                                                style={{ fontSize: '15px', color: '#8df7a3' }}>Recibe
+                                                                style={{ fontSize: '15px', color: '#8df7a3', marginLeft: '5px' }}>Recibe
                                                                 certificación de curso.</span></p>
                                                     </ol>
                                                 </div>
@@ -517,12 +518,12 @@ export const Prices = () => {
                                                                 {/* <sub>USD</sub> */}
                                                             </span>
                                                         </span>
-                                                        <a href="./checkout.html">
+                                                        <Link to="/checkout">
                                                             <button
                                                                 className="gradient-section-3 rounded-pill px-4 py-1 champ-semibold text-center bi-cart-plus"
                                                                 style={{ width: '145px', height: '55px', marginTop: '40px', marginLeft: '25px', border: 'none', zIndex: 10, position: 'relative' }}>
                                                                 comprar</button>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="d-flex"
@@ -546,12 +547,12 @@ export const Prices = () => {
                                                             6.30 $</p>
                                                         <div className="d-flex ms-auto"
                                                             style={{ marginRight: '40px', marginTop: '20px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginBottom: '-1px', marginTop: '-30px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -567,12 +568,12 @@ export const Prices = () => {
                                                         <p className="poppins-light p-2" style={{ marginLeft: '5px', fontSize: '12px' }}>
                                                             6.30 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '40px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light my-3"
                                                                     style={{ marginTop: '-40px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -590,12 +591,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '44px', fontSize: '12px' }}>
                                                             6.30 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '40px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light my-3"
                                                                     style={{ marginBottom: '20px', marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -613,12 +614,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '23px', fontSize: '12px' }}>
                                                             6.30 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '40px' }}>
-                                                            <a href="./checkout.html">
+                                                           <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light my-3"
-                                                                    style={{ marginBottom: '20px', marginTop: '-45px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px' }}>
+                                                                    style={{ marginBottom: '20px', marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -637,12 +638,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '-25px', fontSize: '12px', marginTop: '-8px' }}>
                                                             6.30 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '40px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light my-3"
                                                                     style={{ marginBottom: '20px', marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -729,12 +730,12 @@ export const Prices = () => {
                                                         </span>
                                                     </div>
                                                     <div style={{ marginTop: '-20px' }}>
-                                                        <a href="./checkout.html">
+                                                        <Link to="/checkout">
                                                             <button
                                                                 className="gradient-section-4 rounded-pill px-4 py-0 champ-semibold text-center bi-cart-plus"
                                                                 style={{ width: '145px', height: '55px', marginLeft: '62px', border: 'none', zIndex: 10, position: 'relative' }}>
                                                                 comprar</button>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -818,12 +819,12 @@ export const Prices = () => {
                                                         </span>
                                                     </div>
                                                     <div style={{ marginTop: '-20px' }}>
-                                                        <a href="./checkout.html">
+                                                        <Link to="/checkout">
                                                             <button
                                                                 className="gradient-section-5 rounded-pill px-4 py-0 champ-semibold text-center bi-cart-plus"
                                                                 style={{ width: '145px', height: '55px', marginLeft: '60px', color: 'gradient-section-5', backgroundColor: '#ffffff', border: 'none', zIndex: 10, position: 'relative' }}>
                                                                 comprar</button>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -860,26 +861,26 @@ export const Prices = () => {
                                                             style={{ color: '#00cdff', background: 'white', borderRadius: '50%', fontSize: '20px', width: '15px', height: '15px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}></span>
                                                     </h3>
                                                     <ol>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso a
                                                                 los 4 módulos</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>¡Ve a tu
                                                                 ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
                                                                 aprendizaje.</span>
                                                         </p>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span
                                                                 className="poppins-light text-white"
                                                                 style={{ fontSize: '15px', marginLeft: '5px' }}>4 sesiones
                                                                 en vivo.</span></p>
-                                                        <p style={{ fontSize: '15px', color: '#04baff' }}>
+                                                        <p className='prices' style={{ fontSize: '15px', color: '#04baff' }}>
                                                             <FontAwesomeIcon icon={faCheck} />
                                                             <span
                                                                 className="poppins-light text-white"
@@ -904,12 +905,12 @@ export const Prices = () => {
                                                                 {/* <sub>USD</sub>  */}
                                                             </span>
                                                         </span>
-                                                        <a href="./checkout.html">
+                                                        <Link to="/checkout">
                                                             <button
                                                                 className="gradient-section-6 rounded-pill px-4 py-1 champ-semibold text-center bi-cart-plus"
                                                                 style={{ width: '145px', height: '55px', marginTop: '40px', marginLeft: '17px', border: 'none', zIndex: 10, position: 'relative' }}>
                                                                 comprar</button>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="d-flex"
@@ -932,12 +933,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '45px', fontSize: '15px' }}>
                                                             8.10 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -956,12 +957,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '48px', fontSize: '15px' }}>
                                                             8.10 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -980,12 +981,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '54px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1004,12 +1005,12 @@ export const Prices = () => {
                                                             style={{ marginLeft: '54px', fontSize: '15px' }}>
                                                             10.8 $</p>
                                                         <div className="d-flex ms-auto" style={{ marginRight: '-6px' }}>
-                                                            <a href="./checkout.html">
+                                                            <Link to="/checkout">
                                                                 <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                     style={{ marginTop: '-5px', width: '110px', height: '25px', fontSize: '0.8rem', backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'whitesmoke', borderRadius: '35px', zIndex: 10, position: 'relative' }}>
                                                                     comprar
                                                                 </button>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1072,11 +1073,11 @@ export const Prices = () => {
                             </span>
                         </div>
                         <div className="d-flex justify-content-center align-items-center">
-                            <a href="./checkout.html">
+                            <Link to="/checkout">
                                 <button className="btn rounded-pill py-2 text-white fs-6 poppins-light bi-cart-plus"
                                     style={{ backgroundColor: '#7955f8', borderRadius: '150px', width: '130px', marginTop: '-125px', marginLeft: '180px' }}>
                                     comprar</button>
-                            </a>
+                            </Link>
                         </div>
                     </section>
                 </div >
@@ -1128,11 +1129,11 @@ export const Prices = () => {
                             </span>
                         </div>
                         <div className="d-flex justify-content-center align-items-center">
-                            <a href="./checkout.html">
+                            <Link to="/checkout">
                                 <button className="btn rounded-pill py-2 text-white fs-6 poppins-light bi-cart-plus"
                                     style={{ backgroundColor: '#7955f8', borderRadius: '150px', width: '200px', height: '45px', marginTop: '-70px', marginLeft: '130px' }}>
                                     comprar</button>
-                            </a>
+                            </Link>
                         </div>
                     </section>
                 </div >

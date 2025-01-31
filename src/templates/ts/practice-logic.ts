@@ -16,7 +16,7 @@ export class PracticeManager {
         this.updateNextButton();
     }
 
-    private closePracticeArea(index: number) {
+    public closePracticeArea(index: number) {
         const practiceArea = document.getElementById(`practice-area-${index}`);
         if (practiceArea) {
             practiceArea.style.display = 'none';
