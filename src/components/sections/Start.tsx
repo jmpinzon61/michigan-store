@@ -1,7 +1,7 @@
 import '../../templates/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'animate.css/animate.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'animate.css/animate.min.css';
 import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';

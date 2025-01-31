@@ -97,10 +97,10 @@ export const Login = () => {
                                         </a>
                                     </div>
                                     <div className="d-flex justify-content-center align-itemns-center">
-                                        <a style={{ textDecoration: 'none', marginLeft: '152%' }}>
+                                        <Link to="/us" style={{ textDecoration: 'none', marginLeft: '152%' }}>
                                             <button className="btn btn-primary poppins-light" type='submit'
                                                 style={{ height: '60px', width: '392px', marginTop: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: 'none', fontSize: '25px' }}>ingresar</button>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </form>
                             </div>
