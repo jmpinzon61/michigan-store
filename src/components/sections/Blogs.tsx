@@ -16,6 +16,17 @@ export const Blogs = () => {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
+    const [isOpen, setIsOpen] = useState(false);
+    const [Opensettings, setOpensettings] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+    
+    const toggleDropdownSettings = () => {
+        setOpensettings(!Opensettings);
+    };
+    
     useEffect(() => {
         initEnlaceHandler();
         initReadMore();
@@ -32,17 +43,17 @@ export const Blogs = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
-                        <a href="./inicio.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</a>
-                        <a href="./cursos.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</a>
-                        <a href="./precios.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</a>
-                        <a href="./nosotros.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</a>
-                        <a href="./blogs.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</a>
+                        style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
+                        <Link to="/start" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</Link>
+                        <Link to="/courses" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</Link>
+                        <Link to="/prices" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</Link>
+                        <Link to="/us" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</Link>
+                        <Link to="/blogs" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</Link>
                     </nav>
                 </div>
                 {/* Nav in Movil */}
@@ -59,24 +70,47 @@ export const Blogs = () => {
                     </nav>
                 </div>
                 <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
-                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
+                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
-                    <ul className="dropdown-menu dropdown-menu-end">
-                        <li><a className="dropdown-item text-white poppins-light mb-2" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</a></li>
+                    <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
                         <li>
-                            <hr className="dropdown-divider"></hr>
+                            <Link
+                                className="dropdown-item text-white poppins-light mb-2"
+                                to="/avatar"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Ver perfil
+                            </Link>
                         </li>
-                        <li><a className="dropdown-item text-white poppins-light" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</a></li>
+                        <li>
+                            <Link
+                                className="dropdown-item text-white poppins-light"
+                                to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Configuración
+                            </Link>
+                        </li>
+                        <li>
+                            <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                            <Link
+                                className="dropdown-item text-white poppins-light"
+                                to="/"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Cerrar sesión
+                            </Link>
+                        </li>
                     </ul>
                     <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
                         style={{ height: '50px', width: '50px' }}>
-                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown"
+                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
                             style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                            <li><a className="dropdown-item text-white poppins-light mb-2" href=""
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</a>
+                        <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show': ''}`}>
+                            <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
                             </li>
                         </ul>
                     </div>
@@ -354,7 +388,7 @@ export const Blogs = () => {
                                     <label htmlFor="floatingTextarea" style={{ color: '#ffffff', fontSize: '12px' }}>Escribe aquí</label>
                                 </div>
                                 <div style={{ position: 'relative', display: 'flex', alignItems: 'center', marginTop: '20px' }}>
-                                    <input type="email" className="form-control custom-input poppins-light no-focus"
+                                    <input type="email" className=" poppins-light no-focus"
                                         style={{ fontSize: '12px', width: 'calc(100% - 110px)', height: '60px', background: '#615D78', borderRadius: '45px', border: 'none', color: '#ffffff', boxShadow: 'none', outline: 'none' }}
                                         placeholder="¡Ingresa tu correo!" />
                                     <button className="btn"

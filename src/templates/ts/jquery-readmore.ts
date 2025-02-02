@@ -1,9 +1,8 @@
 import $ from "jquery";
 
-
 export const initReadMore = () => {
     $(document).ready(function () {
-        $("a[id^='read-more']").click(function (e) {
+        $("a[id^='read-more']").on("click", function (e) {
             e.preventDefault();
 
             const id = $(this).attr("id")?.split("-")[2];
@@ -13,12 +12,11 @@ export const initReadMore = () => {
 
             if (description.hasClass("expanded")) {
                 description.removeClass("expanded");
-                $(this).text("Seguir leyendo");
+                $(this).html("Seguir leyendo");
             } else {
                 description.addClass("expanded");
-                $(this).text("Leer menos");
-
+                $(this).html("Leer menos");
             }
         });
     });
-}
+};

@@ -21,27 +21,27 @@ import { Chatbot } from './components/chat/Chatbot';
 
 function App() {
   return (
-    <Router future={{v7_relativeSplatPath: true}}>
+    <Router>
         <Routes>
-          <Route path='/prices' element={<Prices />} />{/** ya */}
-          <Route path='/courses' element={<Courses />}/>{/** ya */}
-          <Route path='/verification' element={<Verification />} />{/** ya */}
-          <Route path='/diary' element={<Diary />} />{/** ya */}
-          <Route path='/notes' element={<Notes />} />{/** ya */}
-          <Route path='/avatar' element={<Avatar />} />{/** ya */}
-          <Route path='/checkout' element={<Checkout />} />{/** ya */}
-          <Route path='/user_account_configuration' element={<User_account_configuration />} />{/** ya */}
-          <Route path='/content_quiz_module' element={<Content_quiz_module />} />{/** ya */}
-          <Route path='/interfaceclasses' element={<InterfaceClasses />} />{/** ya */}
-          <Route path='/menu_navigate' element={<Menu_navigate />} />{/** ya */}
-          <Route path='/menu_navigate_2' element={<Menu_navigate_2 />} />{/** ya */}
-          <Route path='/quizzes' element={<Quizzes />} />{/** ya */}
+          <Route path='/prices' element={<Prices />} />
+          <Route path='/courses' element={<Courses />}/>
+          <Route path='/verification' element={<Verification />} />
+          <Route path='/diary' element={<Diary />} />
+          <Route path='/notes' element={<Notes />} />
+          <Route path='/avatar' element={<Avatar />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/user_account_configuration' element={<User_account_configuration />} />
+          <Route path='/content_quiz_module' element={<Content_quiz_module />} />
+          <Route path='/interfaceclasses' element={<InterfaceClasses />} />
+          <Route path='/menu_navigate' element={<Menu_navigate />} />
+          <Route path='/menu_navigate_2' element={<Menu_navigate_2 />} />
+          <Route path='/quizzes' element={<Quizzes />} />
           <Route path="/start" element={<Start />} />
-          <Route path="/record" element={<Record />} />{/** ya */}
+          <Route path="/record" element={<Record />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/us" element={<Us />} />{/* terminar navegacion interface clases menus navigate y secciones*/}
+          <Route path="/us" element={<Us />} />
           <Route path='/chatbot' element={<Chatbot />} />
-          <Route path="/" element={<Login />} />{/** ya */}
+          <Route path="/" element={<Login />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
     </Router>

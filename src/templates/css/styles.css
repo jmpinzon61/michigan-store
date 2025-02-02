@@ -309,61 +309,61 @@ p.prices {
 }
 
 .card {
-    background-color: transparent;
-    color: #fff;
-    border: none;
+    background-color: transparent !important;
+    color: #fff !important;
+    border: none !important;
 }
 
 .btn-custom {
-    background: linear-gradient(to right, #FF688C, #FF9E5D);
-    border: none;
+    background: linear-gradient(to right, #FF688C, #FF9E5D) !important;
+    border: none !important;
     color: white !important;
-    padding: 10px 20px;
+    padding: 10px 20px !important;
     border-radius: 45px !important;
 }
 
 .btn-custom_2 {
-    background: #6D6AFB;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 40px;
+    background: #6D6AFB !important;
+    border: none !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 40px !important;
 }
 
 .faq-question {
-    background: linear-gradient(to right, #0C0433, #35217C);
-    color: #ffffff;
-    cursor: pointer;
-    box-shadow: none;
+    background: linear-gradient(to right, #0C0433, #35217C) !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
 }
 
 .accordion-button {
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
 
 /* Ocultar la flecha predeterminada de Bootstrap */
 .accordion-button:not(.collapsed) {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 .accordion-button::after {
-    display: none;
+    display: none !important;
 }
 
 /*Icono de acordion personalizado*/
 .accordion-button .fas {
-    color: #ffffff;
-    transition: transform 0.3s;
+    color: #ffffff !important;
+    transition: transform 0.3s !important;
 }
 
 /* Gira el icono cuando está expandido */
 .accordion-button:not(.collapsed) .fas {
-    transform: rotate(180deg);
+    transform: rotate(180deg) !important;
 }
 
 .accordion-body {
-    background: linear-gradient(to right, #0C0433, #35217C);
+    background: linear-gradient(to right, #0C0433, #35217C) !important;
 }
 
 .banner-container {
@@ -456,7 +456,7 @@ p.prices {
     width: 50px;
     text-align: center;
     transform-origin: bottom center;
-    display: inline-block;
+    display: inline-block ;
 }
 
 #circle:hover span {
@@ -947,6 +947,12 @@ textarea:focus+label {
     height: 200px;
     margin-left: 245px;
     color: #ffffff !important;
+}
+
+.descrption.expanded {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible;
 }
 
 .btn-primary-learning {

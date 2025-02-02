@@ -1,12 +1,14 @@
 import '../../templates/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'animate.css/animate.min.css';
 import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import { YearDisplay } from '../Year/YearDisplay';
 import { setupImageClickAnimation } from '../../templates/ts/go-up-image-jquery';
@@ -15,6 +17,7 @@ import { setupCircle } from '../../templates/ts/circle-animation';
 import { setupButtonToggle } from '../../templates/ts/toggle-botton-newsletter';
 import { initEnlaceHandler } from "../../templates/ts/link-handler";
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 
 export const Start = () => {
@@ -29,8 +32,26 @@ export const Start = () => {
 
     const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [Opensettings, setOpensettings] = useState(false);
+    const [isOpenacordion, setIsOpenacordion] = useState<boolean>(false);
+    const videoUrl = '/videos/Aprende Inglés con Michigan Master.mp4';
+    const posterUrl = 'http://localhost:5173/videos/Aprende%20Ingl%C3%A9s%20con%20Michigan%20Master.mp4';
+
+    const toggleAccordion = () => {
+        setIsOpenacordion(!isOpenacordion);
+    };
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const toggleDropdownSettings = () => {
+        setOpensettings(!Opensettings);
+    };
+
     const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault(); // Previene el comportamiento por defecto (para el formulario)
+        event.preventDefault();
         console.log("Formulario enviado");
     };
 
@@ -44,17 +65,17 @@ export const Start = () => {
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
-                        style={{ maxWidth: '100%', marginRight: '470px', marginTop: '-30px' }}>
-                        <a href="./inicio.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</a>
-                        <a href="./cursos.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</a>
-                        <a href="./precios.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</a>
-                        <a href="./nosotros.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</a>
-                        <a href="./blogs.html" className="text-white mx-4 poppins-bold enlace"
-                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</a>
+                        style={{ maxWidth: '100%', marginRight: '300px', marginTop: '-30px' }}>
+                        <Link to="/start" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Inicio</Link>
+                        <Link to="/courses" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Cursos</Link>
+                        <Link to="/prices" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Precios</Link>
+                        <Link to="/us" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Nosotros</Link>
+                        <Link to="/blogs" className="text-white mx-4 poppins-bold enlace"
+                            style={{ fontSize: '17px', textDecoration: 'none' }}>Blogs</Link>
                     </nav>
                 </div>
                 {/* Nav in Movil */}
@@ -71,24 +92,47 @@ export const Start = () => {
                     </nav>
                 </div>
                 <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
-                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50"
+                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
-                    <ul className="dropdown-menu dropdown-menu-end">
-                        <li><a className="dropdown-item text-white poppins-light mb-2" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</a></li>
+                    <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
                         <li>
-                            <hr className="dropdown-divider"></hr>
+                            <Link
+                                className="dropdown-item text-white poppins-light mb-2"
+                                to="/avatar"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Ver perfil
+                            </Link>
                         </li>
-                        <li><a className="dropdown-item text-white poppins-light" href="#"
-                            style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Cerrar sesión</a></li>
+                        <li>
+                            <Link
+                                className="dropdown-item text-white poppins-light"
+                                to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Configuración
+                            </Link>
+                        </li>
+                        <li>
+                            <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                            <Link
+                                className="dropdown-item text-white poppins-light"
+                                to="/"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                            >
+                                Cerrar sesión
+                            </Link>
+                        </li>
                     </ul>
                     <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
                         style={{ height: '50px', width: '50px' }}>
-                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown"
+                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
                             style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                            <li><a className="dropdown-item text-white poppins-light mb-2" href=""
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</a>
+                        <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show' : ''}`}>
+                            <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
                             </li>
                         </ul>
                     </div>
@@ -102,10 +146,10 @@ export const Start = () => {
                         <h1 className="champ-bold">
                             aprendes <img src="/svgs/Union.svg" style={{ verticalAlign: 'middle', width: 'auto', height: '7rem' }} alt="Ingles" />
                         </h1>
-                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh', marginTop: '50px', marginLeft: '-45px' }}>
+                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh', marginTop: '50px', marginLeft: '-25px' }}>
                             <div className="col-md-4">
-                                <div className="card-home" style={{ width: '695px', marginLeft: '260px' }}>
-                                    <img src="/images/Products Explorers.png" className="card-img-top" style={{ height: '885px', marginTop: '322px', position: 'relative', zIndex: 1 }} alt="Carta 1" />
+                                <div className="card-home" style={{ width: '695px', marginLeft: '160px' }}>
+                                    <img src="/images/Products Explorers.png" className="card-img-top" style={{ height: '885px', marginTop: '222px', position: 'relative', zIndex: 1 }} alt="Carta 1" />
                                 </div>
                             </div>
                             <div className="col-md-4">
@@ -114,8 +158,8 @@ export const Start = () => {
                                 </div>
                             </div>
                             <div className="col-md-4">
-                                <div className="card-home" style={{ width: '695px', marginLeft: '-425px' }}>
-                                    <img src="/images/Products Prismatic.png" className="card-img-top" style={{ height: '885px', marginTop: '322px', position: 'relative', zIndex: 3 }} alt="Carta 3" />
+                                <div className="card-home" style={{ width: '695px', marginLeft: '-305px' }}>
+                                    <img src="/images/Products Prismatic.png" className="card-img-top" style={{ height: '885px', marginTop: '222px', position: 'relative', zIndex: 3 }} alt="Carta 3" />
                                 </div>
                             </div>
                         </div>
@@ -131,12 +175,12 @@ export const Start = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-4">
-                                    <div className="center" style={{ marginLeft: '15px', position: 'relative', zIndex: 999 }}>
-                                        <a href="./precios.html">
+                                    <div className="center" style={{ marginLeft: '80px', position: 'relative', zIndex: 999 }}>
+                                        <Link to="/prices">
                                             <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '120px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
                                                 todos los cursos todos los cursos
                                             </button>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
@@ -155,7 +199,7 @@ export const Start = () => {
                             <div className="row">
                                 <div className="col-5">
                                     <img
-                                        style={{ width: '355px', height: '470px', marginTop: '-48px', marginRight: '-330px', position: 'relative', zIndex: 999 }}
+                                        style={{ width: '355px', height: '470px', marginTop: '-75px', marginRight: '-330px', position: 'relative', zIndex: 999 }}
                                         src="/images/Vector (3).png"
                                         alt="Figura 1"
                                     />
@@ -177,14 +221,14 @@ export const Start = () => {
                                 </div>
                                 <div className="col-6">
                                     <img
-                                        style={{ marginTop: '180px', width: '770px', height: '405.90px', marginLeft: '90px', transform: 'rotate(-10deg)' }}
+                                        style={{ marginTop: '190px', width: '710px', height: '405.90px', marginLeft: '90px', transform: 'rotate(-10deg)' }}
                                         src="/svgs/Curvatura.svg"
                                         alt="Union 1"
                                     />
                                 </div>
                                 <div className="col-5">
                                     <img
-                                        style={{ marginTop: '-395px', width: '785px', height: '408.79px', marginLeft: '-109px', transform: 'rotate(-10deg)' }}
+                                        style={{ marginTop: '-395px', width: '740px', height: '408.79px', marginLeft: '-125px', transform: 'rotate(-10deg)' }}
                                         src="/svgs/Curvatura2.svg"
                                         alt="Union 2"
                                     />
@@ -225,29 +269,22 @@ export const Start = () => {
                                                 style={{ marginLeft: '0px', height: '210px', width: '145px', marginTop: '52px' }}
                                                 alt="Person 1"
                                             />
-                                            <img
-                                                src="/images/_1.png"
-                                                style={{ position: 'relative', marginTop: '-125px', left: '7px', height: '70px', width: '70px' }}
-                                                alt="Play 1"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#modalInicioUno"
+                                            <a href={videoUrl}>
+                                                <img
+                                                    src="/images/_1.png"
+                                                    style={{ position: 'relative', marginTop: '-125px', left: '7px', height: '70px', width: '70px' }}
+                                                    alt="Play 1"
+                                                />
+                                            </a>
+                                            <ReactPlayer
+                                                style={{ visibility: 'hidden' }}
+                                                url={videoUrl}
+                                                controls
+                                                width="100%"
+                                                height="auto"
+                                                light={posterUrl}
+                                                onError={(e) => console.error('Error loading video:', e)}
                                             />
-                                            <div className="modal fade" id="modalInicioUno" tabIndex={-1} aria-labelledby="videoModalLabelQuienesSomos" aria-hidden="true">
-                                                <div className="modal-dialog modal-dialog-centered modal-lg">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title poppins-light" id=" videoModalLabelQuienesSomos">Content</h5>
-                                                            <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <video width="100%" height="400" controls>
-                                                                <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                                Tu navegador no soporta la reproducción de video.
-                                                            </video>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -255,20 +292,22 @@ export const Start = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="card-custom_4" style={{ marginLeft: '950px' }}>
-                            <div className="card-body" style={{ marginTop: '-275px' }}>
+                        <div className="card-custom_4" style={{ marginLeft: '880px' }}>
+                            <div className="card-body" style={{ marginTop: '-295px' }}>
                                 <img
                                     src="/images/Person_2.png"
                                     style={{ marginLeft: '0px', height: '210px', width: '145px', marginTop: '52px' }}
                                     alt="Person 2"
                                 />
-                                <img
-                                    src="/images/_2.png"
-                                    style={{ position: 'relative', marginTop: '-125px', left: '15px', height: '70px', width: '70px' }}
-                                    alt="Play 2"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalInicioDos"
-                                />
+                                <a href={videoUrl}>
+                                    <img
+                                        src="/images/_2.png"
+                                        style={{ position: 'relative', marginTop: '-125px', left: '15px', height: '70px', width: '70px' }}
+                                        alt="Play 2"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalInicioDos"
+                                    />
+                                </a>
                                 <div className="modal fade" id="modalInicioDos" tabIndex={-1} aria-labelledby="videoModalLabelQuienesSomos" aria-hidden="true">
                                     <div className="modal-dialog modal-dialog-centered modal-lg">
                                         <div className="modal-content">
@@ -293,20 +332,22 @@ export const Start = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="card-custom_5" style={{ marginLeft: '1085px' }}>
+                        <div className="card-custom_5" style={{ marginLeft: '1010px' }}>
                             <div className="card-body" style={{ marginTop: '-275px' }}>
                                 <img
                                     src="/images/Person_3.png"
                                     style={{ marginLeft: '0px', height: '210px', width: '145px', marginTop: '52px' }}
                                     alt="Person 3"
                                 />
-                                <img
-                                    src="/images/_3.png"
-                                    style={{ position: 'relative', marginTop: '-125px', left: '9px', height: '70px', width: '70px' }}
-                                    alt="Play 3"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalInicioTres"
-                                />
+                                <a href={videoUrl}>
+                                    <img
+                                        src="/images/_3.png"
+                                        style={{ position: 'relative', marginTop: '-125px', left: '9px', height: '70px', width: '70px' }}
+                                        alt="Play 3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalInicioTres"
+                                    />
+                                </a>
                                 <div className="modal fade" id="modalInicioTres" tabIndex={-1} aria-labelledby="videoModalLabelQuienesSomos" aria-hidden="true">
                                     <div className="modal-dialog modal-dialog-centered modal-lg">
                                         <div className="modal-content">
@@ -348,30 +389,30 @@ export const Start = () => {
                                     left: 0,
                                     right: 0,
                                     bottom: 0,
-                                    display: 'none', 
-                                    height: '0', 
-                                    opacity: 0, 
-                                    justifyContent: 'center', 
-                                    alignItems: 'center', 
-                                    overflow: 'hidden', 
+                                    display: 'none',
+                                    height: '0',
+                                    opacity: 0,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    overflow: 'hidden',
                                 }}>
                                     <p className="poppins-light overflow-animation" style={{
                                         color: '#ffffff',
                                         padding: '10px',
-                                        textAlign: 'center', 
-                                        margin: 0, 
+                                        textAlign: 'center',
+                                        margin: 0,
                                         maxHeight: '80%',
-                                        overflowY: 'auto', 
+                                        overflowY: 'auto',
                                     }}>
                                         Es una experiencia de aprendizaje colorida que se desarrolla a través de "situaciones comunicativas", desde hacer check-in en un hotel hasta discutir arte e historia. Este programa de 3 módulos (Primary, Secondary y Tertiary) ofrece una experiencia educativa única y vibrante.
                                     </p>
                                 </div>
                             </div>
-                                <img
-                                    src="/images/name_1.png" 
-                                    style={{ position: 'absolute', marginTop: '-80px', left: '15px', height: '75px', width: '190px' }}
-                                    alt="Name_1"
-                                />
+                            <img
+                                src="/images/name_1.png"
+                                style={{ position: 'absolute', marginTop: '-80px', left: '15px', height: '75px', width: '190px' }}
+                                alt="Name_1"
+                            />
                         </div>
                         <div className="card-course_2" id="card2">
                             <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
@@ -380,38 +421,38 @@ export const Start = () => {
                                     style={{ width: '220px', height: '384px', marginLeft: '-2px' }}
                                     alt="Card-course_2"
                                 />
-                                <div className="overlay" style={{ 
-                                    background: 'linear-gradient(180deg, #72eec8, #00f1e7)', 
+                                <div className="overlay" style={{
+                                    background: 'linear-gradient(180deg, #72eec8, #00f1e7)',
                                     position: 'absolute',
                                     zIndex: 5,
                                     top: 0,
                                     left: 0,
                                     right: 0,
                                     bottom: 0,
-                                    display: 'none', 
-                                    height: '0', 
-                                    opacity: 0, 
-                                    justifyContent: 'center', 
-                                    alignItems: 'center', 
+                                    display: 'none',
+                                    height: '0',
+                                    opacity: 0,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                     overflow: 'hidden',
-                                    }}>
+                                }}>
                                     <p className="poppins-light overflow-animation" style={{
-                                       color: '#ffffff',
-                                       padding: '10px',
-                                       textAlign: 'center', 
-                                       margin: 0, 
-                                       maxHeight: '80%',
-                                       overflowY: 'auto',  
+                                        color: '#ffffff',
+                                        padding: '10px',
+                                        textAlign: 'center',
+                                        margin: 0,
+                                        maxHeight: '80%',
+                                        overflowY: 'auto',
                                     }}>
                                         En este programa se exploran los secretos de los tiempos verbales en inglés a través de un enfoque teórico. Compuesto por 13 video sessions distribuidas en 5 módulos, brinda una visión más profunda y estructurada para construir una base sólida en la gramática inglesa.
                                     </p>
                                 </div>
                             </div>
-                                <img
-                                    src="/images/name_2.png"
-                                    style={{ position: 'relative', marginTop: '-117px', left: '15px', height: '75px', width: '190px' }}
-                                    alt="Name_2"
-                                />
+                            <img
+                                src="/images/name_2.png"
+                                style={{ position: 'relative', marginTop: '-117px', left: '15px', height: '75px', width: '190px' }}
+                                alt="Name_2"
+                            />
                         </div>
                         <div className="card-course_3" id="card3">
                             <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
@@ -420,7 +461,7 @@ export const Start = () => {
                                     style={{ width: '220px', height: '384px', marginLeft: '-2px' }}
                                     alt="Card-course_3"
                                 />
-                                <div className="overlay" style={{ 
+                                <div className="overlay" style={{
                                     background: 'linear-gradient(180deg, #0d9bf3, #0708f3)',
                                     position: 'absolute',
                                     zIndex: 5,
@@ -428,30 +469,30 @@ export const Start = () => {
                                     left: 0,
                                     right: 0,
                                     bottom: 0,
-                                    display: 'none', 
-                                    height: '0', 
-                                    opacity: 0, 
-                                    justifyContent: 'center', 
-                                    alignItems: 'center', 
+                                    display: 'none',
+                                    height: '0',
+                                    opacity: 0,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                     overflow: 'hidden'
-                                    }}>
-                                    <p className="poppins-light overflow-animation"style={{
-                                       color: '#ffffff',
-                                       padding: '10px',
-                                       textAlign: 'center', 
-                                       margin: 0, 
-                                       maxHeight: '80%',
-                                       overflowY: 'auto',  
+                                }}>
+                                    <p className="poppins-light overflow-animation" style={{
+                                        color: '#ffffff',
+                                        padding: '10px',
+                                        textAlign: 'center',
+                                        margin: 0,
+                                        maxHeight: '80%',
+                                        overflowY: 'auto',
                                     }}>
                                         Diseñado para niños en la primera infancia, este programa ilustrado y colorido actúa como una guía divertida para crear bases comunicativas sólidas mientras disfrutan del proceso de aprendizaje del idioma.
                                     </p>
                                 </div>
                             </div>
-                                <img
-                                    src="/images/name_3.png"
-                                    style={{ position: 'relative', marginTop: '-117px', left: '10px', height: '130px', width: '200px' }}
-                                    alt="Name_3"
-                                />
+                            <img
+                                src="/images/name_3.png"
+                                style={{ position: 'relative', marginTop: '-117px', left: '10px', height: '130px', width: '200px' }}
+                                alt="Name_3"
+                            />
                         </div>
                         <div className="card-course_4" id="card4">
                             <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
@@ -460,7 +501,7 @@ export const Start = () => {
                                     style={{ width: '220px', height: '384px', borderRadius: '10px', marginLeft: '1px' }}
                                     alt="Card-course_4"
                                 />
-                                <div className="overlay" style={{ 
+                                <div className="overlay" style={{
                                     background: 'linear-gradient(180deg, #fe7dbb, #e20737)',
                                     position: 'absolute',
                                     zIndex: 5,
@@ -468,30 +509,30 @@ export const Start = () => {
                                     left: 0,
                                     right: 0,
                                     bottom: 0,
-                                    display: 'none', 
-                                    height: '0', 
-                                    opacity: 0, 
-                                    justifyContent: 'center', 
-                                    alignItems: 'center', 
+                                    display: 'none',
+                                    height: '0',
+                                    opacity: 0,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                     overflow: 'hidden'
-                                    }}>
+                                }}>
                                     <p className="poppins-light overflow-animation" style={{
-                                       color: '#ffffff',
-                                       padding: '10px',
-                                       textAlign: 'center', 
-                                       margin: 0, 
-                                       maxHeight: '80%',
-                                       overflowY: 'auto',  
+                                        color: '#ffffff',
+                                        padding: '10px',
+                                        textAlign: 'center',
+                                        margin: 0,
+                                        maxHeight: '80%',
+                                        overflowY: 'auto',
                                     }}>
                                         Con 4 niveles (A1, A2, B1 y B2), este programa cuenta con un enfoque comunicativo. A través de conversaciones de la vida diaria, brinda la posibilidad de familiarizarse con el uso real de la lengua. Abroad ofrece una serie de herramientas para desarrollar habilidades de producción oral y escrita prestando especial atención a los rasgos fonéticos de la lengua y a la importancia de la autoevaluación en el proceso de aprendizaje.
                                     </p>
                                 </div>
                             </div>
-                                <img
-                                    src="/images/name_4.png"
-                                    style={{ position: 'relative', marginTop: '-150px', left: '10px', height: '205px', width: '210px' }}
-                                    alt="Name_4"
-                                />
+                            <img
+                                src="/images/name_4.png"
+                                style={{ position: 'relative', marginTop: '-150px', left: '10px', height: '205px', width: '210px' }}
+                                alt="Name_4"
+                            />
                         </div>
                     </div>
                 </section>
@@ -507,12 +548,12 @@ export const Start = () => {
                             <div className="row" style={{ marginLeft: '-35px' }}>
                                 <div className="d-none d-lg-flex">
                                     <section className="rounded rounded-5 p-0 col-md-6 gradient-section"
-                                        style={{ marginRight: '0px', width: '225px', height: '470px', borderRadius: '45px', marginLeft: '190px' }}>
+                                        style={{ marginRight: '0px', width: '225px', height: '490px', borderRadius: '45px', marginLeft: '190px' }}>
                                         <img src="/svgs/Frame 1000001569.svg" alt="UpColors"
                                             style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
                                     </section>
                                     <section className="rounded rounded-5 p-2 col-md-6 gradient-section"
-                                        style={{ marginRight: '25px', width: '420px', height: '470px' }}>
+                                        style={{ marginRight: '25px', width: '420px', height: '490px' }}>
                                         <div className="row">
                                             <div className="col text-start">
                                                 <h2 className="champ-bold text-white ms-4"
@@ -533,7 +574,7 @@ export const Start = () => {
                                                     <div className="row">
                                                         <div className="col-7">
                                                             <h3 className="fs-6 champ-semibold"
-                                                                style={{ marginLeft: '60px', transform: 'translateY(-5px)' }}>Full
+                                                                style={{ marginLeft: '60px', transform: 'translateY(-15px)' }}>Full
                                                                 <span className="bi bi-patch-check-fill"
                                                                     style={{
                                                                         color: '#00cdff',
@@ -549,30 +590,30 @@ export const Start = () => {
                                                             </h3>
                                                             <ol>
                                                                 <p className="fas fa-check"
-                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-15px)' }}>
+                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-25px)' }}>
                                                                     <span className="poppins-light text-white"
                                                                         style={{ fontSize: '12px', marginLeft: '5px', transform: 'translateY(-20px)' }}>Acceso
                                                                         a
                                                                         los 4 módulos</span>
                                                                 </p>
                                                                 <p className="fas fa-check"
-                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-20px)' }}>
+                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-25px)' }}>
                                                                     <span className="poppins-light text-white"
-                                                                        style={{ fontSize: '12px', marginLeft: '5px', transform: 'translateY(-20px)' }}>¡Ve
+                                                                        style={{ fontSize: '12px', marginLeft: '5px', transform: 'translateY(-60px)' }}>¡Ve
                                                                         a tu
                                                                         ritmo!, visualiza upColors en el tiempo que mejor se
                                                                         adapte a tu
                                                                         aprendizaje.</span>
                                                                 </p>
                                                                 <p className="fas fa-check"
-                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-30px)' }}>
+                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-35px)' }}>
                                                                     <span className="poppins-light text-white"
                                                                         style={{ fontSize: '12px', marginLeft: '5px', transform: 'translateY(-30px)' }}>4
                                                                         sesiones
                                                                         en vivo.</span>
                                                                 </p>
                                                                 <p className="fas fa-check"
-                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-40px)' }}>
+                                                                    style={{ fontSize: '12px', color: '#04baff', transform: 'translateY(-50px)' }}>
                                                                     <span className="poppins-light text-white"
                                                                         style={{ fontSize: '12px', marginLeft: '5px', transform: 'translateY(-40px)' }}>Recibe
                                                                         certificación de curso.</span>
@@ -597,7 +638,7 @@ export const Start = () => {
                                                                         {/* <sub>USD</sub>  */}
                                                                     </span>
                                                                 </span>
-                                                                <a href="./checkout.html" style={{ color: 'inherit' }}>
+                                                                <Link to="/checkout" style={{ color: 'inherit' }}>
                                                                     <button
                                                                         className="button-purple rounded-pill px-4 py-1 champ-semibold text-center bi-cart-plus"
                                                                         style={{
@@ -611,7 +652,7 @@ export const Start = () => {
                                                                             position: 'relative'
                                                                         }}>
                                                                         comprar</button>
-                                                                </a>
+                                                                </Link>
                                                             </div>
                                                         </div>
                                                         <div className="d-flex"
@@ -640,7 +681,7 @@ export const Start = () => {
                                                                     style={{ marginLeft: '45px', fontSize: '11px' }}>
                                                                     8.10 $</p>
                                                                 <div className="d-flex ms-auto" style={{ marginLeft: '-2px' }}>
-                                                                    <a href="./checkout.html" style={{ color: 'inherit' }}>
+                                                                    <Link to="/checkout" style={{ color: 'inherit' }}>
                                                                         <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                             style={{
                                                                                 marginTop: '-4px',
@@ -655,7 +696,7 @@ export const Start = () => {
                                                                             }}>
                                                                             comprar
                                                                         </button>
-                                                                    </a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -675,7 +716,7 @@ export const Start = () => {
                                                                     style={{ marginLeft: '50px', fontSize: '11px' }}>
                                                                     8.10 $</p>
                                                                 <div className="d-flex ms-auto" style={{ marginLeft: '-2px' }}>
-                                                                    <a href="./checkout.html" style={{ color: 'inherit' }}>
+                                                                    <Link to="/checkout" style={{ color: 'inherit' }}>
                                                                         <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                             style={{
                                                                                 marginTop: '-7px',
@@ -690,7 +731,7 @@ export const Start = () => {
                                                                             }}>
                                                                             comprar
                                                                         </button>
-                                                                    </a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -710,7 +751,7 @@ export const Start = () => {
                                                                     style={{ marginLeft: '54px', fontSize: '11px' }}>
                                                                     10.8 $</p>
                                                                 <div className="d-flex ms-auto" style={{ marginRight: '-2px' }}>
-                                                                    <a href="./checkout.html" style={{ color: 'inherit' }}>
+                                                                    <Link to="/checkout" style={{ color: 'inherit' }}>
                                                                         <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                             style={{
                                                                                 marginTop: '-7px',
@@ -725,7 +766,7 @@ export const Start = () => {
                                                                             }}>
                                                                             comprar
                                                                         </button>
-                                                                    </a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -745,7 +786,7 @@ export const Start = () => {
                                                                     style={{ marginLeft: '54px', fontSize: '11px' }}>
                                                                     10.8 $</p>
                                                                 <div className="d-flex ms-auto" style={{ marginRight: '-2px' }}>
-                                                                    <a href="./checkout.html" style={{ color: 'inherit' }}>
+                                                                    <Link to="/checkout" style={{ color: 'inherit' }}>
                                                                         <button className="btn p-0 ms-4 bi-cart-plus poppins-light"
                                                                             style={{
                                                                                 marginTop: '-7px',
@@ -760,7 +801,7 @@ export const Start = () => {
                                                                             }}>
                                                                             comprar
                                                                         </button>
-                                                                    </a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -796,11 +837,11 @@ export const Start = () => {
                                                     Con tu membresia, accede libremente a todo el
                                                     contenido que UpGrade tiene para ti, además
                                                     recibe beneficios exclusivos por 30 días.
-                                                    </span>
+                                                </span>
                                             </p>
                                         </div>
                                         <div className="d-flex col-7 ms-1" style={{ marginTop: '-40px' }}>
-                                            <ol className="px-0 text-white" style={{ marginLeft: '-50px' }}>
+                                            <ol className="px-0 text-white" style={{ marginLeft: '-15px' }}>
                                                 <p className="fas fa-check "
                                                     style={{
                                                         listStyle: 'none',
@@ -850,7 +891,7 @@ export const Start = () => {
                                             </span>
                                         </div>
                                         <div className="d-flex justify-content-center align-items-center">
-                                            <a href="./checkout.html" style={{ color: 'inherit' }}>
+                                            <Link to="/checkout" style={{ color: 'inherit' }}>
                                                 <button className="btn rounded-pill py-2 text-white fs-6 poppins-light bi-cart-plus"
                                                     style={{
                                                         backgroundColor: '#7955f8',
@@ -860,7 +901,7 @@ export const Start = () => {
                                                         marginLeft: '180px'
                                                     }}>
                                                     comprar</button>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </section>
                                 </div>
@@ -920,7 +961,7 @@ export const Start = () => {
                                 </div>
                                 <span className="poppins-light text-start"
                                     style={{
-                                        marginLeft: '-230px',
+                                        marginLeft: '-180px',
                                         fontSize: '25px'
                                     }}>Preguntas</span>
                                 <p className="poppins-light text-start"
@@ -937,7 +978,7 @@ export const Start = () => {
                                         width: '295px',
                                         lineHeight: '5px',
                                         transform: 'translateY(-8px)',
-                                        marginLeft: '-60px'
+                                        marginLeft: '-20px'
                                     }}>
                                     dejar una pregunta
                                 </button>
@@ -946,8 +987,7 @@ export const Start = () => {
                                 <div className="accordion" id="faqAccordion">
                                     <div className="accordion-item">
                                         <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq1">
+                                            <button className="accordion-button faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
                                                 <span style={{ color: '#ffffff' }}>
                                                     <strong className="mx-2"
                                                         style={{
@@ -957,7 +997,7 @@ export const Start = () => {
                                                         }}>01</strong>¿Qué
                                                     es UpGrade?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq1" className="accordion-collapse collapse">
@@ -986,7 +1026,7 @@ export const Start = () => {
                                                     funciona el
                                                     programa?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq2" className="accordion-collapse collapse">
@@ -1013,7 +1053,7 @@ export const Start = () => {
                                                     incluyen
                                                     mis cursos?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq3" className="accordion-collapse collapse">
@@ -1041,7 +1081,7 @@ export const Start = () => {
                                                     voy a
                                                     aprender?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq4" className="accordion-collapse collapse">
@@ -1067,7 +1107,7 @@ export const Start = () => {
                                                     puedo
                                                     suscribirme?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq5" className="accordion-collapse collapse">
@@ -1093,7 +1133,7 @@ export const Start = () => {
                                                     un
                                                     nivel en el idioma para poder tomar las clases?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq6" className="accordion-collapse collapse">
@@ -1119,7 +1159,7 @@ export const Start = () => {
                                                     niveles
                                                     Michigan's Store?
                                                 </span>
-                                                <i className="fas fa-chevron-down" id="icon-faq1"></i>
+                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
                                             </button>
                                         </h2>
                                         <div id="faq7" className="accordion-collapse collapse">
@@ -1145,30 +1185,30 @@ export const Start = () => {
                                         color: 'transparent'
                                     }}>¡Regístrate
                                     a nuestro newsletter!</span></h3>
-                                <ol className="text-start" style={{ width: '410px'}}>
-                                        <div style={{display: 'block' }}>
-                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
-                                            <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso
-                                                a los 4 módulos</span>
-                                        </div>
-                                        <div style={{display: 'block' }}>
-                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
-                                            <span className="poppins-light text-white text-start"
-                                                style={{ fontSize: '15px', marginLeft: '5px' }}>¡Ve a tu
-                                                ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
-                                                aprendizaje.</span>
-                                        </div>
-                                        <div style={{display: 'block' }}>
-                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
-                                            <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>4
+                                <ol className="text-start" style={{ width: '410px' }}>
+                                    <div style={{ display: 'block' }}>
+                                        <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                        <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Acceso
+                                            a los 4 módulos</span>
+                                    </div>
+                                    <div style={{ display: 'block' }}>
+                                        <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                        <span className="poppins-light text-white text-start"
+                                            style={{ fontSize: '15px', marginLeft: '5px' }}>¡Ve a tu
+                                            ritmo!, visualiza upColors en el tiempo que mejor se adapte a tu
+                                            aprendizaje.</span>
+                                    </div>
+                                    <div style={{ display: 'block' }}>
+                                        <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                        <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>4
                                             sesiones
                                             en vivo.</span>
-                                        </div>
-                                        <div style={{display: 'block' }}>
-                                            <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
-                                            <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Recibe
+                                    </div>
+                                    <div style={{ display: 'block' }}>
+                                        <FontAwesomeIcon icon={faCheck} style={{ fontSize: '15px', color: '#FF3E62' }} />
+                                        <span className="poppins-light text-white" style={{ fontSize: '15px', marginLeft: '5px' }}>Recibe
                                             certificación de curso.</span>
-                                        </div>
+                                    </div>
                                 </ol>
                             </div>
                             <div className="col-10">
@@ -1186,7 +1226,7 @@ export const Start = () => {
                                             color: '#ffffff'
                                         }}
                                         placeholder="¡Ingresa tu correo!" />
-                                    <button type="submit" className="btn btn-email ms-2"  style={{ cursor: 'pointer', borderRadius: '45px' }}
+                                    <button type="submit" className="btn btn-email ms-2" style={{ cursor: 'pointer', borderRadius: '45px' }}
                                         id="toggleButton" data-state="plane">
                                         <FontAwesomeIcon icon={faPaperPlane} style={{ fontSize: '25px', marginLeft: '-2px' }} />
                                         <FontAwesomeIcon icon={faCheck} className="icon-clicked" style={{ fontSize: '25px', marginLeft: '-6px', color: '#04011D' }} />
@@ -1220,7 +1260,7 @@ export const Start = () => {
                         <div className="col">
                             <p className="poppins-light" style={{ fontSize: '15px', color: '#a9aeeb', marginLeft: '-50px' }}>Privacity
                                 Policy - Terms & Agreements</p>
-                                <YearDisplay onYearChange={setcurrentYear}/>
+                            <YearDisplay onYearChange={setcurrentYear} />
                             <p className="poppins-light"
                                 style={{ fontSize: '15px', color: '#a9aeeb', marginTop: '-15px', marginLeft: '55px' }}>@{currentYear} Michigan's
                                 Store</p>

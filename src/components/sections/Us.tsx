@@ -1,8 +1,5 @@
 import '../../templates/css/styles.css';
-import '../../templates/css/styles-nosotros.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import '../../templates/css/styles.css'
 import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,12 +9,12 @@ import { useEffect, useRef, useState } from 'react';
 import { YearDisplay } from '../Year/YearDisplay';
 import { Chatbot } from '../chat/Chatbot';
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 
 
 export const Us = () => {
 
-    const [modalOpen, setModalOpen] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
     const [isChatbotOpen, setIsChatbotOpen] = useState(false);
@@ -26,6 +23,8 @@ export const Us = () => {
     const [selectedOption, setSelectedOption] = useState<string>('opcion2');
     const [isOpen, setIsOpen] = useState(false);
     const [Opensettings, setOpensettings] = useState(false);
+    const videoUrl = '/videos/Aprende Inglés con Michigan Master.mp4';
+    const posterUrl = 'http://localhost:5173/videos/Aprende%20Ingl%C3%A9s%20con%20Michigan%20Master.mp4';
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -38,16 +37,6 @@ export const Us = () => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedOption(e.target.value);
     };
-
-
-    const openModal = (modalId: string) => {
-        setModalOpen(modalId);
-    };
-
-    const closeModal = () => {
-        setModalOpen(null);
-    };
-
 
     const openChatbot = () => {
         setIsChatbotOpen((prev) => !prev);
@@ -101,9 +90,15 @@ export const Us = () => {
                 <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
                     <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
                         data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
-                      <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
-                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/avatar" 
+                    <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
+                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/avatar"
                             style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Ver perfil</Link></li>
+                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/interfaceclasses"
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Clases</Link></li>
+                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/menu_navigate"
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Menu rutas uno</Link></li>
+                        <li><Link className="dropdown-item text-white poppins-light mb-2" to="/menu_navigate_2"
+                            style={{ backgroundColor: ' #7955f8', fontSize: 'small', borderRadius: '25px' }}>Menu rutas dos</Link></li>
                         <li>
                             <hr className="dropdown-divider"></hr>
                         </li>
@@ -132,7 +127,7 @@ export const Us = () => {
                     <div className="row justify-content-center align-items-center mt-4" style={{ height: '799px', position: 'relative', maxWidth: '1750px' }}>
                         <div className="col-md-6" style={{ marginLeft: '-650px' }}>
                             <img src="/images/cuadricula.png" style={{ position: 'relative', zIndex: 0, height: '510px', width: '100%', marginLeft: '200px' }} alt="Personas con gafas VR" className="img-fluid" />
-                            <img src="/images/sombra.png" style={{ position: 'absolute', zIndex: 1, height: '999px', width: '100vw', maxWidth: '100%', marginLeft: '-545px', marginTop: '-885px' }} alt="Personas con gafas VR" className="img-fluid" />
+                            <img src="/images/sombra.png" style={{ display: 'block', position: 'absolute', top: '0', left: '0', right: '0', zIndex: 1, width: '100%', height: 'auto', objectFit: 'cover', marginTop: '-220px' }} alt="Personas con gafas VR" className="img-fluid" />
                             <img src="/images/circunferencia.png" style={{ position: 'absolute', zIndex: 2, height: '610px', width: '550px', marginLeft: '30px', marginTop: '-335px' }} alt="Personas con gafas VR" className="img-fluid" />
                             <img src="/images/persons.png" style={{ position: 'absolute', zIndex: 3, height: '510px', width: '650px', marginLeft: '-50px', marginTop: '-390px' }} alt="Personas con gafas VR" className="img-fluid" />
                             <img src="/images/CHATBOT.png" style={{ position: 'absolute', zIndex: 4, height: '136px', width: '121px', marginLeft: '787px', marginTop: '-140px' }} alt="Personas con gafas VR" className="img-fluid" onClick={openChatbot} onMouseEnter={() => setshowTooltip(true)} onMouseLeave={() => setshowTooltip(false)} />
@@ -246,39 +241,32 @@ export const Us = () => {
                 <section className="text-white mt-5" style={{ width: '100vw' }}>
                     <div className="d-flex flex-row">
                         <div className="col" style={{ marginLeft: '85px' }}>
-                            <img
-                                src="/images/Quienes-somos.png"
-                                style={{
-                                    height: '135px',
-                                    width: '135px',
-                                    position: 'relative',
-                                    zIndex: 175,
-                                    marginLeft: '595px',
-                                    marginTop: '260px',
-                                    maxWidth: '200px',
-                                    transform: 'translateY(55px)'
-                                }}
-                                alt="Dr. Jorge Franco"
-                                className="rounded-circle img-fluid"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalQuienesSomos"
+                            <a href={videoUrl}>
+                                <img
+                                    src="/images/Quienes-somos.png"
+                                    alt="Dr. Jorge Franco"
+                                    style={{
+                                        height: '135px',
+                                        width: '135px',
+                                        position: 'relative',
+                                        zIndex: 175,
+                                        marginLeft: '595px',
+                                        marginTop: '260px',
+                                        maxWidth: '200px',
+                                        transform: 'translateY(55px)',
+                                        cursor: 'pointer',
+                                    }}
+                                    className="rounded-circle img-fluid"
+                                />
+                            </a>
+                            <ReactPlayer
+                                url={videoUrl}
+                                controls
+                                width="100%"
+                                height="auto"
+                                light={posterUrl}
+                                onError={(e) => console.error('Error loading video:', e)}
                             />
-                            <div className="modal fade" id="modalQuienesSomos" tabIndex={-1} aria-labelledby="videoModalLabelQuienesSomos" aria-hidden="true">
-                                <div className="modal-dialog modal-dialog-centered modal-lg">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title poppins-light" id="videoModalLabelQuienesSomos">Content</h5>
-                                            <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <video width="100%" height="400" controls>
-                                                <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                Tu navegador no soporta la reproducción de video.
-                                            </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div className="card" style={{ position: 'relative', zIndex: 60, height: '375px', width: '585px', marginTop: '-285px', marginLeft: '90px', borderRadius: '25px' }}>
                                 <div className="card-body" style={{ height: '395px', width: '398px' }}>
                                     {/* Contenido de la tarjeta */}
@@ -290,8 +278,8 @@ export const Us = () => {
                             <img src="/images/bombillo.png" style={{ position: 'relative', zIndex: 5, marginTop: '400px', marginLeft: '-1205px', transform: 'translateX(-515px)' }} alt="luz-font" />
                         </div>
                     </div>
-                    <div className="col" style={{ marginLeft: '190px', marginBottom: '135px' }}>
-                        <p className="text-center fs-4 poppins-bold" style={{ position: 'relative', zIndex: 7, marginTop: '-1775px', marginLeft: '40px', display: 'block' }}>Filosofía institucional</p>
+                    <div className="col" style={{ marginTop: '60px', marginLeft: '190px', marginBottom: '135px' }}>
+                        <p className="text-center fs-4 poppins-bold" style={{ position: 'relative', zIndex: 7, marginTop: '-1775px', marginLeft: '295px', display: 'block' }}>Filosofía institucional</p>
                         <p className="text-start poppins-light" style={{ width: '500px', position: 'relative', zIndex: 8, marginLeft: '640px' }}>
                             MICHIGAN MASTER S.A.S. está comprometida con una educación de excelente calidad a nivel local, nacional y a escala internacional, que propende por el desarrollo integral y diverso del ser humano en los ámbitos individual, social, laboral y cultural. A su vez, es capaz de contribuir a la transformación de su entorno social, enfocado en la capacidad de trascender las fronteras sociales, religiosas, filosóficas y económicas, para posicionarse como un agente de cambio, competente y dinamizador, en el respeto, la integridad, la confianza, la aceptación y la promoción de la diversidad cultural.
                         </p>
@@ -326,7 +314,7 @@ export const Us = () => {
                         </div>
                         <div className="col" style={{ marginTop: '110px', marginLeft: '-550px' }}>
                             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="false">
-                                <div className="carousel-indicators" style={{ margin: '0px 420px 45px 85px' }}>
+                                <div className="d-flex justify-content-center carousel-indicators" style={{ margin: '0px 160px 45px 85px' }}>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active rounded-circle me-2" style={{ width: '10px', height: '10px' }} aria-current="true" aria-label="Slide 1"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" className="rounded-circle" style={{ width: '10px', height: '10px' }} aria-label="Slide 2"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" className="rounded-circle ms-2" style={{ width: '10px', height: '10px' }} aria-label="Slide 3"></button>
@@ -335,78 +323,25 @@ export const Us = () => {
                                     <div className="carousel-item active" style={{ marginTop: '-45px', height: '450px', marginLeft: '-15px' }}>
                                         <div style={{ background: '#fe706d', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '180px', position: 'absolute', zIndex: 2, marginTop: '55px' }}>
                                             <img src="/images/person-nosotros-1.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
-                                            <img src="/images/_3.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'relative', zIndex: 4 }} className="d-flex" alt="..." onClick={() => openModal('videoModal1')} />
+                                            <a href={videoUrl}>
+                                                <img src="/images/_3.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'relative', zIndex: 4 }} className="d-flex" alt="..." />
+                                            </a>
                                         </div>
                                     </div>
-                                    {/* Primer Modal */}
-                                    {modalOpen === 'videoModal1' && (
-                                        <div className="modal fade show" style={{ display: 'block', zIndex: 1050 }} tabIndex={-1} aria-labelledby="videoModalLabel1" aria-hidden="false">
-                                            <div className="modal-dialog modal-dialog-centered modal-lg">
-                                                <div className="modal-content">
-                                                    <div className="modal-header">
-                                                        <h5 className="modal-title poppins-light" id="videoModalLabel1">Content</h5>
-                                                        <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} onClick={closeModal} aria-label="Close"></button>
-                                                    </div>
-                                                    <div className="modal-body">
-                                                        <video width="100%" height="400" controls>
-                                                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                            Tu navegador no soporta la reproducción de video.
-                                                        </video>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Segundo Modal */}
-                                    {modalOpen === 'videoModal2' && (
-                                        <div className="modal fade show" style={{ display: 'block', zIndex: 1050 }} tabIndex={-1} aria-labelledby="videoModalLabel2" aria-hidden="false">
-                                            <div className="modal-dialog modal-dialog-centered modal-lg">
-                                                <div className="modal-content">
-                                                    <div className="modal-header">
-                                                        <h5 className="modal-title poppins-light" id="videoModalLabel2">Content</h5>
-                                                        <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} onClick={closeModal} aria-label="Close"></button>
-                                                    </div>
-                                                    <div className="modal-body">
-                                                        <video width="100%" height="400" controls>
-                                                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                            Tu navegador no soporta la reproducción de video.
-                                                        </video>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Tercer Modal */}
-                                    {modalOpen === 'videoModal3' && (
-                                        <div className="modal fade show" style={{ display: 'block', zIndex: 1050 }} tabIndex={-1} aria-labelledby="videoModalLabel3" aria-hidden="false">
-                                            <div className="modal-dialog modal-dialog-centered modal-lg">
-                                                <div className="modal-content">
-                                                    <div className="modal-header">
-                                                        <h5 className="modal-title poppins-light" id="videoModalLabel3">Content</h5>
-                                                        <button type="button" className="btn-close" style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} onClick={closeModal} aria-label="Close"></button>
-                                                    </div>
-                                                    <div className="modal-body">
-                                                        <video width="100%" height="400" controls>
-                                                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                                                            Tu navegador no soporta la reproducción de video.
-                                                        </video>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
                                     <div className="carousel-item" style={{ marginTop: '-45px', height: '450px', marginLeft: '105px' }}>
                                         <div style={{ background: '#69e4cc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '55px' }}>
                                             <img src="/images/person-nosotros-2.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
-                                            <img src="/images/_1.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." onClick={() => openModal('videoModal2')} />
+                                            <a href={videoUrl}>
+                                                <img src="/images/_1.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." />
+                                            </a>
                                         </div>
                                     </div>
                                     <div className="carousel-item" style={{ marginTop: '-45px', height: '450px', marginLeft: '105px' }}>
                                         <div style={{ background: '#637dfc', borderRadius: '50%', width: '290px', height: '290px', marginLeft: '80px', position: 'absolute', zIndex: 2, marginTop: '55px' }}>
                                             <img src="/images/person-nosotros-3.png" style={{ width: '220px', height: '270px', marginLeft: '80px', marginTop: '10px', position: 'relative', zIndex: 3 }} className="d-flex" alt="..." />
-                                            <img src="/images/_2.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." onClick={() => openModal('videoModal3')} />
+                                            <a href={videoUrl}>
+                                                <img src="/images/_2.png" style={{ height: '69px', width: '69px', marginTop: '-80px', marginLeft: '120px', position: 'absolute', zIndex: 4 }} className="d-flex" alt="..." />
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -453,7 +388,7 @@ export const Us = () => {
                                 <div className="col-md-12">
                                     <select
                                         className="form-select form-control-final-section text-white text-center poppins-light"
-                                        value={selectedOption} 
+                                        value={selectedOption}
                                         onChange={handleChange}
                                         style={{ height: '50px', width: '640px', boxShadow: 'none', border: 'none', textAlign: 'center' }}
                                     >
