@@ -293,7 +293,7 @@ p.prices {
 
 .faq-section {
     background: linear-gradient(to right, #0C0433, #35217C);
-    padding: 40px;
+    padding: 40px !important;
     height: 990px;
     width: 100vw;
     margin-left: -30px;
@@ -340,6 +340,8 @@ p.prices {
 .accordion-button {
     justify-content: space-between !important;
     align-items: center !important;
+    color: #6616e6 !important;
+    background-color: #160033 !important;
 }
 
 /* Ocultar la flecha predeterminada de Bootstrap */
@@ -364,6 +366,7 @@ p.prices {
 
 .accordion-body {
     background: linear-gradient(to right, #0C0433, #35217C) !important;
+    color: white;
 }
 
 .banner-container {
@@ -443,7 +446,7 @@ p.prices {
 }
 
 #circle {
-    position: relative;
+    position: relative !important;
     font-size: 25px;
     overflow: hidden;
 }
@@ -455,16 +458,16 @@ p.prices {
     height: 95px;
     width: 50px;
     text-align: center;
-    transform-origin: bottom center;
-    display: inline-block ;
+    transform-origin: bottom center ;
+    display: inline-block !important ;
 }
 
 #circle:hover span {
-    animation: animate__heartBeat 1s infinite;
+    animation: animate__heartBeat 1s infinite !important;
 }
 
 #circle:hover i {
-    animation: animate__pulse 1s infinite;
+    animation: animate__pulse 1s infinite !important;
 }
 
 /* Get ready */
@@ -595,7 +598,7 @@ p.prices {
 }
 
 .btn-email {
-    background: linear-gradient(to right, #FF5267, #FE726E);
+    background: linear-gradient(to right, #FF5267, #FE726E) !important;
     border: none;
     border-radius: 85px;
     height: 55px;
@@ -606,7 +609,7 @@ p.prices {
 }
 
 .btn-cliked {
-    background: linear-gradient(to right, #30D8E7, #5CE1D2);
+    background: linear-gradient(to right, #30D8E7, #5CE1D2) !important;
     border: none;
     border-radius: 85px;
     height: 55px;

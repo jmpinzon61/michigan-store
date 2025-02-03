@@ -2,13 +2,14 @@ import '../../templates/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'animate.css/animate.min.css';
+import 'animate.css';
 import { ScrollButton } from "../scroll-button/ScrollButton"
 import { faFacebookF, faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import { YearDisplay } from '../Year/YearDisplay';
 import { setupImageClickAnimation } from '../../templates/ts/go-up-image-jquery';
@@ -18,6 +19,7 @@ import { setupButtonToggle } from '../../templates/ts/toggle-botton-newsletter';
 import { initEnlaceHandler } from "../../templates/ts/link-handler";
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { Accordion } from 'react-bootstrap';
 
 
 export const Start = () => {
@@ -37,6 +39,21 @@ export const Start = () => {
     const [isOpenacordion, setIsOpenacordion] = useState<boolean>(false);
     const videoUrl = '/videos/Aprende Inglés con Michigan Master.mp4';
     const posterUrl = 'http://localhost:5173/videos/Aprende%20Ingl%C3%A9s%20con%20Michigan%20Master.mp4';
+
+    const setupCircle = () => {
+        const circle = document.getElementById('circle');
+
+        if (circle) {
+            const circleArray = circle.textContent?.split('') || [];
+            circle.textContent = '';
+
+            for (let i = 0; i < circleArray.length; i++) {
+                circle.innerHTML += `<span class="animate__animated animate__heartBeat" style="transform:rotate(${(i + 4) * 10}deg);">${circleArray[i]}</span>`;
+            }
+
+            circle.innerHTML += `<i class="fa-solid fa-plus animate__animated animate__pulse" style="font-size: 45px; position: relative; border-radius: 50%; background-color: #110059; border: 7px solid #ffffff; color: #ffffff; padding: 27px; margin-left: 2px"></i>`;
+        }
+    };
 
     const toggleAccordion = () => {
         setIsOpenacordion(!isOpenacordion);
@@ -175,11 +192,12 @@ export const Start = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-4">
-                                    <div className="center" style={{ marginLeft: '80px', position: 'relative', zIndex: 999 }}>
+                                    <div className="center">
                                         <Link to="/prices">
-                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '120px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
+                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '110px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
                                                 todos los cursos todos los cursos
                                             </button>
+                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-75px' }} />
                                         </Link>
                                     </div>
                                 </div>
@@ -283,7 +301,7 @@ export const Start = () => {
                                                 width="100%"
                                                 height="auto"
                                                 light={posterUrl}
-                                                onError={(e) => console.error('Error loading video:', e)}
+                                                onError={(e: any) => console.error('Error loading video:', e)}
                                             />
                                         </div>
                                     </div>
@@ -292,7 +310,7 @@ export const Start = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="card-custom_4" style={{ marginLeft: '880px' }}>
+                        <div className="card-custom_4" style={{ marginLeft: '70%' }}>
                             <div className="card-body" style={{ marginTop: '-295px' }}>
                                 <img
                                     src="/images/Person_2.png"
@@ -984,191 +1002,112 @@ export const Start = () => {
                                 </button>
                             </div>
                             <div className="col-6" style={{ transform: 'translateX(35px)' }}>
-                                <div className="accordion" id="faqAccordion">
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>01</strong>¿Qué
-                                                    es UpGrade?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq1" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light text-start" style={{ color: '#ffffff' }}>
-                                                Nuestro concepto de marca gira en torno a la idea de un lugar donde el poder
-                                                transformador
-                                                de las experiencias inmersivas ayuda a mejorar las habilidades de comunicación
-                                                en inglés.
-                                                Estamos dedicados a cultivar ciudadanos globales que posean la confianza para
-                                                conectarse,
-                                                colaborar y tener éxito en el mundo interconectado de hoy.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq2">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>02</strong>¿Cómo
-                                                    funciona el
-                                                    programa?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq2" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light" style={{ color: '#ffffff' }}>
-                                                Fometamos la inmersión en el idioma a través de la exposición
-                                                constante a situaciones y materiales auténticos en ingles.
-                                                Utilizamos una variedad de recursos, como videos, audios,
-                                                artículos y conversaciones reales, para que los estudiantes se
-                                                sumerjan en el idioma y se acostumbren a su uso cotidiano.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq3">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>03</strong>¿Qué
-                                                    incluyen
-                                                    mis cursos?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq3" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light" style={{ color: '#ffffff' }}>
-                                                <ul className="text-start">
-                                                    <li>Respectiva cantidad de horas semanales de desarrollo.</li>
-                                                    <li>Plataforma Stark de National Geographic Learning.</li>
-                                                    <li>Material National Geographic Learning.</li>
-                                                    <li>Acceso a Plataforma. AcTime para programación de clases.</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq4">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>04</strong>¿Qué
-                                                    voy a
-                                                    aprender?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq4" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light text-start" style={{ color: '#ffffff' }}>
-                                                No solo las habilidades linguísticas necesarias para comunicarse
-                                                en inglés, sino también desarrollar una compresión más amplia
-                                                de la cultura y la sociedad de habla inglesa, lo que te prepararía
-                                                para tener éxito en un entorno global clases.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq5">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>05</strong>¿Cómo
-                                                    puedo
-                                                    suscribirme?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq5" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light text-start" style={{ color: '#ffffff' }}>
-                                                Ingresando a nuestra página web, debes ir a la sección de
-                                                planes y escojer el plan de tu preferencia y proceder al pago. si
-                                                quieres asesoría personalizada totalmente gratis, diligencia tus
-                                                datos aquí.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq6">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>06</strong>¿Necesito
-                                                    un
-                                                    nivel en el idioma para poder tomar las clases?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq6" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light" style={{ color: '#ffffff' }}>
-                                                No. Contamos con un exelente programa de iniciación llamado
-                                                UpColors en donde podrás construir desde 0 los conocimientos
-                                                neesarios a través de actividades dinámicas que adaptan el
-                                                color como protagonista en el desarrollo de todos los temas.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header poppins-light">
-                                            <button className="accordion-button faq-question" data-bs-toggle="collapse"
-                                                data-bs-target="#faq7">
-                                                <span style={{ color: '#ffffff' }}>
-                                                    <strong className="mx-2"
-                                                        style={{
-                                                            fontWeight: 'normal',
-                                                            color: '#4507a8',
-                                                            fontSize: '19px'
-                                                        }}>07</strong>¿Cuántos
-                                                    niveles
-                                                    Michigan's Store?
-                                                </span>
-                                                <FontAwesomeIcon icon={faChevronDown} className="ms-auto" id="icon-faq1" />
-                                            </button>
-                                        </h2>
-                                        <div id="faq7" className="accordion-collapse collapse">
-                                            <div className="accordion-body poppins-light text-start" style={{ color: '#ffffff' }}>
-                                                Puedes encontrar cursos quevan desde el nivel A1 hasta el nivel C1.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Accordion defaultActiveKey="0">
+                                    <Accordion.Item eventKey="0">
+                                        <Accordion.Header style={{ background: 'linear-gradient(to right, #0C0433, #35217C)', color: '#ffffff' }}>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">01</strong>
+                                                ¿Qué es UpGrade?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            Nuestro concepto de marca gira en torno a la idea de un lugar donde el poder
+                                            transformador de las experiencias inmersivas ayuda a mejorar las habilidades de comunicación
+                                            en inglés. Estamos dedicados a cultivar ciudadanos globales que posean la confianza para
+                                            conectarse, colaborar y tener éxito en el mundo interconectado de hoy.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="1">
+                                        <Accordion.Header>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">02</strong>
+                                                ¿Cómo funciona el programa?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            Fomentamos la inmersión en el idioma a través de la exposición
+                                            constante a situaciones y materiales auténticos en inglés. Utilizamos una variedad de recursos,
+                                            como videos, audios, artículos y conversaciones reales, para que los estudiantes se
+                                            sumerjan en el idioma y se acostumbren a su uso cotidiano.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="2">
+                                        <Accordion.Header>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">03</strong>
+                                                ¿Qué incluyen mis cursos?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            <ul className="text-start">
+                                                <li>Respectiva cantidad de horas semanales de desarrollo.</li>
+                                                <li>Plataforma Stark de National Geographic Learning.</li>
+                                                <li>Material National Geographic Learning.</li>
+                                                <li>Acceso a Plataforma AcTime para programación de clases.</li>
+                                            </ul>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="3">
+                                        <Accordion.Header>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">04</strong>
+                                                ¿Qué voy a aprender?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            No solo las habilidades lingüísticas necesarias para comunicarse
+                                            en inglés, sino también desarrollar una comprensión más amplia
+                                            de la cultura y la sociedad de habla inglesa, lo que te prepararía
+                                            para tener éxito en un entorno global.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="4">
+                                        <Accordion.Header>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">05</strong>
+                                                ¿Cómo puedo suscribirme?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            Ingresando a nuestra página web, debes ir a la sección de
+                                            planes y escoger el plan de tu preferencia y proceder al pago. Si
+                                            quieres asesoría personalizada totalmente gratis, diligencia tus
+                                            datos aquí.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="5">
+                                        <Accordion.Header>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">06</strong>
+                                                ¿Necesito un nivel en el idioma para poder tomar las clases?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            No. Contamos con un excelente programa de iniciación llamado
+                                            UpColors en donde podrás construir desde 0 los conocimientos
+                                            necesarios a través de actividades dinámicas que adaptan el
+                                            color como protagonista en el desarrollo de todos los temas.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="6">
+                                        <Accordion.Header>
+                                            <span className="accordion-header">
+                                                <strong className="mx-2">07</strong>
+                                                ¿Cuántos niveles Michigan's Store?
+                                            </span>
+                                            <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+                                        </Accordion.Header>
+                                        <Accordion.Body className="accordion-body">
+                                            Puedes encontrar cursos que van desde el nivel A1 hasta el nivel C1.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
                             </div>
                         </div>
                     </div>
