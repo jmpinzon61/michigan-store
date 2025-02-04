@@ -14,7 +14,6 @@ import { useEffect, useRef, useState } from 'react';
 import { YearDisplay } from '../Year/YearDisplay';
 import { setupImageClickAnimation } from '../../templates/ts/go-up-image-jquery';
 import { setupCardHoverAnimation } from '../../templates/ts/card-animation-start-jquery';
-import { setupCircle } from '../../templates/ts/circle-animation';
 import { setupButtonToggle } from '../../templates/ts/toggle-botton-newsletter';
 import { initEnlaceHandler } from "../../templates/ts/link-handler";
 import { Link } from 'react-router-dom';
@@ -36,7 +35,6 @@ export const Start = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const [Opensettings, setOpensettings] = useState(false);
-    const [isOpenacordion, setIsOpenacordion] = useState<boolean>(false);
     const videoUrl = '/videos/Aprende Inglés con Michigan Master.mp4';
     const posterUrl = 'http://localhost:5173/videos/Aprende%20Ingl%C3%A9s%20con%20Michigan%20Master.mp4';
 
@@ -53,10 +51,6 @@ export const Start = () => {
 
             circle.innerHTML += `<i class="fa-solid fa-plus animate__animated animate__pulse" style="font-size: 45px; position: relative; border-radius: 50%; background-color: #110059; border: 7px solid #ffffff; color: #ffffff; padding: 27px; margin-left: 2px"></i>`;
         }
-    };
-
-    const toggleAccordion = () => {
-        setIsOpenacordion(!isOpenacordion);
     };
 
     const toggleDropdown = () => {
@@ -197,7 +191,7 @@ export const Start = () => {
                                             <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '110px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
                                                 todos los cursos todos los cursos
                                             </button>
-                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-75px' }} />
+                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-74px' }} />
                                         </Link>
                                     </div>
                                 </div>

@@ -33,7 +33,7 @@ export const Record = () => {
                             <input type="text" className="form-control-login placeholder-white poppins-light"
                                 style={{ color: '#ffffff', height: '50px', width: '394px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '274px' }}
                                 placeholder="Fecha de nacimiento" />
-                            <a href="./login.html" className="text-center d-block mb-4 w-100 poppins-light" style={{ color: '#0061D1', transform: 'translateY(-8px)', marginLeft: '72%', fontSize: '85%', fontWeight: 600 }}>
+                            <a href="./login.html" className="text-center d-block mb-4 w-100 poppins-light" style={{ color: '#4C8CFF', transform: 'translateY(-8px)', marginLeft: '72%', fontSize: '85%', fontWeight: 600 }}>
                                 Iniciar sesión
                             </a>
                             <div

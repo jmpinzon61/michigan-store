@@ -66,7 +66,7 @@ export const Login = () => {
                                         className="text-center d-block mb-4 w-100 poppins-light" 
                                         style={{ color: '#0061D1', marginLeft: '77%', fontSize: '85%', fontWeight: 600 }}
                                     >
-                                        <Link to="/verification" style={{color: '#0061D1', textDecoration: 'none'}}>
+                                        <Link to="/verification" style={{color: '#4C8CFF', textDecoration: 'none'}}>
                                             Olvidé mi contraseña
                                         </Link>
                                     </a>
@@ -74,7 +74,7 @@ export const Login = () => {
                                         className="text-center d-block mb-4 w-100 poppins-light"
                                         style={{ color: '#0061D1', transform: 'translateY(-15px)', marginLeft: '72%', fontSize: '85%', fontWeight: 600 }}
                                     >
-                                        <Link to="/record" style={{ color: '#0061D1', textDecoration: 'none' }}>
+                                        <Link to="/record" style={{ color: '#4C8CFF', textDecoration: 'none' }}>
                                             Registrarse
                                         </Link>
                                     </a>
