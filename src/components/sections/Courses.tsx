@@ -13,23 +13,17 @@ import { initializeCourseCardHover } from '../../templates/ts/card-hover-jquery'
 import { initializeScrollContainers } from '../../templates/ts/scroll-handler';
 import { YearDisplay } from '../Year/YearDisplay';
 import Carousel from 'react-bootstrap/Carousel';
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 
 export const Courses = () => {
 
   const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
   const containerRef = useRef<HTMLDivElement>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [videoSrc, setVideoSrc] = useState('');
-
-  const handleClose = () => setShowModal(false);
-  const handleShow = (src: string) => {
-    setVideoSrc(src);
-    setShowModal(true);
-  };
+  const videoUrl = '/videos/Aprende Inglés con Michigan Master.mp4';
+  const posterUrl = 'http://localhost:5173/videos/Aprende%20Ingl%C3%A9s%20con%20Michigan%20Master.mp4';
 
   const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
     console.log('Drag started', event);
@@ -49,7 +43,7 @@ export const Courses = () => {
       <header className="container d-flex justify-content-between align-items-center py-3"
         style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
         <h1 className="champ-bold" style={{ margin: '0 0 0 -2px', marginTop: '-45px', fontSize: '18px' }}>Michigan's</h1>
-        <h1 className="champ-bold" style={{ margin: '0 0 0 -123px', fontSize: '18px' }}>Store</h1>
+        <h1 className="champ-bold" style={{ margin: '0 0 0 -140px', fontSize: '18px', transform: 'translateY(-7px)' }}>Store</h1>
         {/* Nav in PC */}
         <div className="d-none d-block d-lg-block">
           <nav className="d-flex justify-content-between align-items-center"
@@ -111,7 +105,7 @@ export const Courses = () => {
             indicators={false} controls={true}
             prevIcon={
               <div className="left carousel-control" style={{ marginTop: '-10px' }}>
-                <div
+                <div 
                   style={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -162,7 +156,7 @@ export const Courses = () => {
                 <p className="description poppins-light text-start" style={{
                   transform: 'translateY(-420px)',
                   maxWidth: '100%',
-                  marginLeft: '90px',
+                  marginLeft: '120px',
                   width: '25%',
                   overflow: 'hidden',
                   textAlign: 'justify'
@@ -174,12 +168,14 @@ export const Courses = () => {
               </div>
               <Carousel.Caption>
                 <h3 className="champ-bold" style={{ transform: 'translateY(-500px)', overflow: 'hidden', margin: '0 auto' }}>
-                  <img src="/svgs/UpColors.svg" style={{ marginLeft: '-745px', maxWidth: '100%' }} alt="Name" />
+                  <img src="/svgs/UpColors.svg" style={{ marginLeft: '-685px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
-                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
+                <a href={videoUrl}>
+                  <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '785px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }}>
+                    <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px' }} alt="Vector" />
+                    <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                  </Button>
+                </a>
 
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
@@ -419,7 +415,7 @@ export const Courses = () => {
                 <p className="description poppins-light text-start" style={{
                   transform: 'translateY(-420px)',
                   maxWidth: '100%',
-                  marginLeft: '90px',
+                  marginLeft: '120px',
                   width: '25%',
                   overflow: 'hidden',
                   textAlign: 'justify'
@@ -434,12 +430,14 @@ export const Courses = () => {
               </div>
               <Carousel.Caption>
                 <h3 className="champ-bold" style={{ transform: 'translateY(-505px)', overflow: 'hidden', margin: '0 auto' }}>
-                  <img src="/svgs/Prismatic.svg" style={{ marginLeft: '-735px', maxWidth: '100%' }} alt="Name" />
+                  <img src="/svgs/Prismatic.svg" style={{ marginLeft: '-677px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
-                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
+                <a href={videoUrl}>
+                  <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '785px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }}>
+                    <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px' }} alt="Vector" />
+                    <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                  </Button>
+                </a>
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
@@ -504,7 +502,7 @@ export const Courses = () => {
                       <div
                         className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
                         style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
-                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        >
                         <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
@@ -678,7 +676,7 @@ export const Courses = () => {
                 <p className="description poppins-light text-start" style={{
                   transform: 'translateY(-420px)',
                   maxWidth: '100%',
-                  marginLeft: '90px',
+                  marginLeft: '120px',
                   width: '25%',
                   overflow: 'hidden',
                   textAlign: 'justify'
@@ -693,12 +691,14 @@ export const Courses = () => {
               </div>
               <Carousel.Caption>
                 <h3 className="champ-bold" style={{ transform: 'translateY(-505px)', marginLeft: '-330px', overflow: 'hidden', margin: '0 auto' }}>
-                  <img src="/svgs/Fundamentals.svg" style={{ marginLeft: '-705px', maxWidth: '100%' }} alt="Name" />
+                  <img src="/svgs/Fundamentals.svg" style={{ marginLeft: '-650px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
-                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
+                <a href={videoUrl}>
+                  <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '785px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }}>
+                    <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px' }} alt="Vector" />
+                    <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                  </Button>
+                </a>
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
@@ -763,7 +763,7 @@ export const Courses = () => {
                       <div
                         className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
                         style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
-                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        >
                         <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
@@ -937,7 +937,7 @@ export const Courses = () => {
                 <p className="description poppins-light text-start" style={{
                   transform: 'translateY(-420px)',
                   maxWidth: '100%',
-                  marginLeft: '90px',
+                  marginLeft: '120px',
                   width: '25%',
                   overflow: 'hidden',
                   textAlign: 'justify'
@@ -952,12 +952,14 @@ export const Courses = () => {
               </div>
               <Carousel.Caption>
                 <h3 className="champ-bold" style={{ transform: 'translateY(-620px)', overflow: 'hidden', margin: '0 auto' }}>
-                  <img src="/svgs/Abroad.svg" style={{ marginLeft: '-755px', maxWidth: '100%' }} alt="Name" />
+                  <img src="/svgs/Abroad.svg" style={{ marginLeft: '-695px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
-                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
+                <a href={videoUrl}>
+                  <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '785px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }}>
+                    <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px' }} alt="Vector" />
+                    <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                  </Button>
+                </a>
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
@@ -1022,7 +1024,7 @@ export const Courses = () => {
                       <div
                         className="scroll-container d-flex flex-row content justify-content-start flex-row gap-2 interactive-container"
                         style={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'hidden', padding: '20px', paddingLeft: '-10px', scrollbarWidth: 'none', borderRadius: '45px', transform: 'translateY(-1px)' }}
-                        data-bs-toggle="modal" data-bs-target="#VerAhora-1">
+                        >
                         <div style={{ pointerEvents: 'auto' }} onContextMenu={(e) => e.preventDefault()}>
                           <img src="/images/optic.png"
                             style={{ height: '85px', width: '75px', objectFit: 'cover', borderRadius: '5px' }} alt="Eye 1" />
@@ -1196,7 +1198,7 @@ export const Courses = () => {
                 <p className="description poppins-light text-start" style={{
                   transform: 'translateY(-420px)',
                   maxWidth: '100%',
-                  marginLeft: '90px',
+                  marginLeft: '120px',
                   width: '25%',
                   overflow: 'hidden',
                   textAlign: 'justify'
@@ -1210,12 +1212,14 @@ export const Courses = () => {
               </div>
               <Carousel.Caption>
                 <h3 className="champ-bold" style={{ transform: 'translateY(-505px)', overflow: 'hidden', margin: '0 auto' }}>
-                  <img src="/svgs/Explorers.svg" style={{ marginLeft: '-705px', maxWidth: '100%' }} alt="Name" />
+                  <img src="/svgs/Explorers.svg" style={{ marginLeft: '-648px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
-                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
+                <a href={videoUrl}>
+                  <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '785px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }}>
+                    <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px' }} alt="Vector" />
+                    <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                  </Button>
+                </a>
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
@@ -1454,7 +1458,7 @@ export const Courses = () => {
                 <p className="description poppins-light text-start" style={{
                   transform: 'translateY(-420px)',
                   maxWidth: '100%',
-                  marginLeft: '90px',
+                  marginLeft: '120px',
                   width: '25%',
                   overflow: 'hidden',
                   textAlign: 'justify'
@@ -1467,12 +1471,14 @@ export const Courses = () => {
               </div>
               <Carousel.Caption>
                 <h3 className="champ-bold" style={{ transform: 'translateY(-465px)', overflow: 'hidden', margin: '0 auto' }}>
-                  <img src="/svgs/Kids.svg" style={{ marginLeft: '-860px', maxWidth: '100%' }} alt="Name" />
+                  <img src="/svgs/Kids.svg" style={{ marginLeft: '-800px', maxWidth: '100%' }} alt="Name" />
                 </h3>
-                <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '860px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }} onClick={() => handleShow('/videos/Aprende Inglés con Michigan Master.mp4')}>
-                  <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px', marginTop: '-7px' }} alt="Vector" />
-                  <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
-                </Button>
+                <a href={videoUrl}>
+                  <Button className="btn-primary" style={{ fontSize: '18px', marginRight: '785px', transform: 'translateY(-300px)', maxWidth: '100%', height: 'auto' }}>
+                    <img src="/svgs/Vector 616.svg" style={{ marginLeft: '-8px' }} alt="Vector" />
+                    <span className='poppins-light' style={{ marginTop: '-185px', marginLeft: '20px' }}>ver ahora</span>
+                  </Button>
+                </a>
                 <div className="carousel-caption d-none d-md-block">
                   <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
                     style={{ overflowY: 'hidden' }}>
@@ -1702,23 +1708,15 @@ export const Courses = () => {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
-
-          <Modal
-            show={showModal}
-            onHide={handleClose}
-            centered
-            className="custom-modal"
-          >
-            <Modal.Header closeButton className="modal-header">
-              <Modal.Title className="modal-title">Content</Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="modal-body">
-              <video width="320" height="240" controls className="video-player">
-                <source src={videoSrc} type="video/mp4" />
-                Tu navegador no soporta el video.
-              </video>
-            </Modal.Body>
-          </Modal>
+              <ReactPlayer
+                style={{ visibility: 'hidden' }}
+                url={videoUrl}
+                controls
+                width="100%"
+                height="auto"
+                light={posterUrl}
+                onError={(e: any) => console.error('Error loading video:', e)}
+              />
         </section>
 
         <section className="other-courses" style={{ marginTop: '-40px' }}>

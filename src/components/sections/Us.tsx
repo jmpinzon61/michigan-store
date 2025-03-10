@@ -57,7 +57,7 @@ export const Us = () => {
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
                 <h1 className="champ-bold" style={{ margin: '0 0 0 -2px', marginTop: '-45px', fontSize: '18px' }}>Michigan's</h1>
-                <h1 className="champ-bold" style={{ margin: '0 0 0 -123px', fontSize: '18px' }}>Store</h1>
+                <h1 className="champ-bold" style={{ margin: '0 0 0 -140px', fontSize: '18px', transform: 'translateY(-7px)' }}>Store</h1>
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
@@ -368,7 +368,7 @@ export const Us = () => {
                             </p>
                         </div>
                         <div className="col" style={{ maxWidth: '700px' }}>
-                            <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB', marginTop: '20px' }}>
+                            <h2 className="text-center fs-4 poppins-bold" style={{ color: '#01C8FB', marginTop: '20px'}}>
                                 Dejanos tus datos y nos contactaremos contigo
                                 contacto@michiganmaster.edu.co
                             </h2>
@@ -399,7 +399,7 @@ export const Us = () => {
                                 </div>
                                 <div className="col-md-12">
                                     <textarea className="form-control form-control-final-section text-white poppins-light"
-                                        style={{ height: '50px', width: '640px', boxShadow: 'none !important', border: 'none !important', maxHeight: '250px', background: '#6A6391', textAlign: 'center' }}
+                                        style={{ height: '50px', width: '640px', boxShadow: 'none', border: 'none', maxHeight: '250px', background: '#6A6391', textAlign: 'center' }}
                                         rows={3} placeholder="Mensaje"></textarea>
                                 </div>
                                 <div className="col-md-12">
@@ -410,8 +410,8 @@ export const Us = () => {
                                     </p>
                                 </div>
                                 <div className="col-12 text-center" style={{ marginLeft: '-20px' }}>
-                                    <button type="submit" className="btn btn-primary-final-section text-white poppins-light text-with-shadow"
-                                        style={{ fontWeight: 500, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Comenzar Ahora</button>
+                                    <button type="submit" className="btn btn-primary-final-section text-white poppins-light text-with-shadow fs-4"
+                                        style={{ fontWeight: 500, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>comenzar ahora</button>
                                 </div>
                             </form>
                         </div>

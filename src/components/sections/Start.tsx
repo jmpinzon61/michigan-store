@@ -72,7 +72,7 @@ export const Start = () => {
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
                 <h1 className="champ-bold" style={{ margin: '0 0 0 -2px', marginTop: '-45px', fontSize: '18px' }}>Michigan's</h1>
-                <h1 className="champ-bold" style={{ margin: '0 0 0 -123px', fontSize: '18px' }}>Store</h1>
+                <h1 className="champ-bold" style={{ margin: '0 0 0 -140px', fontSize: '18px', transform: 'translateY(-7px)' }}>Store</h1>
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
@@ -188,10 +188,10 @@ export const Start = () => {
                                 <div className="col-md-4">
                                     <div className="center">
                                         <Link to="/prices">
-                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginRight: '110px', marginTop: '-155px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
+                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginLeft: '-18%', marginTop: '-156px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
                                                 todos los cursos todos los cursos
                                             </button>
-                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-74px' }} />
+                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-57px' }} />
                                         </Link>
                                     </div>
                                 </div>
@@ -233,14 +233,14 @@ export const Start = () => {
                                 </div>
                                 <div className="col-6">
                                     <img
-                                        style={{ marginTop: '190px', width: '710px', height: '405.90px', marginLeft: '90px', transform: 'rotate(-10deg)' }}
+                                        style={{ marginTop: '190px', width: '780px', height: '405.90px', marginLeft: '68px', transform: 'rotate(-10deg)' }}
                                         src="/svgs/Curvatura.svg"
                                         alt="Union 1"
                                     />
                                 </div>
                                 <div className="col-5">
                                     <img
-                                        style={{ marginTop: '-395px', width: '740px', height: '408.79px', marginLeft: '-125px', transform: 'rotate(-10deg)' }}
+                                        style={{ marginTop: '-352px', width: '770px', height: '405.90px', marginLeft: '-175px', transform: 'rotate(-10deg)' }}
                                         src="/svgs/Curvatura2.svg"
                                         alt="Union 2"
                                     />
@@ -304,17 +304,17 @@ export const Start = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="card-custom_4" style={{ marginLeft: '70%' }}>
+                        <div className="card-custom_4" style={{ marginLeft: '64%' }}>
                             <div className="card-body" style={{ marginTop: '-295px' }}>
                                 <img
                                     src="/images/Person_2.png"
-                                    style={{ marginLeft: '0px', height: '210px', width: '145px', marginTop: '52px' }}
+                                    style={{ height: '210px', width: '145px', marginTop: '52px' }}
                                     alt="Person 2"
                                 />
                                 <a href={videoUrl}>
                                     <img
                                         src="/images/_2.png"
-                                        style={{ position: 'relative', marginTop: '-125px', left: '15px', height: '70px', width: '70px' }}
+                                        style={{ position: 'relative', marginTop: '-125px', left: '25px', height: '70px', width: '70px' }}
                                         alt="Play 2"
                                         data-bs-toggle="modal"
                                         data-bs-target="#modalInicioDos"
@@ -344,7 +344,7 @@ export const Start = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="card-custom_5" style={{ marginLeft: '1010px' }}>
+                        <div className="card-custom_5" style={{ marginLeft: '73.2%' }}>
                             <div className="card-body" style={{ marginTop: '-275px' }}>
                                 <img
                                     src="/images/Person_3.png"
