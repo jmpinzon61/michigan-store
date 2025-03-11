@@ -388,12 +388,12 @@ p.prices {
     z-index: -999;
     position: absolute;
     top: 0%;
-    left: 38%;
+    left: 40%;
     right: 0;
     border-radius: 0px 0px 105px 105px;
     height: 155px;
     width: 300px;
-    background: linear-gradient(180deg, #4a00e0, #8e2de2);
+    background: linear-gradient(to right, #160033, #271343);
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 

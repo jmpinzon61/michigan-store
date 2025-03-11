@@ -157,18 +157,18 @@ export const Start = () => {
                         <h1 className="champ-bold">
                             aprendes <img src="/svgs/Union.svg" style={{ verticalAlign: 'middle', width: 'auto', height: '7rem' }} alt="Ingles" />
                         </h1>
-                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh', marginTop: '50px', marginLeft: '-25px' }}>
-                            <div className="col-md-4">
+                        <div className="d-flex flex-col justify-content-center align-items-center mx-auto" style={{ height: '100vh', marginTop: '50px', marginRight: '3%', maxWidth: '1475px' }}>
+                            <div className="col-4">
                                 <div className="card-home" style={{ width: '695px', marginLeft: '160px' }}>
                                     <img src="/images/Products Explorers.png" className="card-img-top" style={{ height: '885px', marginTop: '222px', position: 'relative', zIndex: 1 }} alt="Carta 1" />
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-4">
                                 <div className="card-home" style={{ width: '575px', height: '950px' }}>
                                     <img src="/images/Products UpColors.png" className="card-img-top" style={{ marginTop: '80px', position: 'relative', zIndex: 2 }} alt="Carta 2" />
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-4">
                                 <div className="card-home" style={{ width: '695px', marginLeft: '-305px' }}>
                                     <img src="/images/Products Prismatic.png" className="card-img-top" style={{ height: '885px', marginTop: '222px', position: 'relative', zIndex: 3 }} alt="Carta 3" />
                                 </div>
@@ -188,16 +188,25 @@ export const Start = () => {
                                 <div className="col-md-4">
                                     <div className="center">
                                         <Link to="/prices">
-                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light" style={{ marginLeft: '-18%', marginTop: '-156px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
+                                            <button id="circle" className="d-flex justify-content-center align-items-center rounded-pill text-white poppins-light mx-auto" style={{ marginLeft: '-18%', marginTop: '-156px', width: '209px', height: '209px', borderRadius: '85px', backgroundColor: '#110059', color: '#ffffff', border: 'none' }}>
                                                 todos los cursos todos los cursos
                                             </button>
-                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-57px' }} />
+                                            <FontAwesomeIcon icon={faPlus} style={{ fontSize: '45px', color: '#ffffff', position: 'absolute', zIndex: 9999, marginTop: '-127px', marginLeft: '-19px' }} />
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
-                                    <div className="banner-image" style={{ height: '400px', width: '1100px', marginTop: '-10px', marginLeft: '-300px' }}>
-                                        <img src="/images/seccion_2.png" alt="Michigan's Store" />
+                                    <div className="banner-image" style={{ height: '400px', width: '1100px', marginTop: '-10px', marginLeft: '-300px', position: 'relative' }}>
+                                        <img src="/images/seccion_2.png" style={{ marginRight: '150px' }} alt="Michigan's Store" />
+
+                                        <a href={videoUrl} style={{ position: 'absolute', top: '57%', left: '51%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
+                                            <img
+                                                className="z-10"
+                                                style={{ height: '80px', width: '80px' }}
+                                                src="/svgs/play-start.svg"
+                                                alt="Play Video"
+                                            />
+                                        </a>
                                     </div>
                                 </div>
                             </div>

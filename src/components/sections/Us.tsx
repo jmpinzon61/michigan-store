@@ -18,7 +18,7 @@ export const Us = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [currentYear, setcurrentYear] = useState<number>(new Date().getFullYear());
     const [isChatbotOpen, setIsChatbotOpen] = useState(false);
-    const [isChatbotVisible, setChatbotVisible] = useState(true);
+    // const [isChatbotVisible, setChatbotVisible] = useState(true);
     const [showTooltip, setshowTooltip] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string>('opcion2');
     const [isOpen, setIsOpen] = useState(false);
@@ -42,9 +42,9 @@ export const Us = () => {
         setIsChatbotOpen((prev) => !prev);
     };
 
-    const handleCloseChatbot = () => {
-        setChatbotVisible(false);
-    };
+    // const handleCloseChatbot = () => {
+    //     setChatbotVisible(false);
+    // };
 
     useEffect(() => {
         initTestimonios();
@@ -120,7 +120,7 @@ export const Us = () => {
 
             {/* Contenido de la sección de Nosotros*/}
             <main className="container-fluid my-5">
-                <section className="text-center text-white mt-5" style={{ width: '100vw' }}>
+                <section className="text-center text-white mt-5" style={{ width: '100%', maxWidth: '1500px' }}>
                     <h1 className="fs-2 poppins-bold" style={{ width: '34%', marginLeft: '510px', position: 'relative', zIndex: 8 }}>
                         ¡Entendemos y solucionamos las distintas necesidades comunicativas de personas en todo el mundo!
                     </h1>

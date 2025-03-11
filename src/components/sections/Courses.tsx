@@ -178,26 +178,8 @@ export const Courses = () => {
                 </a>
 
                 <div className="carousel-caption d-none d-md-block">
-                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered-courses modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="/videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
-                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
+                    <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px'}}>
                       <p className="poppins-light text-center"
                         style={{ paddingTop: '37px', background: '#534D6D', borderRadius: '45px', height: '95px', width: '95px', fontSize: '14px', marginTop: '-8px', transform: 'translateY(4px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <span
@@ -439,24 +421,6 @@ export const Courses = () => {
                   </Button>
                 </a>
                 <div className="carousel-caption d-none d-md-block">
-                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
                     <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
                       <p className="poppins-light text-center"
@@ -700,24 +664,6 @@ export const Courses = () => {
                   </Button>
                 </a>
                 <div className="carousel-caption d-none d-md-block">
-                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
                     <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
                       <p className="poppins-light text-center"
@@ -961,24 +907,6 @@ export const Courses = () => {
                   </Button>
                 </a>
                 <div className="carousel-caption d-none d-md-block">
-                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
                     <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
                       <p className="poppins-light text-center"
@@ -1221,24 +1149,6 @@ export const Courses = () => {
                   </Button>
                 </a>
                 <div className="carousel-caption d-none d-md-block">
-                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
                     <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
                       <p className="poppins-light text-center"
@@ -1480,24 +1390,6 @@ export const Courses = () => {
                   </Button>
                 </a>
                 <div className="carousel-caption d-none d-md-block">
-                  <div className="modal fade" id="VerAhora" tabIndex={-1} aria-labelledby="videoModalLabel" aria-hidden="true"
-                    style={{ overflowY: 'hidden' }}>
-                    <div className="modal-dialog modal-dialog-centered modal-lg">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title poppins-light" id="videoModalLabel">Content</h5>
-                          <button type="button" className="btn-close"
-                            style={{ backgroundColor: '#5a3fc9', boxShadow: 'none', fontWeight: 700 }} data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <video width="320" height="240" autoPlay controls>
-                            <source src="./videos/Aprende Inglés con Michigan Master.mp4" type="video/mp4" />
-                          </video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="course-info">
                     <div className="info-item" style={{ width: '345px', height: '120px', marginLeft: '-130px', marginTop: '-145px' }}>
                       <p className="poppins-light text-center"
@@ -1712,6 +1604,7 @@ export const Courses = () => {
                 style={{ visibility: 'hidden' }}
                 url={videoUrl}
                 controls
+                playing={false}
                 width="100%"
                 height="auto"
                 light={posterUrl}
