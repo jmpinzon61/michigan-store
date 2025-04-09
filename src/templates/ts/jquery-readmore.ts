@@ -1,22 +1,23 @@
 import $ from "jquery";
 
 export const initReadMore = () => {
-    $(document).ready(function () {
-        $("a[id^='read-more']").on("click", function (e) {
-            e.preventDefault();
+    $(document).off("click", "a[id^='read-more']");
 
-            const id = $(this).attr("id")?.split("-")[2];
-            if (!id) return;
+    $(document).on("click", "a[id^='read-more']", function (e) {
+        e.preventDefault();
 
-            const description = $(`#description-${id}`);
+        const id = $(this).attr("id")?.split("-")[2];
+        if (!id) return;
 
-            if (description.hasClass("expanded")) {
-                description.removeClass("expanded");
-                $(this).html("Seguir leyendo");
-            } else {
-                description.addClass("expanded");
-                $(this).html("Leer menos");
-            }
+        const description = $(`#description-${id}`);
+
+        if (description.hasClass("expanded")) {
+            description.removeClass("expanded")
+            $(this).html("Seguir leyendo");
+        } else {
+            description.addClass("expanded");
+            $(this).html("Leer menos");
+        }
+
         });
-    });
-};
+    };
