@@ -303,7 +303,7 @@ p.prices {
     position: relative;
     background: #04011D;
     padding: 40px 0;
-    height: 300px;
+    height: auto;
     width: 100vw;
     margin-left: -30px;
 }
@@ -323,7 +323,7 @@ p.prices {
 }
 
 .btn-custom_2 {
-    background: #6D6AFB !important;
+    background: linear-gradient(to right, #5695FE, #8838F6) !important;
     border: none !important;
     color: white !important;
     padding: 10px 20px !important;
@@ -341,12 +341,15 @@ p.prices {
     justify-content: space-between !important;
     align-items: center !important;
     color: #6616e6 !important;
-    background-color: #160033 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 /* Ocultar la flecha predeterminada de Bootstrap */
 .accordion-button:not(.collapsed) {
     box-shadow: none !important;
+    border: none !important;
 }
 
 .accordion-button::after {
@@ -359,13 +362,18 @@ p.prices {
     transition: transform 0.3s !important;
 }
 
+.rotate {
+    color: #ffffff;
+    transition: trnsform .03 ease;
+}
+
 /* Gira el icono cuando está expandido */
-.accordion-button:not(.collapsed) .fas {
-    transform: rotate(180deg) !important;
+.accordion-button[aria-expanded="true"] .rotate {
+    transform: rotate(90deg) !important;
 }
 
 .accordion-body {
-    background: linear-gradient(to right, #0C0433, #35217C) !important;
+    background: transparent !important;
     color: white;
 }
 
@@ -458,8 +466,8 @@ p.prices {
     height: 95px;
     width: 50px;
     text-align: center;
-    transform-origin: bottom center ;
-    display: inline-block !important ;
+    transform-origin: bottom center;
+    display: inline-block !important;
 }
 
 #circle:hover span {
@@ -486,9 +494,21 @@ p.prices {
     top: -730px;
     left: 50px;
     border-radius: 10px;
-    height: 270px !important;
-    width: 585px !important;
+    height: 330px !important;
+    width: 635px !important;
     background-color: #34165b8a;
+}
+
+@media not all and (min-width: 768px) {
+    .card-custom {
+        position: relative;
+        top: -690px;
+        left: 195px;
+        border-radius: 10px;
+        height: 255px !important;
+        width: 350px !important;
+        background-color: #34165b8a;
+    }
 }
 
 
@@ -544,6 +564,19 @@ p.prices {
     overflow: hidden;
 }
 
+@media not all and (min-width: 768px) {
+    .card-course_1 {
+        position: relative;
+        border-radius: 10px;
+        top: -535px;
+        left: 130px;
+        height: 334px;
+        width: 180px;
+        background-color: transparent;
+        overflow: hidden;
+    }
+}
+
 .card-course_2 {
     position: relative;
     border-radius: 10px;
@@ -553,6 +586,19 @@ p.prices {
     width: 220px;
     background-color: transparent;
     overflow: hidden;
+}
+
+@media not all and (min-width: 768px) {
+    .card-course_2 {
+        position: relative;
+        border-radius: 10px;
+        top: -535px;
+        left: 90px;
+        height: 334px;
+        width: 180px;
+        background-color: transparent;
+        overflow: hidden;
+    }
 }
 
 .card-course_3 {
@@ -566,6 +612,19 @@ p.prices {
     overflow: hidden;
 }
 
+@media not all and (min-width: 768px) {
+    .card-course_3 {
+        position: relative;
+        border-radius: 10px;
+        top: -535px;
+        left: 95px;
+        height: 334px;
+        width: 180px;
+        background-color: transparent;
+        overflow: hidden;
+    }   
+}
+
 .card-course_4 {
     position: relative;
     border-radius: 10px;
@@ -575,6 +634,19 @@ p.prices {
     width: 220px;
     background-color: transparent;
     overflow: hidden;
+}
+
+@media not all and (min-width: 768px) {
+    .card-course_4 {
+        position: relative;
+        border-radius: 10px;
+        top: -535px;
+        left: 100px;
+        height: 334px;
+        width: 180px;
+        background-color: transparent;
+        overflow: hidden;
+    }   
 }
 
 .course_coming {
@@ -615,7 +687,7 @@ p.prices {
     height: 55px;
     width: 55px;
     color: #04011D !important;
-    padding: 15px 0px 15px 8px  !important;
+    padding: 15px 0px 15px 8px !important;
     border-radius: 40px !important;
 }
 
@@ -623,11 +695,11 @@ p.prices {
     display: none !important;
 }
 
-.custom-input::placeholder {
+.custom-input-start::placeholder {
     color: #ffffff;
     opacity: 1;
-    border: none;
-    outline: none;
+    border: none !important;
+    outline: none !important;
     font-size: 12px;
 }
 
@@ -834,10 +906,10 @@ p.prices {
 }
 
 .tooltip-inner {
-    background-color: #160033 !important; 
-    color: white !important;              
-    font-size: 14px !important;          
-    padding: 10px !important;           
+    background-color: #160033 !important;
+    color: white !important;
+    font-size: 14px !important;
+    padding: 10px !important;
 }
 
 .btn-accept {
@@ -1045,8 +1117,10 @@ textarea:focus+label {
 
 .gradient-text {
     background: linear-gradient(to left, #ff8272, #f95869);
-    -webkit-background-clip: text;/* Chrome and Safari*/
-    background-clip: text;/* Los demas navegadores*/
+    -webkit-background-clip: text;
+    /* Chrome and Safari*/
+    background-clip: text;
+    /* Los demas navegadores*/
     -webkit-text-fill-color: transparent;
     font-size: 18px;
     font-weight: bold;

@@ -29,6 +29,9 @@ export const Blogs = () => {
     
     useEffect(() => {
         initEnlaceHandler();
+    }, []);
+
+    useEffect(() => {
         initReadMore();
     }, []);
 
@@ -134,7 +137,8 @@ export const Blogs = () => {
                         <div className="col-6">
                             <h2 className="title poppins-bold text-start" style={{ maxWidth: '400px' }}>Traemos algunos tips, Métodos que mejor se adaptan a ti.
                             </h2>
-                            <p id="description-1" className="blogs descrption poppins-light text-start  with-gradient">Lorem ipsum dolor
+                            <p id="description-1" className="blogs descrption poppins-light text-start  with-gradient">
+                                Lorem ipsum dolor
                                 sit amet, consectetuer
                                 adipiscing elit, sed diam nonummy nibh
                                 euismod tincidunt utreet dolore magna
