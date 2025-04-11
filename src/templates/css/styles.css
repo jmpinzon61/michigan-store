@@ -164,7 +164,6 @@ p.prices {
 .gradient-custom {
     background: linear-gradient(to right, #9333ea, #3b82f6);
     color: white;
-    padding: 1.5rem;
     border-top-left-radius: 45px;
     border-top-right-radius: 45px;
     width: 405px;
@@ -491,22 +490,34 @@ p.prices {
 
 .card-custom {
     position: relative;
-    top: -730px;
-    left: 50px;
+    top: -680px;
+    left: 180px;
     border-radius: 10px;
-    height: 330px !important;
-    width: 635px !important;
+    height: 300px !important;
+    width: 475px !important;
     background-color: #34165b8a;
 }
 
 @media not all and (min-width: 768px) {
     .card-custom {
         position: relative;
-        top: -690px;
+        top: -695px;
         left: 195px;
         border-radius: 10px;
-        height: 255px !important;
-        width: 350px !important;
+        height: 200px !important;
+        width: 310px !important;
+        background-color: #34165b8a;
+    }
+}
+
+@media not all and (min-width: 425px) {
+    .card-custom {
+        position: relative;
+        top: -695px;
+        left: 200px;
+        border-radius: 10px;
+        height: 250px !important;
+        width: 300px !important;
         background-color: #34165b8a;
     }
 }

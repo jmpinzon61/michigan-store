@@ -125,36 +125,49 @@ export const Blogs = () => {
                 {/* Hero Section */}
                 <section className="text-white text-center mb-5 row justify-content-center"
                     style={{ margin: '0 auto', maxWidth: '1350px' }}>
-                    <div className="d-flex flex-row">
-                        <div className="col-6">
-                            <div className="card text-bg-dark"
-                                style={{ borderRadius: '55px', width: '868px', height: '522px', marginLeft: '6px' }}>
-                                <img src="/images/listening.png"
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} className="card-img"
-                                    alt="Listening..." />
+                    {/* display movil sm */}
+                    <div className='d-block d-sm-none'>
+                        
+                    </div>
+
+                    {/* display movil md */}
+                    <div className='d-none d-md-block d-lg-none'>
+                        
+                    </div>
+
+                    {/* display pc */}
+                    <div className='d-none d-lg-block'>
+                        <div className="d-flex flex-row">
+                            <div className="col-6">
+                                <div className="card text-bg-dark"
+                                    style={{ borderRadius: '55px', width: '868px', height: '522px', marginLeft: '6px' }}>
+                                    <img src="/images/listening.png"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} className="card-img"
+                                        alt="Listening..." />
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-6">
-                            <h2 className="title poppins-bold text-start" style={{ maxWidth: '400px' }}>Traemos algunos tips, Métodos que mejor se adaptan a ti.
-                            </h2>
-                            <p id="description-1" className="blogs descrption poppins-light text-start  with-gradient">
-                                Lorem ipsum dolor
-                                sit amet, consectetuer
-                                adipiscing elit, sed diam nonummy nibh
-                                euismod tincidunt utreet dolore magna
-                                aliquam erat volutpat. Ut wisi enim ad im
-                                veniam, quis nostrud exerci tation ullarper
-                                suscipit lobrtis nisl ut aliquip ex ea comdo
-                                consequat. Duis auem vel eum iriure dolor
-                                in hendrerit in vulputate velit esse molesie
-                                consequat, vel illum dolore eu feuiat nulla
-                                facilisis at vero eros et accumsan et
-                                iusto odio dignissim qui blandit prent luptatum
-                                zzril delenit ague duis dolore te feugait
-                                nulla facilisi.</p>
-                            <a href="#" id="read-more-1" className="btn btn-primary-learning p-3 poppins-bold"
-                                style={{ marginRight: '-130px' }}>Seguir
-                                leyendo</a>
+                            <div className="col-6">
+                                <h2 className="title poppins-bold text-start" style={{ maxWidth: '400px' }}>Traemos algunos tips, Métodos que mejor se adaptan a ti.
+                                </h2>
+                                <p id="description-1" className="blogs descrption poppins-light text-start  with-gradient">
+                                    Lorem ipsum dolor
+                                    sit amet, consectetuer
+                                    adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt utreet dolore magna
+                                    aliquam erat volutpat. Ut wisi enim ad im
+                                    veniam, quis nostrud exerci tation ullarper
+                                    suscipit lobrtis nisl ut aliquip ex ea comdo
+                                    consequat. Duis auem vel eum iriure dolor
+                                    in hendrerit in vulputate velit esse molesie
+                                    consequat, vel illum dolore eu feuiat nulla
+                                    facilisis at vero eros et accumsan et
+                                    iusto odio dignissim qui blandit prent luptatum
+                                    zzril delenit ague duis dolore te feugait
+                                    nulla facilisi.</p>
+                                <a href="#" id="read-more-1" className="btn btn-primary-learning p-3 poppins-bold"
+                                    style={{ marginRight: '-130px' }}>Seguir
+                                    leyendo</a>
+                            </div>
                         </div>
                     </div>
                 </section>
