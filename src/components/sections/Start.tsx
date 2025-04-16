@@ -83,8 +83,17 @@ export const Start = () => {
             {/* Navbar */}
             <header className="container d-flex justify-content-between align-items-center py-3"
                 style={{ width: '100%', borderBottom: '1px solid #ffffff', marginTop: '30px' }}>
-                <h1 className="champ-bold" style={{ margin: '0 0 0 -2px', marginTop: '-45px', fontSize: '18px' }}>Michigan's</h1>
-                <h1 className="champ-bold" style={{ margin: '0 0 0 -140px', fontSize: '18px', transform: 'translateY(-7px)' }}>Store</h1>
+                {/* Movil*/}
+                <div className='d-block d-lg-none'>
+                    <h1 className="champ-bold" style={{ margin: '0 0 0 -2px', marginTop: '-73px', fontSize: '18px' }}>Michigan's</h1>
+                    <h1 className="champ-bold" style={{ margin: '0 0 0 20px', fontSize: '18px', transform: 'translateY(-7px)' }}>Store</h1>
+                </div>
+                {/* Pc */}
+                <div className='d-none d-block d-lg-block'>
+                    <h1 className="champ-bold" style={{ margin: '0 0 0 -17px', marginTop: '-30px', fontSize: '18px' }}>Michigan's</h1>
+                    <h1 className="champ-bold" style={{ margin: '0 0 0 5px', fontSize: '18px', transform: 'translateY(-7px)' }}>Store</h1>
+                </div>
+                
                 {/* Nav in PC */}
                 <div className="d-none d-block d-lg-block">
                     <nav className="d-flex justify-content-between align-items-center"
@@ -104,7 +113,7 @@ export const Start = () => {
                 {/* Nav in Movil */}
                 <div className="d-block d-lg-none mx-auto" style={{ width: '45%', position: 'relative', marginTop: '-155px' }}>
                     <nav className="d-flex justify-content-between align-items-center flex-nowrap overflow-x-auto"
-                        style={{ whiteSpace: 'nowrap', width: '100%', marginTop: '2px' }}>
+                        style={{ whiteSpace: 'nowrap', width: '250px', marginTop: '25px', marginLeft: '-40px' }}>
                         <div style={{ marginTop: '200px' }}>
                             <a href="#" className="text-white mx-2 poppins-bold">Inicio</a>
                             <a href="#" className="text-white mx-2 poppins-bold">Cursos</a>
@@ -114,50 +123,103 @@ export const Start = () => {
                         </div>
                     </nav>
                 </div>
-                <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
-                    <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
-                        data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
-                    <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
-                        <li>
-                            <Link
-                                className="dropdown-item text-white poppins-light mb-2"
-                                to="/avatar"
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
-                            >
-                                Ver perfil
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                className="dropdown-item text-white poppins-light"
-                                to="/user_account_configuration"
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
-                            >
-                                Configuración
-                            </Link>
-                        </li>
-                        <li>
-                            <hr className="dropdown-divider" />
-                        </li>
-                        <li>
-                            <Link
-                                className="dropdown-item text-white poppins-light"
-                                to="/"
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
-                            >
-                                Cerrar sesión
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
-                        style={{ height: '50px', width: '50px' }}>
-                        <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
-                            style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
-                        <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show' : ''}`}>
-                            <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
-                                style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
+
+                {/* Movil*/}
+                <div className='d-block d-lg-none'>
+                    <div className="dropdown d-flex align-items-center" style={{ marginTop: '-70px' }}>
+                        <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
+                            data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
+                        <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
+                            <li>
+                                <Link
+                                    className="dropdown-item text-white poppins-light mb-2"
+                                    to="/avatar"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                                >
+                                    Ver perfil
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="dropdown-item text-white poppins-light"
+                                    to="/user_account_configuration"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                                >
+                                    Configuración
+                                </Link>
+                            </li>
+                            <li>
+                                <hr className="dropdown-divider" />
+                            </li>
+                            <li>
+                                <Link
+                                    className="dropdown-item text-white poppins-light"
+                                    to="/"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                                >
+                                    Cerrar sesión
+                                </Link>
                             </li>
                         </ul>
+                        <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
+                            style={{ height: '50px', width: '50px' }}>
+                            <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
+                                style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
+                            <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show' : ''}`}>
+                                <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {/* Pc */}
+                <div className='d-none d-block d-lg-block'>
+                    <div className="dropdown d-flex align-items-center" style={{ marginTop: '-35px' }}>
+                        <img src="/images/Ellipse 840.png" alt="User Avatar" className="rounded-circle me-2" width="50" height="50" onClick={toggleDropdown}
+                            data-bs-toggle="dropdown" aria-expanded="false" style={{ cursor: 'pointer' }} />
+                        <ul className={`dropdown-menu dropdown-menu-end ${isOpen ? 'show' : ''}`}>
+                            <li>
+                                <Link
+                                    className="dropdown-item text-white poppins-light mb-2"
+                                    to="/avatar"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                                >
+                                    Ver perfil
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="dropdown-item text-white poppins-light"
+                                    to="/user_account_configuration"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                                >
+                                    Configuración
+                                </Link>
+                            </li>
+                            <li>
+                                <hr className="dropdown-divider" />
+                            </li>
+                            <li>
+                                <Link
+                                    className="dropdown-item text-white poppins-light"
+                                    to="/"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}
+                                >
+                                    Cerrar sesión
+                                </Link>
+                            </li>
+                        </ul>
+                        <div className="d-flex fs-3 bg-secondary rounded-circle  text-black  justify-content-center me-3"
+                            style={{ height: '50px', width: '50px' }}>
+                            <i className="text-center  bi-three-dots-vertical" data-bs-toggle="dropdown" onClick={toggleDropdownSettings}
+                                style={{ cursor: 'pointer', backgroundColor: '#a19aac', display: 'flex', padding: '12px', borderRadius: '25px' }}></i>
+                            <ul className={`dropdown-menu dropdown-menu-end ${Opensettings ? 'show' : ''}`}>
+                                <li><Link className="dropdown-item text-white poppins-light mb-2" to="/user_account_configuration"
+                                    style={{ backgroundColor: '#7955f8', fontSize: 'small', borderRadius: '25px' }}>Configuración</Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -366,17 +428,17 @@ export const Start = () => {
                                             alt="Figura 1"
                                         />
                                         <img
-                                            style={{ width: '35px', height: '35px', marginTop: '-570px', marginRight: '-48px', position: 'relative', zIndex: 1000, transform: 'translateX(30px)' }}
+                                            style={{ width: '35px', height: '35px', marginTop: '-450px', marginRight: '0px', position: 'relative', zIndex: 1000, transform: 'translateX(60px)' }}
                                             src="/svgs/deco-1.svg"
                                             alt="Figura 2"
                                         />
                                         <img
-                                            style={{ position: 'relative', zIndex: 1200, width: '250px', height: '250px', top: '-280px', transform: 'translateX(120px)' }}
+                                            style={{ position: 'relative', zIndex: 1200, width: '250px', height: '250px', top: '-220px', transform: 'translateX(115px)' }}
                                             src="/images/Group 36653.png"
                                             alt="Person 1"
                                         />
                                         <img
-                                            style={{ position: 'relative', zIndex: 1200, width: '45px', height: '55px', top: '-480px', transform: 'translateX(220px)' }}
+                                            style={{ position: 'relative', zIndex: 1200, width: '45px', height: '55px', top: '-410px', transform: 'translateX(220px)' }}
                                             src="/svgs/deco-2.svg"
                                             alt="Person 2"
                                         />
@@ -395,12 +457,12 @@ export const Start = () => {
                                             alt="Union 2"
                                         />
                                     </div>
-                                    <div className="card-home card-custom" style={{ marginLeft: '-280px', marginTop: '-75px' }}>
+                                    <div className="card-home card-custom-client-movil" style={{ marginLeft: '-230px' }}>
                                         <div className="card-body">
-                                            <h5 className="champ-bold" style={{ fontSize: '25px', marginTop: '50px' }}>Aprende a tu ritmo</h5>
+                                            <h5 className="champ-bold" style={{ fontSize: '25px', marginTop: '75px' }}>Aprende a tu ritmo</h5>
                                             <img
                                                 src="/images/conoce_mas.png"
-                                                style={{ position: 'absolute', top: '-60px', marginLeft: '85px', height: '100px', width: '100px' }}
+                                                style={{ position: 'absolute', top: '-60px', marginLeft: '65px', height: '100px', width: '100px' }}
                                                 alt="Card"
                                             />
                                             <img
@@ -423,7 +485,7 @@ export const Start = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <div className="d-flex grid gap-0 column-gap-4" style={{ position: 'relative', marginTop: '55px', left: '15px' }}>
+                                    <div className="d-flex grid gap-0 column-gap-4" style={{ position: 'relative', marginTop: '55px', left: '10px' }}>
                                         <div className="card-custom_3">
                                             <div className="card-body">
                                                 <img
@@ -454,7 +516,7 @@ export const Start = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="card-custom_4" style={{ marginLeft: '5%' }}>
+                            <div className="card-custom_4" style={{ marginLeft: '4%' }}>
                                 <div className="card-body" style={{ marginTop: '-295px' }}>
                                     <img
                                         src="/images/Person_2.png"
@@ -494,7 +556,7 @@ export const Start = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card-custom_5" style={{ marginLeft: '43%' }}>
+                            <div className="card-custom_5" style={{ marginLeft: '42%' }}>
                                 <div className="card-body" style={{ marginTop: '-275px' }}>
                                     <img
                                         src="/images/Person_3.png"
@@ -535,12 +597,12 @@ export const Start = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="d-flex justify-content-center grid gap-0 column-gap-2" style={{ marginTop: '165px', marginLeft: '-200px' }}>
-                            <div className="card-course_1" style={{ height: '330px', width: '180px', left: '125px' }} id="card1">
+                        <div className="d-flex flex-row justify-content-center grid gap-0 column-gap-2" style={{ marginTop: '250px', marginLeft: '-225px' }}>
+                            <div className="card-course_1" style={{ height: '230px', width: '90px', left: '119px' }} id="card1">
                                 <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                     <img
                                         src="/images/C1.png"
-                                        style={{ borderRadius: '10px' }}
+                                        style={{ borderRadius: '10px', objectFit: 'cover', height: '100%', width: '100%' }}
                                         alt="Card-course_1"
                                     />
                                     <div className="overlay" style={{
@@ -572,15 +634,15 @@ export const Start = () => {
                                 </div>
                                 <img
                                     src="/images/name_1.png"
-                                    style={{ position: 'absolute', marginTop: '-325px', left: '-1px', height: '75px', width: '190px' }}
+                                    style={{ position: 'absolute', marginTop: '-44px', left: '3px', height: '40px', width: '85px' }}
                                     alt="Name_1"
                                 />
                             </div>
-                            <div className="card-course_2" style={{ height: '330px', width: '180px', left: '120px' }} id="card2">
+                            <div className="card-course_2" style={{ height: '230px', width: '90px', left: '116px' }} id="card2">
                                 <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                     <img
                                         src="/images/C2.png"
-                                        style={{ borderRadius: '10px' }}
+                                        style={{ borderRadius: '10px', objectFit: 'cover', height: '100%', width: '100%' }}
                                         alt="Card-course_2"
                                     />
                                     <div className="overlay" style={{
@@ -612,15 +674,15 @@ export const Start = () => {
                                 </div>
                                 <img
                                     src="/images/name_2.png"
-                                    style={{ position: 'relative', marginTop: '-620px', left: '-4px', height: '75px', width: '190px' }}
+                                    style={{ position: 'relative', marginTop: '-80px', left: '3px', height: '40px', width: '85px' }}
                                     alt="Name_2"
                                 />
                             </div>
-                            <div className="card-course_3" style={{ height: '330px', width: '180px', left: '115px' }} id="card3">
+                            <div className="card-course_3" style={{ height: '230px', width: '90px', left: '116px' }} id="card3">
                                 <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                     <img
                                         src="/images/C3.png"
-                                        style={{ borderRadius: '10px' }}
+                                        style={{ borderRadius: '10px', objectFit: 'cover', height: '100%', width: '100%' }}
                                         alt="Card-course_3"
                                     />
                                     <div className="overlay" style={{
@@ -652,15 +714,15 @@ export const Start = () => {
                                 </div>
                                 <img
                                     src="/images/name_3.png"
-                                    style={{ position: 'relative', marginTop: '-600px', left: '6px', height: '110px', width: '170px' }}
+                                    style={{ position: 'relative', marginTop: '-70px', left: '6px', height: '65px', width: '85px' }}
                                     alt="Name_3"
                                 />
                             </div>
-                            <div className="card-course_4" style={{ height: '330px', width: '180px', left: '110px' }} id="card4">
+                            <div className="card-course_4" style={{ height: '230px', width: '90px', left: '117px' }} id="card4">
                                 <div className="card-body rounded rounded-2 p-0" style={{ position: 'relative' }}>
                                     <img
                                         src="/images/C4.png"
-                                        style={{ borderRadius: '10px' }}
+                                        style={{ borderRadius: '10px', objectFit: 'cover', height: '100%', width: '100%' }}
                                         alt="Card-course_4"
                                     />
                                     <div className="overlay" style={{
@@ -692,7 +754,7 @@ export const Start = () => {
                                 </div>
                                 <img
                                     src="/images/name_4.png"
-                                    style={{ position: 'relative', marginTop: '-600px', left: '-1px', height: '150px', width: '180px' }}
+                                    style={{ position: 'relative', marginTop: '-90px', left: '3px', height: '135px', width: '85px' }}
                                     alt="Name_4"
                                 />
                             </div>
@@ -740,12 +802,12 @@ export const Start = () => {
                                             alt="Union 2"
                                         />
                                     </div>
-                                    <div className="card-home card-custom" style={{ marginLeft: '-120px' }}>
+                                    <div className="card-home card-custom-client" style={{ marginLeft: '-230px' }}>
                                         <div className="card-body">
                                             <h5 className="champ-bold" style={{ fontSize: '25px', marginTop: '75px' }}>Aprende a tu ritmo</h5>
                                             <img
                                                 src="/images/conoce_mas.png"
-                                                style={{ position: 'absolute', top: '-60px', marginLeft: '85px', height: '100px', width: '100px' }}
+                                                style={{ position: 'absolute', top: '-60px', marginLeft: '145px', height: '100px', width: '100px' }}
                                                 alt="Card"
                                             />
                                             <img
@@ -1085,7 +1147,7 @@ export const Start = () => {
                                             alt="Union 2"
                                         />
                                     </div>
-                                    <div className="card-home card-custom" style={{ height: '270px', width: '637px' }}>
+                                    <div className="card-home card-custom-main" style={{ height: '270px', width: '637px' }}>
                                         <div className="card-body">
                                             <h5 className="champ-bold" style={{ fontSize: '25px', marginTop: '80px' }}>Aprende a tu ritmo</h5>
                                             <img
@@ -1396,19 +1458,19 @@ export const Start = () => {
                         <div className="container text-center">
                             <a href="./precios.html" style={{ color: 'inherit' }}>
                                 <button className="btn btn-custom poppins-light"
-                                    style={{ height: '50px', width: '330px', marginTop: '105px', transform: 'translateY(60px)', fontSize: '20px' }}>Ver
+                                    style={{ height: '50px', width: '330px', marginTop: '-25px', transform: 'translateY(60px)', fontSize: '20px', marginBottom: '80px' }}>Ver
                                     todos los cursos</button>
                             </a>
-                            <div className="d-flex content flex-column" style={{ maxHeight: '100vh', width: '890px', borderRadius: '45px' }}>
-                                <div className="row" style={{ marginLeft: '-35px' }}>
-                                    <div className="d-none d-lg-flex">
+                            <div className="d-flex content flex-column" style={{ maxHeight: '100vh', width: '100%', borderRadius: '45px' }}>
+                                <div className="row" style={{ marginLeft: '-10px', overflowY: 'scroll' }}>
+                                    <div className="d-flex flex-column">
                                         <section className="rounded rounded-5 p-0 col-md-6 gradient-section"
-                                            style={{ width: '225px', height: '490px', borderRadius: '45px', marginLeft: '-190px' }}>
+                                            style={{ width: '225px', height: '490px', borderRadius: '45px', marginLeft: '-5px', marginTop: '80px' }}>
                                             <img src="/svgs/Frame 1000001569.svg" alt="UpColors"
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
                                         </section>
                                         <section className="rounded rounded-5 p-2 col-md-6 gradient-section"
-                                            style={{ marginRight: '25px', width: '420px', height: '490px' }}>
+                                            style={{ marginRight: '25px', width: '420px', height: '490px', marginTop: '-1px' }}>
                                             <div className="row">
                                                 <div className="col text-start">
                                                     <h2 className="champ-bold text-white ms-4"
@@ -1669,7 +1731,7 @@ export const Start = () => {
                                             </div>
                                         </section>
                                         <section className="rounded rounded-4 p-4 col-md-4"
-                                            style={{ backgroundColor: '#4a03a5', height: '370px', width: '360px' }}>
+                                            style={{ backgroundColor: '#4a03a5', height: '370px', width: '360px', marginTop: '30px' }}>
                                             <h2 className="champ-bold text-white">
                                                 <span style={{ fontSize: 'xx-large', marginLeft: '-139px', display: 'block' }}>Subscrición</span>
                                                 <span style={{ fontSize: 'xx-large', marginLeft: '-192px' }}>mensual</span>
@@ -1764,7 +1826,7 @@ export const Start = () => {
                             </div>
                             <a href="./precios.html" style={{ color: 'inherit' }}>
                                 <button className="btn btn-custom_2 poppins-light"
-                                    style={{ height: '50px', width: '330px', marginTop: '530px', transform: 'translateY(-20px)', fontSize: '20px' }}>Ver
+                                    style={{ height: '50px', width: '330px', marginTop: '2px', transform: 'translateY(-20px)', fontSize: '20px' }}>Ver
                                     todos los planes</button>
                             </a>
                         </div>
@@ -1773,11 +1835,11 @@ export const Start = () => {
                                 marginTop: '590px',
                                 marginLeft: '-255px'
                             }}>
-                            <div className="course_coming" style={{ height: '150px', width: '700px', left: '133px' }}>
+                            <div className="course_coming" style={{ height: '140px', width: '380px', left: '133px' }}>
                                 <div className="card-body">
                                     <div className="d-flex flex-row justify-content-center text-center ">
-                                        <div className="col" style={{ maxWidth: '220px', marginLeft: '70px', marginTop: '20px' }}>
-                                            <h1 className="poppins-light text-start" style={{ fontSize: '18px' }}>Elegir
+                                        <div className="col" style={{ maxWidth: '220px', marginLeft: '20px', marginTop: '20px' }}>
+                                            <h1 className="poppins-light text-start" style={{ fontSize: '12px' }}>Elegir
                                                 <span className="champ-bold">
                                                     Michigan's Store
                                                 </span>
@@ -1786,17 +1848,17 @@ export const Start = () => {
                                                     es una experiencia
                                                 </span>
                                             </h1>
-                                            <p className="poppins-light ms-2" style={{ fontSize: '10px', maxWidth: '160px', color: '#FFB17F' }}>
+                                            <p className="poppins-light me-4" style={{ fontSize: '10px', width: '140px', maxWidth: '160px', color: '#FFB17F' }}>
                                                 Inicia ahora y obtén un 20% off en el primer plan que elijas.</p>
                                         </div>
                                         <div className="col">
-                                            <button className="btn btn-coming poppins-light"
+                                            <button className="btn btn-coming-start poppins-light"
                                                 style={{
-                                                    height: '40px',
-                                                    width: '199.5px',
+                                                    height: '35px',
+                                                    width: '60px',
                                                     lineHeight: '5px',
                                                     transform: 'translateX(5px)',
-                                                    fontSize: '20px',
+                                                    fontSize: '12px',
                                                     textShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
                                                 }}>comenzar
                                                 ahora</button>
@@ -1815,16 +1877,16 @@ export const Start = () => {
                                     style={{ height: '50px', width: '330px', marginTop: '105px', transform: 'translateY(60px)', fontSize: '20px' }}>Ver
                                     todos los cursos</button>
                             </a>
-                            <div className="d-flex content flex-column" style={{ maxHeight: '100vh', width: '890px', borderRadius: '45px' }}>
-                                <div className="row" style={{ marginLeft: '-35px' }}>
-                                    <div className="d-none d-lg-flex">
+                            <div className="d-flex content flex-column" style={{ maxHeight: '100vh', width: '100%', borderRadius: '45px' }}>
+                                <div className="row" style={{ marginLeft: '10px', overflowY: 'scroll' }}>
+                                    <div className="d-flex">
                                         <section className="rounded rounded-5 p-0 col-md-6 gradient-section"
-                                            style={{ width: '225px', height: '490px', borderRadius: '45px', marginLeft: '-190px' }}>
+                                            style={{ width: '220px', height: '490px', borderRadius: '45px', marginLeft: '-10px', marginTop: '80px' }}>
                                             <img src="/svgs/Frame 1000001569.svg" alt="UpColors"
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
                                         </section>
                                         <section className="rounded rounded-5 p-2 col-md-6 gradient-section"
-                                            style={{ marginRight: '25px', width: '420px', height: '490px' }}>
+                                            style={{ marginRight: '25px', width: '420px', height: '490px', marginTop: '80px' }}>
                                             <div className="row">
                                                 <div className="col text-start">
                                                     <h2 className="champ-bold text-white ms-4"
@@ -2085,7 +2147,7 @@ export const Start = () => {
                                             </div>
                                         </section>
                                         <section className="rounded rounded-4 p-4 col-md-4"
-                                            style={{ backgroundColor: '#4a03a5', height: '370px', width: '360px' }}>
+                                            style={{ backgroundColor: '#4a03a5', height: '370px', width: '360px', marginTop: '75px' }}>
                                             <h2 className="champ-bold text-white">
                                                 <span style={{ fontSize: 'xx-large', marginLeft: '-139px', display: 'block' }}>Subscrición</span>
                                                 <span style={{ fontSize: 'xx-large', marginLeft: '-192px' }}>mensual</span>
@@ -2180,7 +2242,7 @@ export const Start = () => {
                             </div>
                             <a href="./precios.html" style={{ color: 'inherit' }}>
                                 <button className="btn btn-custom_2 poppins-light"
-                                    style={{ height: '50px', width: '330px', marginTop: '530px', transform: 'translateY(-20px)', fontSize: '20px' }}>Ver
+                                    style={{ height: '50px', width: '330px', marginTop: '40px', transform: 'translateY(-20px)', fontSize: '20px' }}>Ver
                                     todos los planes</button>
                             </a>
                         </div>
@@ -2678,7 +2740,7 @@ export const Start = () => {
                                         dejar una pregunta
                                     </button>
                                 </div>
-                                <div className="col-6" style={{ transform: 'translateX(35px)' }}>
+                                <div className="col-6" style={{ transform: 'translateX(75px)', marginTop: '-40px' }}>
                                     <Accordion defaultActiveKey="0">
                                         <Accordion.Item eventKey="0" style={{ background: 'transparent', border: 'none', boxShadow: 'none' }}>
                                             <Accordion.Header style={{ background: 'transparent', color: '#ffffff' }}>
@@ -3323,7 +3385,7 @@ export const Start = () => {
                     <div className="container p-0" style={{ marginTop: '25px' }}>
                         <h2 className="fs-2 champ-bold">Michigan's Store</h2>
                         <p className="mt-2 poppins-light">Aprender inglés nunca fue tan fácil</p>
-                        <div className="d-flex col">
+                        <div className="d-flex flex-row justify-content-center align-items-center">
                             <a href="https://www.facebook.com/michiganmaster" className="fa-brands fa-facebook mx-1" style={{ fontSize: '30px', color: '#3b82f6', backgroundColor: '#ffffff', borderRadius: '50%', height: '40px', width: '40px', lineHeight: '40px', textAlign: 'center' }}><FontAwesomeIcon icon={faFacebookF} /></a>
                             <a href="https://www.instagram.com/michiganmastersas/" className="fa-brands fa-instagram mx-1" style={{ fontSize: '30px', color: '#3b82f6', backgroundColor: '#ffffff', borderRadius: '50%', height: '40px', width: '40px', lineHeight: '40px', textAlign: 'center' }}><FontAwesomeIcon icon={faInstagram} /></a>
                             <a href="https://tiktok.com/@michiganmasterco" className="fa-brands fa-tiktok mx-1" style={{ fontSize: '30px', color: '#3b82f6', backgroundColor: '#ffffff', borderRadius: '50%', height: '40px', width: '40px', lineHeight: '40px', textAlign: 'center' }}><FontAwesomeIcon icon={faTiktok} /></a>

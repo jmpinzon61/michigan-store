@@ -374,6 +374,8 @@ p.prices {
 .accordion-body {
     background: transparent !important;
     color: white;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .banner-container {
@@ -488,7 +490,7 @@ p.prices {
     justify-content: center;
 }
 
-.card-custom {
+.card-custom-main {
     position: relative;
     top: -680px;
     left: 180px;
@@ -498,28 +500,24 @@ p.prices {
     background-color: #34165b8a;
 }
 
-@media not all and (min-width: 768px) {
-    .card-custom {
-        position: relative;
-        top: -695px;
-        left: 195px;
-        border-radius: 10px;
-        height: 200px !important;
-        width: 310px !important;
-        background-color: #34165b8a;
-    }
+.card-custom-client {
+    position: relative;
+    top: -695px;
+    left: 210px;
+    border-radius: 10px;
+    height: 250px !important;
+    width: 410px !important;
+    background-color: #34165b8a;
 }
 
-@media not all and (min-width: 425px) {
-    .card-custom {
-        position: relative;
-        top: -695px;
-        left: 200px;
-        border-radius: 10px;
-        height: 250px !important;
-        width: 300px !important;
-        background-color: #34165b8a;
-    }
+.card-custom-client-movil {
+    position: relative;
+    top: -705px;
+    left: 170px;
+    border-radius: 10px;
+    height: 250px !important;
+    width: 310px !important;
+    background-color: #34165b8a;
 }
 
 
@@ -680,6 +678,16 @@ p.prices {
     border-radius: 45px !important;
 }
 
+.btn-coming-start {
+    height: 35px !important;
+    width: 125px !important;
+    margin-top: 50px;
+    background: linear-gradient(to right, #FFB73F, #FFD476);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 45px !important;
+}
+
 .btn-email {
     background: linear-gradient(to right, #FF5267, #FE726E) !important;
     border: none;
@@ -808,6 +816,19 @@ p.prices {
     margin-bottom: 85px;
 }
 
+.test-section-tablet {
+    padding: 20px 0px;
+    position: relative;
+    text-align: center;
+    margin-top: -1385px;
+    margin-left: -30px;
+    background-color: #2d1971;
+    height: 100%;
+    width: 100vw;
+    margin-bottom: 85px;
+}
+
+
 .rules {
     list-style-type: none;
     padding: 0;
@@ -857,6 +878,19 @@ p.prices {
     width: 55px;
     background: transparent !important;
     margin-top: 230px !important;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-control-mobil {
+    border-radius: 85px;
+    border: 2px solid #ffffff !important;
+    height: 55px;
+    width: 55px;
+    background: transparent !important;
     margin-left: 9rem;
     margin-right: 9rem;
     display: flex;
