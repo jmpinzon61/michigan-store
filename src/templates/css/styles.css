@@ -374,6 +374,8 @@ p.prices {
 .accordion-body {
     background: transparent !important;
     color: white;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .banner-container {
@@ -488,7 +490,7 @@ p.prices {
     justify-content: center;
 }
 
-.card-custom {
+.card-custom-main {
     position: relative;
     top: -680px;
     left: 180px;
@@ -498,28 +500,24 @@ p.prices {
     background-color: #34165b8a;
 }
 
-@media not all and (min-width: 768px) {
-    .card-custom {
-        position: relative;
-        top: -695px;
-        left: 195px;
-        border-radius: 10px;
-        height: 200px !important;
-        width: 310px !important;
-        background-color: #34165b8a;
-    }
+.card-custom-client {
+    position: relative;
+    top: -695px;
+    left: 210px;
+    border-radius: 10px;
+    height: 250px !important;
+    width: 410px !important;
+    background-color: #34165b8a;
 }
 
-@media not all and (min-width: 425px) {
-    .card-custom {
-        position: relative;
-        top: -695px;
-        left: 200px;
-        border-radius: 10px;
-        height: 250px !important;
-        width: 300px !important;
-        background-color: #34165b8a;
-    }
+.card-custom-client-movil {
+    position: relative;
+    top: -705px;
+    left: 170px;
+    border-radius: 10px;
+    height: 250px !important;
+    width: 310px !important;
+    background-color: #34165b8a;
 }
 
 
@@ -673,6 +671,16 @@ p.prices {
 .btn-coming {
     height: 45px !important;
     width: 318px !important;
+    margin-top: 50px;
+    background: linear-gradient(to right, #FFB73F, #FFD476);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 45px !important;
+}
+
+.btn-coming-start {
+    height: 35px !important;
+    width: 125px !important;
     margin-top: 50px;
     background: linear-gradient(to right, #FFB73F, #FFD476);
     color: white !important;
