@@ -808,6 +808,19 @@ p.prices {
     margin-bottom: 85px;
 }
 
+.test-section-tablet {
+    padding: 20px 0px;
+    position: relative;
+    text-align: center;
+    margin-top: -1385px;
+    margin-left: -30px;
+    background-color: #2d1971;
+    height: 100%;
+    width: 100vw;
+    margin-bottom: 85px;
+}
+
+
 .rules {
     list-style-type: none;
     padding: 0;
@@ -857,6 +870,19 @@ p.prices {
     width: 55px;
     background: transparent !important;
     margin-top: 230px !important;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-control-mobil {
+    border-radius: 85px;
+    border: 2px solid #ffffff !important;
+    height: 55px;
+    width: 55px;
+    background: transparent !important;
     margin-left: 9rem;
     margin-right: 9rem;
     display: flex;
