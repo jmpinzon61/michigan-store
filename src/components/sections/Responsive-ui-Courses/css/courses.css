@@ -1,0 +1,27 @@
+.cardDescriptionQuiz{
+    width: 405px;
+    height: 120px;
+    padding-inline: 5px;
+    background-color: #443d5d98;
+    backdrop-filter: blur(20px);
+    gap: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cardDescriptionQuiz-son{
+    padding-inline: 60px 15px;
+    overflow-x: scroll;
+    gap: 20px;
+    -webkit-overflow-scrolling: touch; /* mejora scroll en móviles */
+    &::-webkit-scrollbar {
+        display: none;
+      }  
+    /* Ocultar en Firefox */
+    scrollbar-width: none;
+    /* Ocultar en IE/Edge */
+    -ms-overflow-style: none;
+}
+
+/* Mobil */
+
